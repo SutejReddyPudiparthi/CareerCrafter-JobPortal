@@ -7,7 +7,8 @@ import com.hexaware.careercrafter.exception.InvalidRequestException;
 import com.hexaware.careercrafter.exception.ResourceNotFoundException;
 import com.hexaware.careercrafter.repository.EmployerRepository;
 import com.hexaware.careercrafter.repository.UserRepository;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,8 @@ import java.util.List;
 @Service
 public class EmployerServiceImpl implements IEmployerService {
 
+    private static final Logger logger = LoggerFactory.getLogger(EmployerServiceImpl.class);
+
     @Autowired
     private EmployerRepository employerRepository;
     
@@ -25,55 +28,77 @@ public class EmployerServiceImpl implements IEmployerService {
 
     @Override
     public EmployerDTO createEmployer(EmployerDTO employerDTO) {
+        logger.debug("Creating employer for userId: {}, companyName: {}", employerDTO.getUserId(), employerDTO.getCompanyName());
+
         if (employerDTO.getUserId() == 0 || employerDTO.getCompanyName() == null) {
+            logger.error("Invalid employer creation request - missing userId or companyName");
             throw new InvalidRequestException("UserId and Company Name must be provided.");
         }
 
         User user = userRepository.findById(employerDTO.getUserId())
-                .orElseThrow(() -> new InvalidRequestException("Invalid UserId: " + employerDTO.getUserId()));
+                .orElseThrow(() -> {
+                    logger.error("Invalid UserId: {}", employerDTO.getUserId());
+                    return new InvalidRequestException("Invalid UserId: " + employerDTO.getUserId());
+                });
 
         Employer employer = dtoToEntity(employerDTO);
         employer.setUser(user);
         Employer saved = employerRepository.save(employer);
+        logger.info("Employer created successfully with ID: {}", saved.getEmployerId());
         return entityToDto(saved);
     }
 
     @Override
     public List<EmployerDTO> getAllEmployers() {
+        logger.debug("Fetching all employers from database");
         List<Employer> employers = employerRepository.findAll();
         List<EmployerDTO> dtoList = new ArrayList<>();
         for (Employer employer : employers) {
             dtoList.add(entityToDto(employer));
         }
+        logger.info("Fetched {} employers", dtoList.size());
         return dtoList;
     }
 
     @Override
     public EmployerDTO getEmployerById(int id) {
+        logger.debug("Fetching employer with ID: {}", id);
         Employer employer = employerRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Employer not found with ID: " + id));
+                .orElseThrow(() -> {
+                    logger.error("Employer with ID {} not found", id);
+                    return new ResourceNotFoundException("Employer not found with ID: " + id);
+                });
         return entityToDto(employer);
     }
 
     @Override
     public void deleteEmployer(int id) {
+        logger.debug("Deleting employer with ID: {}", id);
         if (!employerRepository.existsById(id)) {
+            logger.error("Cannot delete - employer with ID {} does not exist", id);
             throw new ResourceNotFoundException("Cannot delete. Employer with ID " + id + " does not exist.");
         }
         employerRepository.deleteById(id);
+        logger.info("Employer with ID {} deleted successfully", id);
     }
 
     @Override
     public EmployerDTO updateEmployer(EmployerDTO employerDTO) {
+        logger.debug("Updating employer with ID: {}", employerDTO.getEmployerId());
         if (!employerRepository.existsById(employerDTO.getEmployerId())) {
+            logger.error("Cannot update - employer with ID {} not found", employerDTO.getEmployerId());
             throw new ResourceNotFoundException("Cannot update. Employer with ID " + employerDTO.getEmployerId() + " not found.");
         }
         User user = userRepository.findById(employerDTO.getUserId())
-                .orElseThrow(() -> new InvalidRequestException("Invalid UserId: " + employerDTO.getUserId()));
+                .orElseThrow(() -> {
+                    logger.error("Invalid UserId: {}", employerDTO.getUserId());
+                    return new InvalidRequestException("Invalid UserId: " + employerDTO.getUserId());
+                });
 
         Employer employer = dtoToEntity(employerDTO);
         employer.setUser(user);
         Employer updated = employerRepository.save(employer);
+        logger.info("Employer with ID {} updated successfully", updated.getEmployerId());
         return entityToDto(updated);
     }
 

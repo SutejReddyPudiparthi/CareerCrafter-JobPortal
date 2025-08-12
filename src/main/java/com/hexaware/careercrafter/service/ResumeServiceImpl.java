@@ -7,6 +7,8 @@ import com.hexaware.careercrafter.exception.InvalidRequestException;
 import com.hexaware.careercrafter.exception.ResourceNotFoundException;
 import com.hexaware.careercrafter.repository.ResumeRepository;
 import com.hexaware.careercrafter.repository.JobSeekerRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,8 @@ import java.util.List;
 @Service
 public class ResumeServiceImpl implements IResumeService {
 
+    private static final Logger logger = LoggerFactory.getLogger(ResumeServiceImpl.class);
+
     @Autowired
     private ResumeRepository resumeRepository;
 
@@ -24,51 +28,65 @@ public class ResumeServiceImpl implements IResumeService {
     
     @Override
     public ResumeDTO uploadResume(ResumeDTO dto) {
+        logger.debug("Attempting to upload resume for jobSeekerId: {}", dto.getJobSeekerId());
         if (dto.getFilePath() == null || dto.getJobSeekerId() == 0) {
+            logger.error("Resume upload failed - missing file path or jobSeekerId");
             throw new InvalidRequestException("File path and associated job seeker are required.");
         }
         Resume entity = mapToEntity(dto);
         Resume saved = resumeRepository.save(entity);
+        logger.info("Resume uploaded successfully with ID: {}", saved.getResumeId());
         return mapToDTO(saved);
     }
 
     @Override
     public ResumeDTO getResumeById(int id) {
+        logger.debug("Fetching resume with ID: {}", id);
         Resume entity = resumeRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Resume not found with ID: " + id));
+                .orElseThrow(() -> {
+                    logger.error("Resume with ID {} not found", id);
+                    return new ResourceNotFoundException("Resume not found with ID: " + id);
+                });
         return mapToDTO(entity);
     }
 
     @Override
     public List<ResumeDTO> getResumesByJobSeekerId(int jobSeekerId) {
+        logger.debug("Fetching resumes for jobSeekerId: {}", jobSeekerId);
         List<Resume> resumes = resumeRepository.findByJobSeeker_JobSeekerId(jobSeekerId);
         List<ResumeDTO> dtos = new ArrayList<>();
         for (Resume resume : resumes) {
             dtos.add(mapToDTO(resume));
         }
+        logger.info("Fetched {} resumes for jobSeekerId: {}", dtos.size(), jobSeekerId);
         return dtos;
     }
 
     @Override
     public void deleteResume(int id) {
+        logger.debug("Deleting resume with ID: {}", id);
         if (!resumeRepository.existsById(id)) {
+            logger.error("Cannot delete - resume with ID {} not found", id);
             throw new ResourceNotFoundException("Cannot delete. Resume not found with ID: " + id);
         }
         resumeRepository.deleteById(id);
+        logger.info("Resume with ID {} deleted successfully", id);
     }
 
     @Override
     public ResumeDTO updateResume(ResumeDTO dto) {
+        logger.debug("Updating resume with ID: {}", dto.getResumeId());
         if (!resumeRepository.existsById(dto.getResumeId())) {
+            logger.error("Cannot update - resume with ID {} not found", dto.getResumeId());
             throw new ResourceNotFoundException("Cannot update. Resume not found with ID: " + dto.getResumeId());
         }
         Resume entity = mapToEntity(dto);
         Resume saved = resumeRepository.save(entity);
+        logger.info("Resume with ID {} updated successfully", saved.getResumeId());
         return mapToDTO(saved);
     }
 
     // --- Mapping methods ---
-
     private ResumeDTO mapToDTO(Resume entity) {
         ResumeDTO dto = new ResumeDTO();
         dto.setResumeId(entity.getResumeId());
@@ -83,7 +101,10 @@ public class ResumeServiceImpl implements IResumeService {
         entity.setResumeId(dto.getResumeId());
 
         JobSeeker jobSeeker = jobSeekerRepository.findById(dto.getJobSeekerId())
-                .orElseThrow(() -> new ResourceNotFoundException("JobSeeker not found with id " + dto.getJobSeekerId()));
+                .orElseThrow(() -> {
+                    logger.error("JobSeeker not found with ID: {}", dto.getJobSeekerId());
+                    return new ResourceNotFoundException("JobSeeker not found with id " + dto.getJobSeekerId());
+                });
         jobSeeker.setJobSeekerId(dto.getJobSeekerId());
         entity.setJobSeeker(jobSeeker);
         entity.setFilePath(dto.getFilePath());
