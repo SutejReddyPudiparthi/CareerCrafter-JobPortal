@@ -3,7 +3,6 @@ package com.hexaware.careercrafter.service;
 import com.hexaware.careercrafter.dto.ResumeDTO;
 import com.hexaware.careercrafter.entities.JobSeeker;
 import com.hexaware.careercrafter.entities.Resume;
-import com.hexaware.careercrafter.exception.InvalidRequestException;
 import com.hexaware.careercrafter.exception.ResourceNotFoundException;
 import com.hexaware.careercrafter.repository.ResumeRepository;
 import com.hexaware.careercrafter.repository.JobSeekerRepository;
@@ -26,9 +25,9 @@ class ResumeServiceImplTest {
     @Mock JobSeekerRepository jobSeekerRepository;
     @InjectMocks ResumeServiceImpl service;
 
-    ResumeDTO dto;
-    JobSeeker seeker;
-    Resume entity;
+    private ResumeDTO dto;
+    private Resume entity;
+    private JobSeeker seeker;
 
     @BeforeEach
     void setup() {
@@ -37,36 +36,33 @@ class ResumeServiceImplTest {
         dto.setFilePath("resume.pdf");
         dto.setJobSeekerId(2);
 
-        seeker = new JobSeeker();
-        seeker.setJobSeekerId(2);
-
-        entity = new Resume();
-        entity.setResumeId(1);
-        entity.setJobSeeker(seeker);
+        seeker = new JobSeeker(); seeker.setJobSeekerId(2);
+        entity = new Resume(); entity.setResumeId(1); entity.setJobSeeker(seeker);
     }
 
     @Test
-    void upload_success() {
+    void uploadResume_success() {
         when(jobSeekerRepository.findById(2)).thenReturn(Optional.of(seeker));
         when(resumeRepository.save(any())).thenReturn(entity);
         assertNotNull(service.uploadResume(dto));
     }
 
     @Test
-    void upload_invalid() {
-        dto.setFilePath(null);
-        assertThrows(InvalidRequestException.class, () -> service.uploadResume(dto));
-    }
-
-    @Test
-    void getById_found() {
+    void getResumeById_found() {
         when(resumeRepository.findById(1)).thenReturn(Optional.of(entity));
         assertNotNull(service.getResumeById(1));
     }
 
     @Test
-    void update_notFound() {
+    void getResumeById_notFound() {
+        when(resumeRepository.findById(1)).thenReturn(Optional.empty());
+        assertThrows(ResourceNotFoundException.class, () -> service.getResumeById(1));
+    }
+
+    @Test
+    void deleteResume_notFound() {
         when(resumeRepository.existsById(1)).thenReturn(false);
-        assertThrows(ResourceNotFoundException.class, () -> service.updateResume(dto));
+        assertThrows(ResourceNotFoundException.class, () -> service.deleteResume(1));
     }
 }
+

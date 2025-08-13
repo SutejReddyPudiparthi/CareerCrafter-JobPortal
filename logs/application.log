@@ -1,0 +1,222 @@
+2025-08-13T11:40:58.502+05:30  INFO 21036 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Starting CareerCrafterApplication using Java 21.0.6 with PID 21036 (D:\MyEclipseWorkspace\CareerCrafter\target\classes started by LENOVO in D:\MyEclipseWorkspace\CareerCrafter)
+2025-08-13T11:40:58.504+05:30 DEBUG 21036 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Running with Spring Boot v3.5.4, Spring v6.2.9
+2025-08-13T11:40:58.505+05:30  INFO 21036 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-08-13T11:40:59.746+05:30  INFO 21036 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-13T11:40:59.827+05:30  INFO 21036 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 65 ms. Found 7 JPA repository interfaces.
+2025-08-13T11:41:00.453+05:30  INFO 21036 --- [CareerCrafter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-08-13T11:41:00.469+05:30  INFO 21036 --- [CareerCrafter] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-13T11:41:00.470+05:30  INFO 21036 --- [CareerCrafter] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-13T11:41:00.520+05:30  INFO 21036 --- [CareerCrafter] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-13T11:41:00.521+05:30  INFO 21036 --- [CareerCrafter] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1884 ms
+2025-08-13T11:41:00.650+05:30  INFO 21036 --- [CareerCrafter] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-13T11:41:00.726+05:30  INFO 21036 --- [CareerCrafter] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-13T11:41:00.760+05:30  INFO 21036 --- [CareerCrafter] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-13T11:41:01.044+05:30  INFO 21036 --- [CareerCrafter] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-13T11:41:01.077+05:30  INFO 21036 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-13T11:41:01.516+05:30  INFO 21036 --- [CareerCrafter] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6dc9a56e
+2025-08-13T11:41:01.518+05:30  INFO 21036 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-13T11:41:01.579+05:30  WARN 21036 --- [CareerCrafter] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-13T11:41:01.594+05:30  INFO 21036 --- [CareerCrafter] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.42
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-13T11:41:02.481+05:30  INFO 21036 --- [CareerCrafter] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-13T11:41:02.625+05:30  INFO 21036 --- [CareerCrafter] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-13T11:41:02.929+05:30 DEBUG 21036 --- [CareerCrafter] [main] c.h.c.security.JwtRequestFilter          : Filter 'jwtRequestFilter' configured for use
+2025-08-13T11:41:02.999+05:30  INFO 21036 --- [CareerCrafter] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-08-13T11:41:03.076+05:30  WARN 21036 --- [CareerCrafter] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-13T11:41:03.557+05:30  INFO 21036 --- [CareerCrafter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-08-13T11:41:03.565+05:30  INFO 21036 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Started CareerCrafterApplication in 5.625 seconds (process running for 6.412)
+2025-08-13T11:42:46.737+05:30  INFO 21036 --- [CareerCrafter] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-13T11:42:46.738+05:30  INFO 21036 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-13T11:42:46.742+05:30  INFO 21036 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2025-08-13T11:43:38.681+05:30  INFO 21036 --- [CareerCrafter] [RMI TCP Connection(6)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-08-13T11:43:38.685+05:30  INFO 21036 --- [CareerCrafter] [RMI TCP Connection(6)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-13T11:43:38.692+05:30  INFO 21036 --- [CareerCrafter] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-13T11:43:38.698+05:30  INFO 21036 --- [CareerCrafter] [RMI TCP Connection(6)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-13T11:43:38.700+05:30  INFO 21036 --- [CareerCrafter] [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-13T11:43:38.712+05:30  INFO 21036 --- [CareerCrafter] [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-13T12:22:13.187+05:30  INFO 20492 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Starting CareerCrafterApplication using Java 21.0.6 with PID 20492 (D:\MyEclipseWorkspace\CareerCrafter\target\classes started by LENOVO in D:\MyEclipseWorkspace\CareerCrafter)
+2025-08-13T12:22:13.189+05:30 DEBUG 20492 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Running with Spring Boot v3.5.4, Spring v6.2.9
+2025-08-13T12:22:13.190+05:30  INFO 20492 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-08-13T12:22:13.932+05:30  INFO 20492 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-13T12:22:13.997+05:30  INFO 20492 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 7 JPA repository interfaces.
+2025-08-13T12:22:14.500+05:30  INFO 20492 --- [CareerCrafter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-08-13T12:22:14.513+05:30  INFO 20492 --- [CareerCrafter] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-13T12:22:14.513+05:30  INFO 20492 --- [CareerCrafter] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-13T12:22:14.561+05:30  INFO 20492 --- [CareerCrafter] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-13T12:22:14.562+05:30  INFO 20492 --- [CareerCrafter] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1338 ms
+2025-08-13T12:22:14.689+05:30  INFO 20492 --- [CareerCrafter] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-13T12:22:14.752+05:30  INFO 20492 --- [CareerCrafter] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-13T12:22:14.786+05:30  INFO 20492 --- [CareerCrafter] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-13T12:22:15.047+05:30  INFO 20492 --- [CareerCrafter] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-13T12:22:15.075+05:30  INFO 20492 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-13T12:22:15.406+05:30  INFO 20492 --- [CareerCrafter] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5342eec5
+2025-08-13T12:22:15.408+05:30  INFO 20492 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-13T12:22:15.483+05:30  WARN 20492 --- [CareerCrafter] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-13T12:22:15.499+05:30  INFO 20492 --- [CareerCrafter] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.42
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-13T12:22:16.380+05:30  INFO 20492 --- [CareerCrafter] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-13T12:22:16.536+05:30  INFO 20492 --- [CareerCrafter] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-13T12:22:16.807+05:30 DEBUG 20492 --- [CareerCrafter] [main] c.h.c.security.JwtRequestFilter          : Filter 'jwtRequestFilter' configured for use
+2025-08-13T12:22:16.885+05:30  INFO 20492 --- [CareerCrafter] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-08-13T12:22:16.956+05:30  WARN 20492 --- [CareerCrafter] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-13T12:22:17.415+05:30  INFO 20492 --- [CareerCrafter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-08-13T12:22:17.422+05:30  INFO 20492 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Started CareerCrafterApplication in 4.615 seconds (process running for 5.203)
+2025-08-13T12:22:22.215+05:30  INFO 20492 --- [CareerCrafter] [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-08-13T12:22:22.218+05:30  INFO 20492 --- [CareerCrafter] [RMI TCP Connection(2)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-13T12:22:22.224+05:30  INFO 20492 --- [CareerCrafter] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-13T12:22:22.228+05:30  INFO 20492 --- [CareerCrafter] [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-13T12:22:22.231+05:30  INFO 20492 --- [CareerCrafter] [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-13T12:22:22.239+05:30  INFO 20492 --- [CareerCrafter] [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-13T12:38:47.225+05:30  INFO 27352 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplicationTests      : Starting CareerCrafterApplicationTests using Java 21.0.6 with PID 27352 (started by LENOVO in D:\MyEclipseWorkspace\CareerCrafter)
+2025-08-13T12:38:47.227+05:30 DEBUG 27352 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplicationTests      : Running with Spring Boot v3.5.4, Spring v6.2.9
+2025-08-13T12:38:47.228+05:30  INFO 27352 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2025-08-13T12:38:48.091+05:30  INFO 27352 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-13T12:38:48.170+05:30  INFO 27352 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 7 JPA repository interfaces.
+2025-08-13T12:38:48.930+05:30  INFO 27352 --- [CareerCrafter] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-13T12:38:49.014+05:30  INFO 27352 --- [CareerCrafter] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-13T12:38:49.073+05:30  INFO 27352 --- [CareerCrafter] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-13T12:38:49.448+05:30  INFO 27352 --- [CareerCrafter] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-13T12:38:49.489+05:30  INFO 27352 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-13T12:38:49.945+05:30  INFO 27352 --- [CareerCrafter] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@160c7c42
+2025-08-13T12:38:49.948+05:30  INFO 27352 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-13T12:38:50.034+05:30  WARN 27352 --- [CareerCrafter] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-13T12:38:50.062+05:30  INFO 27352 --- [CareerCrafter] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.42
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-13T12:38:51.016+05:30  INFO 27352 --- [CareerCrafter] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-13T12:38:51.134+05:30  INFO 27352 --- [CareerCrafter] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-13T12:38:51.585+05:30  INFO 27352 --- [CareerCrafter] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-08-13T12:38:51.707+05:30  WARN 27352 --- [CareerCrafter] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-13T12:38:52.577+05:30  INFO 27352 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplicationTests      : Started CareerCrafterApplicationTests in 5.822 seconds (process running for 7.204)
+2025-08-13T12:38:53.548+05:30 DEBUG 27352 --- [CareerCrafter] [main] c.h.c.service.ApplicationServiceImpl     : Fetching application with ID: 1
+2025-08-13T12:38:53.556+05:30 ERROR 27352 --- [CareerCrafter] [main] c.h.c.service.ApplicationServiceImpl     : Application with ID 1 not found
+2025-08-13T12:38:53.576+05:30 DEBUG 27352 --- [CareerCrafter] [main] c.h.c.service.ApplicationServiceImpl     : Applying for job ID: 2 by job seeker ID: 3
+2025-08-13T12:38:53.577+05:30  INFO 27352 --- [CareerCrafter] [main] c.h.c.service.ApplicationServiceImpl     : Application created with ID: 1
+2025-08-13T12:38:53.687+05:30 DEBUG 27352 --- [CareerCrafter] [main] c.h.c.service.JobPostingServiceImpl      : Attempting to create job posting with employerId: 2, title: Dev
+2025-08-13T12:38:53.688+05:30  INFO 27352 --- [CareerCrafter] [main] c.h.c.service.JobPostingServiceImpl      : Job posting created with ID: 1
+2025-08-13T12:38:53.699+05:30 DEBUG 27352 --- [CareerCrafter] [main] c.h.c.service.JobPostingServiceImpl      : Fetching job posting with ID: 1
+2025-08-13T12:38:53.702+05:30 ERROR 27352 --- [CareerCrafter] [main] c.h.c.service.JobPostingServiceImpl      : Job posting with ID 1 not found
+2025-08-13T12:38:53.854+05:30 DEBUG 27352 --- [CareerCrafter] [main] c.h.c.s.SearchRecommendationServiceImpl  : Fetching search recommendation with ID: 1
+2025-08-13T12:38:53.859+05:30 ERROR 27352 --- [CareerCrafter] [main] c.h.c.s.SearchRecommendationServiceImpl  : Search recommendation with ID 1 not found
+2025-08-13T12:38:53.872+05:30 DEBUG 27352 --- [CareerCrafter] [main] c.h.c.s.SearchRecommendationServiceImpl  : Attempting to create search recommendation for userId: 2
+2025-08-13T12:38:53.873+05:30  INFO 27352 --- [CareerCrafter] [main] c.h.c.s.SearchRecommendationServiceImpl  : Search recommendation created with ID: 1
+2025-08-13T12:38:54.054+05:30 DEBUG 27352 --- [CareerCrafter] [main] c.h.c.service.EmployerServiceImpl        : Fetching employer with ID: 1
+2025-08-13T12:38:54.055+05:30 ERROR 27352 --- [CareerCrafter] [main] c.h.c.service.EmployerServiceImpl        : Employer with ID 1 not found
+2025-08-13T12:38:54.064+05:30 DEBUG 27352 --- [CareerCrafter] [main] c.h.c.service.EmployerServiceImpl        : Creating employer for userId: 2, companyName: ABC Ltd
+2025-08-13T12:38:54.065+05:30  INFO 27352 --- [CareerCrafter] [main] c.h.c.service.EmployerServiceImpl        : Employer created successfully with ID: 1
+2025-08-13T12:38:54.177+05:30 DEBUG 27352 --- [CareerCrafter] [main] c.h.c.service.ResumeServiceImpl          : Fetching resume with ID: 1
+2025-08-13T12:38:54.178+05:30 ERROR 27352 --- [CareerCrafter] [main] c.h.c.service.ResumeServiceImpl          : Resume with ID 1 not found
+2025-08-13T12:38:54.186+05:30 DEBUG 27352 --- [CareerCrafter] [main] c.h.c.service.ResumeServiceImpl          : Attempting to upload resume for jobSeekerId: 2
+2025-08-13T12:38:54.188+05:30  INFO 27352 --- [CareerCrafter] [main] c.h.c.service.ResumeServiceImpl          : Resume uploaded successfully with ID: 1
+2025-08-13T12:38:54.207+05:30 DEBUG 27352 --- [CareerCrafter] [main] c.h.c.service.JobSeekerServiceImpl       : Attempting to create job seeker for userId: 2
+2025-08-13T12:38:54.209+05:30  INFO 27352 --- [CareerCrafter] [main] c.h.c.service.JobSeekerServiceImpl       : Job seeker created successfully with ID: 1
+2025-08-13T12:38:54.218+05:30 DEBUG 27352 --- [CareerCrafter] [main] c.h.c.service.JobSeekerServiceImpl       : Fetching job seeker with ID: 1
+2025-08-13T12:38:54.219+05:30 ERROR 27352 --- [CareerCrafter] [main] c.h.c.service.JobSeekerServiceImpl       : Job seeker not found with ID: 1
+2025-08-13T12:38:54.238+05:30 DEBUG 27352 --- [CareerCrafter] [main] c.h.c.service.UserServiceImpl            : Fetching user with ID: 1
+2025-08-13T12:38:54.239+05:30 ERROR 27352 --- [CareerCrafter] [main] c.h.c.service.UserServiceImpl            : User with ID 1 not found
+2025-08-13T12:38:54.248+05:30 DEBUG 27352 --- [CareerCrafter] [main] c.h.c.service.UserServiceImpl            : Attempting to create a user with email: john@test.com
+2025-08-13T12:38:54.250+05:30  INFO 27352 --- [CareerCrafter] [main] c.h.c.service.UserServiceImpl            : User created successfully with ID: 1
+2025-08-13T12:38:54.276+05:30  INFO 27352 --- [CareerCrafter] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-13T12:38:54.281+05:30  INFO 27352 --- [CareerCrafter] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-13T12:38:54.304+05:30  INFO 27352 --- [CareerCrafter] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-13T12:44:38.553+05:30  INFO 18832 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Starting CareerCrafterApplication using Java 21.0.6 with PID 18832 (D:\MyEclipseWorkspace\CareerCrafter\target\classes started by LENOVO in D:\MyEclipseWorkspace\CareerCrafter)
+2025-08-13T12:44:38.555+05:30 DEBUG 18832 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Running with Spring Boot v3.5.4, Spring v6.2.9
+2025-08-13T12:44:38.556+05:30  INFO 18832 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-08-13T12:44:39.157+05:30  INFO 18832 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-13T12:44:39.214+05:30  INFO 18832 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 7 JPA repository interfaces.
+2025-08-13T12:44:39.638+05:30  INFO 18832 --- [CareerCrafter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-08-13T12:44:39.657+05:30  INFO 18832 --- [CareerCrafter] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-13T12:44:39.658+05:30  INFO 18832 --- [CareerCrafter] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-13T12:44:39.701+05:30  INFO 18832 --- [CareerCrafter] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-13T12:44:39.701+05:30  INFO 18832 --- [CareerCrafter] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1110 ms
+2025-08-13T12:44:39.815+05:30  INFO 18832 --- [CareerCrafter] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-13T12:44:39.883+05:30  INFO 18832 --- [CareerCrafter] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-13T12:44:39.924+05:30  INFO 18832 --- [CareerCrafter] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-13T12:44:40.173+05:30  INFO 18832 --- [CareerCrafter] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-13T12:44:40.210+05:30  INFO 18832 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-13T12:44:40.500+05:30  INFO 18832 --- [CareerCrafter] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@638977e0
+2025-08-13T12:44:40.501+05:30  INFO 18832 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-13T12:44:40.544+05:30  WARN 18832 --- [CareerCrafter] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-13T12:44:40.560+05:30  INFO 18832 --- [CareerCrafter] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.42
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-13T12:44:41.500+05:30  INFO 18832 --- [CareerCrafter] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-13T12:44:41.612+05:30  INFO 18832 --- [CareerCrafter] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-13T12:44:41.860+05:30 DEBUG 18832 --- [CareerCrafter] [main] c.h.c.security.JwtRequestFilter          : Filter 'jwtRequestFilter' configured for use
+2025-08-13T12:44:41.926+05:30  INFO 18832 --- [CareerCrafter] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-08-13T12:44:41.997+05:30  WARN 18832 --- [CareerCrafter] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-13T12:44:42.405+05:30  INFO 18832 --- [CareerCrafter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-08-13T12:44:42.412+05:30  INFO 18832 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Started CareerCrafterApplication in 4.202 seconds (process running for 4.714)
+2025-08-13T12:48:25.966+05:30  INFO 18832 --- [CareerCrafter] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-13T12:48:25.966+05:30  INFO 18832 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-13T12:48:25.968+05:30  INFO 18832 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-08-13T12:54:51.975+05:30  INFO 18832 --- [CareerCrafter] [RMI TCP Connection(12)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-08-13T12:54:51.989+05:30  INFO 18832 --- [CareerCrafter] [RMI TCP Connection(12)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-13T12:54:52.001+05:30  INFO 18832 --- [CareerCrafter] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-13T12:54:52.025+05:30  INFO 18832 --- [CareerCrafter] [RMI TCP Connection(12)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-13T12:54:52.042+05:30  INFO 18832 --- [CareerCrafter] [RMI TCP Connection(12)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-13T12:54:52.062+05:30  INFO 18832 --- [CareerCrafter] [RMI TCP Connection(12)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-13T12:55:07.990+05:30  INFO 15540 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Starting CareerCrafterApplication using Java 21.0.6 with PID 15540 (D:\MyEclipseWorkspace\CareerCrafter\target\classes started by LENOVO in D:\MyEclipseWorkspace\CareerCrafter)
+2025-08-13T12:55:07.993+05:30 DEBUG 15540 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Running with Spring Boot v3.5.4, Spring v6.2.9
+2025-08-13T12:55:07.994+05:30  INFO 15540 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-08-13T12:55:09.034+05:30  INFO 15540 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-13T12:55:09.106+05:30  INFO 15540 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62 ms. Found 7 JPA repository interfaces.
+2025-08-13T12:55:09.553+05:30  INFO 15540 --- [CareerCrafter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-08-13T12:55:09.574+05:30  INFO 15540 --- [CareerCrafter] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-13T12:55:09.575+05:30  INFO 15540 --- [CareerCrafter] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-13T12:55:09.625+05:30  INFO 15540 --- [CareerCrafter] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-13T12:55:09.625+05:30  INFO 15540 --- [CareerCrafter] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1589 ms
+2025-08-13T12:55:09.751+05:30  INFO 15540 --- [CareerCrafter] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-13T12:55:09.831+05:30  INFO 15540 --- [CareerCrafter] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-13T12:55:09.873+05:30  INFO 15540 --- [CareerCrafter] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-13T12:55:10.156+05:30  INFO 15540 --- [CareerCrafter] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-13T12:55:10.187+05:30  INFO 15540 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-13T12:55:10.518+05:30  INFO 15540 --- [CareerCrafter] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@714c74eb
+2025-08-13T12:55:10.519+05:30  INFO 15540 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-13T12:55:10.578+05:30  WARN 15540 --- [CareerCrafter] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-13T12:55:10.595+05:30  INFO 15540 --- [CareerCrafter] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.42
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-13T12:55:11.568+05:30  INFO 15540 --- [CareerCrafter] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-13T12:55:11.718+05:30  INFO 15540 --- [CareerCrafter] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-13T12:55:11.963+05:30 DEBUG 15540 --- [CareerCrafter] [main] c.h.c.security.JwtRequestFilter          : Filter 'jwtRequestFilter' configured for use
+2025-08-13T12:55:12.038+05:30  INFO 15540 --- [CareerCrafter] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-08-13T12:55:12.112+05:30  WARN 15540 --- [CareerCrafter] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-13T12:55:12.537+05:30  INFO 15540 --- [CareerCrafter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-08-13T12:55:12.543+05:30  INFO 15540 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Started CareerCrafterApplication in 4.971 seconds (process running for 5.558)
+2025-08-13T12:58:05.506+05:30  INFO 15540 --- [CareerCrafter] [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-13T12:58:05.507+05:30  INFO 15540 --- [CareerCrafter] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-13T12:58:05.509+05:30  INFO 15540 --- [CareerCrafter] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-13T13:01:07.745+05:30  INFO 15540 --- [CareerCrafter] [RMI TCP Connection(8)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-08-13T13:01:07.747+05:30  INFO 15540 --- [CareerCrafter] [RMI TCP Connection(8)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-13T13:01:07.753+05:30  INFO 15540 --- [CareerCrafter] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-13T13:01:07.757+05:30  INFO 15540 --- [CareerCrafter] [RMI TCP Connection(8)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-13T13:01:07.759+05:30  INFO 15540 --- [CareerCrafter] [RMI TCP Connection(8)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-13T13:01:07.767+05:30  INFO 15540 --- [CareerCrafter] [RMI TCP Connection(8)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

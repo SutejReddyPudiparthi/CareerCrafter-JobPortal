@@ -58,9 +58,10 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>("Invalid JWT token", HttpStatus.UNAUTHORIZED);
     }
 
-    // Fallback for any other Exception
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<String> handleGeneralException(Exception ex) {
-        return new ResponseEntity<>("An unexpected error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
+    public ResponseEntity<String> handleAll(Exception ex) {
+        ex.printStackTrace(); // prints full cause in console
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                             .body(ex.getMessage()); // shows real error in Postman
     }
 }
