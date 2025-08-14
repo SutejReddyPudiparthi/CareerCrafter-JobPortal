@@ -16,6 +16,13 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/*
+ * Implementation of IApplicationService.
+ * Implements application operations.
+ */
+
+
 @Service
 public class ApplicationServiceImpl implements IApplicationService {
 

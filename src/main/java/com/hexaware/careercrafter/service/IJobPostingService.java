@@ -3,6 +3,10 @@ package com.hexaware.careercrafter.service;
 import com.hexaware.careercrafter.dto.*;
 import java.util.List;
 
+/*
+ * service interface for job posting operations.
+ */
+
 public interface IJobPostingService {
 
     JobPostingDTO createJobPosting(JobPostingDTO jobPostingDTO);

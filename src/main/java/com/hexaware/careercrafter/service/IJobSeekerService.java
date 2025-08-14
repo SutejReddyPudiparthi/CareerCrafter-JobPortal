@@ -3,6 +3,10 @@ package com.hexaware.careercrafter.service;
 import com.hexaware.careercrafter.dto.*;
 import java.util.List;
 
+/*
+ * service interface specifying operations for job seeker profiles.
+ */
+
 public interface IJobSeekerService {
     JobSeekerDTO createJobSeeker(JobSeekerDTO jobSeekerDTO);
     JobSeekerDTO getJobSeekerById(int id);

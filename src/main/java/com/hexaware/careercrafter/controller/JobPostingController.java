@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/*
+ * Rest Controller for Job posting management.
+ */
+
 @RestController
 @RequestMapping("/api/jobpostings")
 public class JobPostingController {

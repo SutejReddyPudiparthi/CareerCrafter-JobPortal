@@ -18,7 +18,6 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // Prefix ROLE_ to match Spring Security convention
         return Collections.singletonList(
                 new SimpleGrantedAuthority("ROLE_" + user.getUserType().name().toUpperCase())
         );
@@ -31,7 +30,6 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        // Use email for login
         return user.getEmail();
     }
 

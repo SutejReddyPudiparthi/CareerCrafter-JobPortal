@@ -3,6 +3,13 @@ package com.hexaware.careercrafter.dto;
 import jakarta.validation.constraints.*;
 import lombok.*;
 
+/*
+ * DTO for search recommendations.
+ * Searches to personalize job search experience.
+ * 
+ */
+
+
 @Getter
 @Setter
 @NoArgsConstructor

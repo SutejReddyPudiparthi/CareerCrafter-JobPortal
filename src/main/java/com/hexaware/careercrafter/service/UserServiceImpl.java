@@ -12,6 +12,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
+/*
+ * Implementation of IUserService.
+ * Implements user-related operations.
+ */
+
+
 @Service
 public class UserServiceImpl implements IUserService {
 
@@ -95,8 +102,6 @@ public class UserServiceImpl implements IUserService {
         logger.info("User with ID {} updated successfully", updatedUser.getUserId());
         return convertToDTO(updatedUser);
     }
-
-    // ---------------------- Mapping helpers ----------------------
 
     private User convertToEntity(UserDTO dto) {
         User user = new User();

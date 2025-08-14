@@ -15,6 +15,13 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/*
+ * Implementation of IEmployerService.
+ * Implements employer-related operations.
+ */
+
+
 @Service
 public class EmployerServiceImpl implements IEmployerService {
 

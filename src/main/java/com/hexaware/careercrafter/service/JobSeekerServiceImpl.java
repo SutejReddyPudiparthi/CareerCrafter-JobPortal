@@ -15,6 +15,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/*
+ * Implementation of IJobSeekerService.
+ * Implements job seeker related operations.
+ */
+
 @Service
 public class JobSeekerServiceImpl implements IJobSeekerService {
 
@@ -99,7 +104,6 @@ public class JobSeekerServiceImpl implements IJobSeekerService {
         return convertToDTO(saved);
     }
 
-    // Convert DTO → Entity
     private JobSeeker convertToEntity(JobSeekerDTO dto, User user) {
         JobSeeker jobSeeker = new JobSeeker();
         jobSeeker.setJobSeekerId(dto.getJobSeekerId());
@@ -114,7 +118,6 @@ public class JobSeekerServiceImpl implements IJobSeekerService {
         return jobSeeker;
     }
 
-    // Convert Entity → DTO
     private JobSeekerDTO convertToDTO(JobSeeker jobSeeker) {
         JobSeekerDTO dto = new JobSeekerDTO();
         dto.setJobSeekerId(jobSeeker.getJobSeekerId());

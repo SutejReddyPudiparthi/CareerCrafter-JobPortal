@@ -6,6 +6,12 @@ import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
+/*
+ * DTO for application.
+ * Applies status validation through enum types.
+ * 
+ */
+
 @Getter
 @Setter
 @NoArgsConstructor

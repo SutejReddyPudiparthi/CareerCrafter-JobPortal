@@ -14,6 +14,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/*
+ * Implementation of IJobPostingService.
+ * Implements job postings operations.
+ */
+
 @Service
 public class JobPostingServiceImpl implements IJobPostingService {
 
@@ -63,7 +68,7 @@ public class JobPostingServiceImpl implements IJobPostingService {
                     logger.error("Cannot delete - job posting with ID {} not found", id);
                     return new ResourceNotFoundException("Cannot delete. JobPosting with ID " + id + " not found.");
                 });
-        jobPosting.setActive(false); // Soft delete by setting active to false
+        jobPosting.setActive(false);
         jobPostingRepository.save(jobPosting);
         logger.info("Job posting with ID {} marked as inactive", id);
     }

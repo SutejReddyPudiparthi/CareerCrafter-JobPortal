@@ -6,6 +6,16 @@ import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
+
+/*
+ * 
+ * Data Transfer Object for Employer Information.
+ * User for transferring employer data between client ans server with validation.
+ * 
+ * 
+ */
+
+
 @Getter
 @Setter
 @NoArgsConstructor

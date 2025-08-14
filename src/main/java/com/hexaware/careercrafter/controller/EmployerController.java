@@ -12,6 +12,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/*
+ * Rest Controller for managing employer-related operations.
+ * Accessible to users with employer role.
+ */
+
+
 @RestController
 @RequestMapping("/api/employers")
 public class EmployerController {

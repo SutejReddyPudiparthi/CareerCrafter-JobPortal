@@ -7,6 +7,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
+/*
+ * Data transfer object for job posting details.
+ * Used to transfer job posting data.
+ * 
+ */
+
+
 @Getter
 @Setter
 @NoArgsConstructor

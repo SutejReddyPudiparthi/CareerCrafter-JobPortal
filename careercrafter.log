@@ -1,61 +1,17 @@
-2025-08-13T17:07:44.560+05:30  INFO 18888 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Starting CareerCrafterApplication using Java 21.0.6 with PID 18888 (D:\MyEclipseWorkspace\CareerCrafter\target\classes started by LENOVO in D:\MyEclipseWorkspace\CareerCrafter)
-2025-08-13T17:07:44.561+05:30 DEBUG 18888 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Running with Spring Boot v3.5.4, Spring v6.2.9
-2025-08-13T17:07:44.561+05:30  INFO 18888 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : No active profile set, falling back to 1 default profile: "default"
-2025-08-13T17:07:45.137+05:30  INFO 18888 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-08-13T17:07:45.205+05:30  INFO 18888 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 7 JPA repository interfaces.
-2025-08-13T17:07:45.664+05:30  INFO 18888 --- [CareerCrafter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
-2025-08-13T17:07:45.677+05:30  INFO 18888 --- [CareerCrafter] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-08-13T17:07:45.677+05:30  INFO 18888 --- [CareerCrafter] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
-2025-08-13T17:07:45.726+05:30  INFO 18888 --- [CareerCrafter] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-08-13T17:07:45.727+05:30  INFO 18888 --- [CareerCrafter] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1132 ms
-2025-08-13T17:07:45.848+05:30  INFO 18888 --- [CareerCrafter] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-08-13T17:07:45.908+05:30  INFO 18888 --- [CareerCrafter] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
-2025-08-13T17:07:45.945+05:30  INFO 18888 --- [CareerCrafter] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-08-13T17:07:46.207+05:30  INFO 18888 --- [CareerCrafter] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-08-13T17:07:46.234+05:30  INFO 18888 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-08-13T17:07:46.570+05:30  INFO 18888 --- [CareerCrafter] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@588d630d
-2025-08-13T17:07:46.572+05:30  INFO 18888 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-08-13T17:07:46.641+05:30  WARN 18888 --- [CareerCrafter] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-08-13T17:07:46.659+05:30  INFO 18888 --- [CareerCrafter] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 8.0.42
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-08-13T17:07:47.545+05:30  INFO 18888 --- [CareerCrafter] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-08-13T17:07:47.681+05:30  INFO 18888 --- [CareerCrafter] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-08-13T17:07:47.954+05:30 DEBUG 18888 --- [CareerCrafter] [main] c.h.c.security.JwtRequestFilter          : Filter 'jwtRequestFilter' configured for use
-2025-08-13T17:07:48.022+05:30  INFO 18888 --- [CareerCrafter] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2025-08-13T17:07:48.094+05:30  WARN 18888 --- [CareerCrafter] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-08-13T17:07:48.563+05:30  INFO 18888 --- [CareerCrafter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
-2025-08-13T17:07:48.568+05:30  INFO 18888 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Started CareerCrafterApplication in 4.334 seconds (process running for 4.861)
-2025-08-13T17:11:20.346+05:30  INFO 18888 --- [CareerCrafter] [RMI TCP Connection(7)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2025-08-13T17:11:20.348+05:30  INFO 18888 --- [CareerCrafter] [RMI TCP Connection(7)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-08-13T17:11:20.354+05:30  INFO 18888 --- [CareerCrafter] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-08-13T17:11:20.358+05:30  INFO 18888 --- [CareerCrafter] [RMI TCP Connection(7)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-08-13T17:11:20.360+05:30  INFO 18888 --- [CareerCrafter] [RMI TCP Connection(7)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-08-13T17:11:20.367+05:30  INFO 18888 --- [CareerCrafter] [RMI TCP Connection(7)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-08-13T18:13:21.028+05:30  INFO 16276 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Starting CareerCrafterApplication using Java 21.0.6 with PID 16276 (D:\MyEclipseWorkspace\CareerCrafter\target\classes started by LENOVO in D:\MyEclipseWorkspace\CareerCrafter)
-2025-08-13T18:13:21.030+05:30  INFO 16276 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : No active profile set, falling back to 1 default profile: "default"
-2025-08-13T18:13:21.769+05:30  INFO 16276 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-08-13T18:13:21.838+05:30  INFO 16276 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60 ms. Found 7 JPA repository interfaces.
-2025-08-13T18:13:22.515+05:30  INFO 16276 --- [CareerCrafter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
-2025-08-13T18:13:22.546+05:30  INFO 16276 --- [CareerCrafter] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-08-13T18:13:22.547+05:30  INFO 16276 --- [CareerCrafter] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
-2025-08-13T18:13:22.639+05:30  INFO 16276 --- [CareerCrafter] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-08-13T18:13:22.640+05:30  INFO 16276 --- [CareerCrafter] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1578 ms
-2025-08-13T18:13:22.845+05:30  INFO 16276 --- [CareerCrafter] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-08-13T18:13:22.929+05:30  INFO 16276 --- [CareerCrafter] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
-2025-08-13T18:13:22.968+05:30  INFO 16276 --- [CareerCrafter] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-08-13T18:13:23.229+05:30  INFO 16276 --- [CareerCrafter] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-08-13T18:13:23.256+05:30  INFO 16276 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-08-13T18:13:23.589+05:30  INFO 16276 --- [CareerCrafter] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@54997f67
-2025-08-13T18:13:23.591+05:30  INFO 16276 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-08-13T18:13:23.653+05:30  WARN 16276 --- [CareerCrafter] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-08-13T18:13:23.655+05:30  WARN 16276 --- [CareerCrafter] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-08-13T18:13:23.673+05:30  INFO 16276 --- [CareerCrafter] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-08-14T09:46:28.752+05:30  INFO 13800 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplicationTests      : Starting CareerCrafterApplicationTests using Java 21.0.6 with PID 13800 (started by LENOVO in D:\MyEclipseWorkspace\CareerCrafter)
+2025-08-14T09:46:28.761+05:30  INFO 13800 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2025-08-14T09:46:29.710+05:30  INFO 13800 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-14T09:46:29.790+05:30  INFO 13800 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 7 JPA repository interfaces.
+2025-08-14T09:46:30.700+05:30  INFO 13800 --- [CareerCrafter] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-14T09:46:30.772+05:30  INFO 13800 --- [CareerCrafter] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-14T09:46:30.835+05:30  INFO 13800 --- [CareerCrafter] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-14T09:46:31.255+05:30  INFO 13800 --- [CareerCrafter] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-14T09:46:31.304+05:30  INFO 13800 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-14T09:46:31.774+05:30  INFO 13800 --- [CareerCrafter] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@36e3321e
+2025-08-14T09:46:31.779+05:30  INFO 13800 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-14T09:46:31.857+05:30  WARN 13800 --- [CareerCrafter] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-14T09:46:31.858+05:30  WARN 13800 --- [CareerCrafter] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-08-14T09:46:31.890+05:30  INFO 13800 --- [CareerCrafter] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0
@@ -63,49 +19,56 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-08-13T18:13:24.578+05:30  INFO 16276 --- [CareerCrafter] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-08-13T18:13:24.709+05:30  INFO 16276 --- [CareerCrafter] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-08-13T18:13:25.053+05:30 DEBUG 16276 --- [CareerCrafter] [main] c.h.c.security.JwtRequestFilter          : Filter 'jwtRequestFilter' configured for use
-2025-08-13T18:13:25.136+05:30  INFO 16276 --- [CareerCrafter] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name daoAuthenticationProvider
-2025-08-13T18:13:25.137+05:30  WARN 16276 --- [CareerCrafter] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2025-08-13T18:13:25.257+05:30  WARN 16276 --- [CareerCrafter] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-08-13T18:13:25.579+05:30 DEBUG 16276 --- [CareerCrafter] [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtRequestFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
-2025-08-13T18:13:25.836+05:30  INFO 16276 --- [CareerCrafter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
-2025-08-13T18:13:25.850+05:30  INFO 16276 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Started CareerCrafterApplication in 5.226 seconds (process running for 5.759)
-2025-08-13T18:18:13.830+05:30  INFO 16276 --- [CareerCrafter] [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-08-13T18:18:13.831+05:30  INFO 16276 --- [CareerCrafter] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-08-13T18:18:13.833+05:30  INFO 16276 --- [CareerCrafter] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-08-13T18:18:13.854+05:30 DEBUG 16276 --- [CareerCrafter] [http-nio-8081-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/register
-2025-08-13T18:18:13.860+05:30 DEBUG 16276 --- [CareerCrafter] [http-nio-8081-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2025-08-13T18:18:13.864+05:30 DEBUG 16276 --- [CareerCrafter] [http-nio-8081-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/register
-2025-08-13T18:23:05.338+05:30 DEBUG 16276 --- [CareerCrafter] [http-nio-8081-exec-3] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/register
-2025-08-13T18:23:05.339+05:30 DEBUG 16276 --- [CareerCrafter] [http-nio-8081-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2025-08-13T18:23:05.340+05:30 DEBUG 16276 --- [CareerCrafter] [http-nio-8081-exec-3] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/register
-2025-08-13T18:31:01.381+05:30  INFO 16276 --- [CareerCrafter] [RMI TCP Connection(22)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2025-08-13T18:31:01.385+05:30  INFO 16276 --- [CareerCrafter] [RMI TCP Connection(22)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-08-13T18:31:01.391+05:30  INFO 16276 --- [CareerCrafter] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-08-13T18:31:01.398+05:30  INFO 16276 --- [CareerCrafter] [RMI TCP Connection(22)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-08-13T18:31:01.404+05:30  INFO 16276 --- [CareerCrafter] [RMI TCP Connection(22)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-08-13T18:31:01.413+05:30  INFO 16276 --- [CareerCrafter] [RMI TCP Connection(22)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-08-13T18:32:48.133+05:30  INFO 19356 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Starting CareerCrafterApplication using Java 21.0.6 with PID 19356 (D:\MyEclipseWorkspace\CareerCrafter\target\classes started by LENOVO in D:\MyEclipseWorkspace\CareerCrafter)
-2025-08-13T18:32:48.134+05:30  INFO 19356 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : No active profile set, falling back to 1 default profile: "default"
-2025-08-13T18:32:48.728+05:30  INFO 19356 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-08-13T18:32:48.843+05:30  INFO 19356 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 98 ms. Found 7 JPA repository interfaces.
-2025-08-13T18:32:49.282+05:30  INFO 19356 --- [CareerCrafter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
-2025-08-13T18:32:49.294+05:30  INFO 19356 --- [CareerCrafter] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-08-13T18:32:49.295+05:30  INFO 19356 --- [CareerCrafter] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
-2025-08-13T18:32:49.341+05:30  INFO 19356 --- [CareerCrafter] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-08-13T18:32:49.341+05:30  INFO 19356 --- [CareerCrafter] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1179 ms
-2025-08-13T18:32:49.472+05:30  INFO 19356 --- [CareerCrafter] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-08-13T18:32:49.541+05:30  INFO 19356 --- [CareerCrafter] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
-2025-08-13T18:32:49.581+05:30  INFO 19356 --- [CareerCrafter] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-08-13T18:32:49.792+05:30  INFO 19356 --- [CareerCrafter] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-08-13T18:32:49.824+05:30  INFO 19356 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-08-13T18:32:50.081+05:30  INFO 19356 --- [CareerCrafter] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2430cf17
-2025-08-13T18:32:50.083+05:30  INFO 19356 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-08-13T18:32:50.122+05:30  WARN 19356 --- [CareerCrafter] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-08-13T18:32:50.123+05:30  WARN 19356 --- [CareerCrafter] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-08-13T18:32:50.137+05:30  INFO 19356 --- [CareerCrafter] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-08-14T09:46:32.891+05:30  INFO 13800 --- [CareerCrafter] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-14T09:46:33.021+05:30  INFO 13800 --- [CareerCrafter] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-14T09:46:33.493+05:30  INFO 13800 --- [CareerCrafter] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name daoAuthenticationProvider
+2025-08-14T09:46:33.494+05:30  WARN 13800 --- [CareerCrafter] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-08-14T09:46:33.722+05:30  WARN 13800 --- [CareerCrafter] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-14T09:46:34.289+05:30 DEBUG 13800 --- [CareerCrafter] [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtRequestFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-08-14T09:46:34.687+05:30  INFO 13800 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplicationTests      : Started CareerCrafterApplicationTests in 6.34 seconds (process running for 7.821)
+2025-08-14T09:46:35.716+05:30 ERROR 13800 --- [CareerCrafter] [main] c.h.c.service.UserServiceImpl            : User with ID 1 not found
+2025-08-14T09:46:35.723+05:30 ERROR 13800 --- [CareerCrafter] [main] c.h.c.service.UserServiceImpl            : Cannot delete - User with ID 1 not found
+2025-08-14T09:46:35.739+05:30  INFO 13800 --- [CareerCrafter] [main] c.h.c.service.UserServiceImpl            : User created successfully with ID: 1
+2025-08-14T09:46:35.838+05:30  INFO 13800 --- [CareerCrafter] [main] c.h.c.service.JobSeekerServiceImpl       : Job seeker created successfully with ID: 1
+2025-08-14T09:46:35.854+05:30 ERROR 13800 --- [CareerCrafter] [main] c.h.c.service.JobSeekerServiceImpl       : Job seeker not found with ID: 1
+2025-08-14T09:46:35.870+05:30 ERROR 13800 --- [CareerCrafter] [main] c.h.c.service.JobSeekerServiceImpl       : Cannot delete - job seeker not found with ID: 1
+2025-08-14T09:46:35.983+05:30 ERROR 13800 --- [CareerCrafter] [main] c.h.c.service.ResumeServiceImpl          : Resume with ID 1 not found
+2025-08-14T09:46:35.994+05:30 ERROR 13800 --- [CareerCrafter] [main] c.h.c.service.ResumeServiceImpl          : Cannot delete - resume with ID 1 not found
+2025-08-14T09:46:36.006+05:30  INFO 13800 --- [CareerCrafter] [main] c.h.c.service.ResumeServiceImpl          : Resume uploaded successfully with ID: 1
+2025-08-14T09:46:36.088+05:30 ERROR 13800 --- [CareerCrafter] [main] c.h.c.service.EmployerServiceImpl        : Employer with ID 1 not found
+2025-08-14T09:46:36.099+05:30  INFO 13800 --- [CareerCrafter] [main] c.h.c.service.EmployerServiceImpl        : Employer created successfully with ID: 1
+2025-08-14T09:46:36.117+05:30 ERROR 13800 --- [CareerCrafter] [main] c.h.c.service.EmployerServiceImpl        : Cannot delete - employer with ID 1 does not exist
+2025-08-14T09:46:36.233+05:30 ERROR 13800 --- [CareerCrafter] [main] c.h.c.service.JobPostingServiceImpl      : Cannot delete - job posting with ID 1 not found
+2025-08-14T09:46:36.242+05:30  INFO 13800 --- [CareerCrafter] [main] c.h.c.service.JobPostingServiceImpl      : Job posting created with ID: 1
+2025-08-14T09:46:36.258+05:30 ERROR 13800 --- [CareerCrafter] [main] c.h.c.service.JobPostingServiceImpl      : Job posting with ID 1 not found
+2025-08-14T09:46:36.337+05:30 ERROR 13800 --- [CareerCrafter] [main] c.h.c.service.ApplicationServiceImpl     : Application with ID 1 not found
+2025-08-14T09:46:36.346+05:30 ERROR 13800 --- [CareerCrafter] [main] c.h.c.service.ApplicationServiceImpl     : Cannot delete - application with ID 1 not found
+2025-08-14T09:46:36.353+05:30  INFO 13800 --- [CareerCrafter] [main] c.h.c.service.ApplicationServiceImpl     : Application created with ID: 1
+2025-08-14T09:46:36.429+05:30 ERROR 13800 --- [CareerCrafter] [main] c.h.c.s.SearchRecommendationServiceImpl  : Search recommendation with ID 1 not found
+2025-08-14T09:46:36.436+05:30  INFO 13800 --- [CareerCrafter] [main] c.h.c.s.SearchRecommendationServiceImpl  : Search recommendation created with ID: 1
+2025-08-14T09:46:36.442+05:30 ERROR 13800 --- [CareerCrafter] [main] c.h.c.s.SearchRecommendationServiceImpl  : Cannot delete - search recommendation with ID 1 not found
+2025-08-14T09:46:36.462+05:30  INFO 13800 --- [CareerCrafter] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-14T09:46:36.467+05:30  INFO 13800 --- [CareerCrafter] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-14T09:46:36.512+05:30  INFO 13800 --- [CareerCrafter] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-14T09:46:55.793+05:30  INFO 4492 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Starting CareerCrafterApplication using Java 21.0.6 with PID 4492 (D:\MyEclipseWorkspace\CareerCrafter\target\classes started by LENOVO in D:\MyEclipseWorkspace\CareerCrafter)
+2025-08-14T09:46:55.795+05:30  INFO 4492 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-08-14T09:46:56.566+05:30  INFO 4492 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-14T09:46:56.804+05:30  INFO 4492 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 213 ms. Found 7 JPA repository interfaces.
+2025-08-14T09:46:57.679+05:30  INFO 4492 --- [CareerCrafter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-08-14T09:46:57.700+05:30  INFO 4492 --- [CareerCrafter] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-14T09:46:57.702+05:30  INFO 4492 --- [CareerCrafter] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-14T09:46:57.789+05:30  INFO 4492 --- [CareerCrafter] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-14T09:46:57.789+05:30  INFO 4492 --- [CareerCrafter] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1964 ms
+2025-08-14T09:46:57.995+05:30  INFO 4492 --- [CareerCrafter] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-14T09:46:58.076+05:30  INFO 4492 --- [CareerCrafter] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-14T09:46:58.127+05:30  INFO 4492 --- [CareerCrafter] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-14T09:46:58.342+05:30  INFO 4492 --- [CareerCrafter] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-14T09:46:58.369+05:30  INFO 4492 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-14T09:46:58.663+05:30  INFO 4492 --- [CareerCrafter] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@23bd2f6e
+2025-08-14T09:46:58.665+05:30  INFO 4492 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-14T09:46:58.707+05:30  WARN 4492 --- [CareerCrafter] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-14T09:46:58.708+05:30  WARN 4492 --- [CareerCrafter] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-08-14T09:46:58.732+05:30  INFO 4492 --- [CareerCrafter] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0
@@ -113,102 +76,120 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-08-13T18:32:50.963+05:30  INFO 19356 --- [CareerCrafter] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-08-13T18:32:51.053+05:30  INFO 19356 --- [CareerCrafter] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-08-13T18:32:51.296+05:30 DEBUG 19356 --- [CareerCrafter] [main] c.h.c.security.JwtRequestFilter          : Filter 'jwtRequestFilter' configured for use
-2025-08-13T18:32:51.370+05:30  INFO 19356 --- [CareerCrafter] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name daoAuthenticationProvider
-2025-08-13T18:32:51.370+05:30  WARN 19356 --- [CareerCrafter] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2025-08-13T18:32:51.506+05:30  WARN 19356 --- [CareerCrafter] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-08-13T18:32:51.836+05:30 DEBUG 19356 --- [CareerCrafter] [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtRequestFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
-2025-08-13T18:32:52.213+05:30  INFO 19356 --- [CareerCrafter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
-2025-08-13T18:32:52.220+05:30  INFO 19356 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Started CareerCrafterApplication in 4.392 seconds (process running for 4.841)
-2025-08-13T18:34:57.181+05:30  INFO 19356 --- [CareerCrafter] [http-nio-8081-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-08-13T18:34:57.181+05:30  INFO 19356 --- [CareerCrafter] [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-08-13T18:34:57.182+05:30  INFO 19356 --- [CareerCrafter] [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-08-13T18:34:57.200+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-3] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/register
-2025-08-13T18:34:57.208+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2025-08-13T18:34:57.211+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-3] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/register
-2025-08-13T18:36:32.284+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/register
-2025-08-13T18:36:32.285+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2025-08-13T18:36:32.285+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/register
-2025-08-13T18:37:49.461+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-5] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/register
-2025-08-13T18:37:49.462+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2025-08-13T18:37:49.462+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-5] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/register
-2025-08-13T18:38:03.060+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-8] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/register
-2025-08-13T18:38:03.061+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2025-08-13T18:38:03.061+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-8] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/register
-2025-08-13T18:39:05.695+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
-2025-08-13T18:39:05.695+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2025-08-13T18:39:05.696+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login
-2025-08-13T18:41:13.913+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
-2025-08-13T18:41:13.914+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2025-08-13T18:41:13.914+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login
-2025-08-13T18:45:51.704+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-6] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login?email=test@example.com&password=pass123
-2025-08-13T18:45:51.708+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2025-08-13T18:45:51.708+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-6] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login?email=test@example.com&password=pass123
-2025-08-13T18:45:51.892+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-6] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
-2025-08-13T18:48:15.236+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /api/jobseekers
-2025-08-13T18:48:15.298+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-8] c.h.c.security.JwtRequestFilter          : JWT authenticated for: test@example.com
-2025-08-13T18:48:15.298+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /api/jobseekers
-2025-08-13T18:48:15.298+05:30  INFO 19356 --- [CareerCrafter] [http-nio-8081-exec-8] c.h.c.controller.JobSeekerController     : Request to fetch all job seekers
-2025-08-13T18:48:15.328+05:30  INFO 19356 --- [CareerCrafter] [http-nio-8081-exec-8] c.h.c.controller.JobSeekerController     : Successfully fetched 1 job seekers
-2025-08-13T18:51:16.914+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/register
-2025-08-13T18:51:16.925+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-2] c.h.c.security.JwtRequestFilter          : JWT authenticated for: test@example.com
-2025-08-13T18:51:16.925+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /api/register
-2025-08-13T18:51:33.483+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/register
-2025-08-13T18:51:33.496+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-1] c.h.c.security.JwtRequestFilter          : JWT authenticated for: test@example.com
-2025-08-13T18:51:33.496+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/register
-2025-08-13T18:52:02.183+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login?email=abc@example.com&password=securePass123
-2025-08-13T18:52:02.191+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-4] c.h.c.security.JwtRequestFilter          : JWT authenticated for: test@example.com
-2025-08-13T18:52:02.195+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login?email=abc@example.com&password=securePass123
-2025-08-13T18:52:02.271+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-4] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
-2025-08-13T18:53:54.126+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-7] o.s.security.web.FilterChainProxy        : Securing POST /api/jobpostings
-2025-08-13T18:53:54.139+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-7] c.h.c.security.JwtRequestFilter          : JWT authenticated for: abc@example.com
-2025-08-13T18:53:54.139+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-7] o.s.security.web.FilterChainProxy        : Secured POST /api/jobpostings
-2025-08-13T18:55:02.172+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-9] o.s.security.web.FilterChainProxy        : Securing POST /api/jobpostings
-2025-08-13T18:55:02.185+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-9] c.h.c.security.JwtRequestFilter          : JWT authenticated for: abc@example.com
-2025-08-13T18:55:02.185+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-9] o.s.security.web.FilterChainProxy        : Secured POST /api/jobpostings
-2025-08-13T18:55:02.189+05:30  INFO 19356 --- [CareerCrafter] [http-nio-8081-exec-9] c.h.c.controller.JobPostingController    : Request to create job posting with title: Java Backend Developer
-2025-08-13T18:55:02.201+05:30  INFO 19356 --- [CareerCrafter] [http-nio-8081-exec-9] c.h.c.service.JobPostingServiceImpl      : Job posting created with ID: 2
-2025-08-13T18:55:02.201+05:30  INFO 19356 --- [CareerCrafter] [http-nio-8081-exec-9] c.h.c.controller.JobPostingController    : Job posting created successfully with ID: 2
-2025-08-13T18:56:04.057+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-3] o.s.security.web.FilterChainProxy        : Securing POST /api/jobpostings
-2025-08-13T18:56:04.069+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-3] c.h.c.security.JwtRequestFilter          : JWT authenticated for: abc@example.com
-2025-08-13T18:56:04.069+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-3] o.s.security.web.FilterChainProxy        : Secured POST /api/jobpostings
-2025-08-13T18:56:04.069+05:30  INFO 19356 --- [CareerCrafter] [http-nio-8081-exec-3] c.h.c.controller.JobPostingController    : Request to create job posting with title: Java Backend Developer
-2025-08-13T18:56:04.077+05:30  INFO 19356 --- [CareerCrafter] [http-nio-8081-exec-3] c.h.c.service.JobPostingServiceImpl      : Job posting created with ID: 3
-2025-08-13T18:56:04.077+05:30  INFO 19356 --- [CareerCrafter] [http-nio-8081-exec-3] c.h.c.controller.JobPostingController    : Job posting created successfully with ID: 3
-2025-08-13T19:10:29.637+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /api/jobpostings
-2025-08-13T19:10:29.652+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-6] c.h.c.security.JwtRequestFilter          : JWT authenticated for: abc@example.com
-2025-08-13T19:10:29.652+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /api/jobpostings
-2025-08-13T19:10:29.653+05:30  INFO 19356 --- [CareerCrafter] [http-nio-8081-exec-6] c.h.c.controller.JobPostingController    : Request to fetch all job postings
-2025-08-13T19:10:29.662+05:30  INFO 19356 --- [CareerCrafter] [http-nio-8081-exec-6] c.h.c.controller.JobPostingController    : Fetched 3 job postings
-2025-08-13T19:10:42.486+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /api/jobpostings/3
-2025-08-13T19:10:42.500+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-5] c.h.c.security.JwtRequestFilter          : JWT authenticated for: abc@example.com
-2025-08-13T19:10:42.500+05:30 DEBUG 19356 --- [CareerCrafter] [http-nio-8081-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /api/jobpostings/3
-2025-08-13T19:10:42.502+05:30  INFO 19356 --- [CareerCrafter] [http-nio-8081-exec-5] c.h.c.controller.JobPostingController    : Request to fetch job posting with ID: 3
-2025-08-13T19:10:42.515+05:30  INFO 19356 --- [CareerCrafter] [http-nio-8081-exec-5] c.h.c.controller.JobPostingController    : Successfully fetched job posting with ID: 3
-2025-08-13T19:18:44.633+05:30  WARN 19356 --- [CareerCrafter] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m53s861ms64µs200ns).
-2025-08-13T19:42:02.053+05:30  WARN 19356 --- [CareerCrafter] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=21m17s385ms104µs600ns).
-2025-08-13T19:44:28.597+05:30  INFO 19356 --- [CareerCrafter] [RMI TCP Connection(50)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2025-08-13T19:44:28.809+05:30  INFO 19356 --- [CareerCrafter] [RMI TCP Connection(50)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-08-13T19:44:28.865+05:30  INFO 19356 --- [CareerCrafter] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-08-13T19:44:28.951+05:30  INFO 19356 --- [CareerCrafter] [RMI TCP Connection(50)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-08-13T19:44:29.018+05:30  INFO 19356 --- [CareerCrafter] [RMI TCP Connection(50)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-08-13T19:44:29.036+05:30  INFO 19356 --- [CareerCrafter] [RMI TCP Connection(50)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-08-13T21:34:17.599+05:30  INFO 1980 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplicationTests      : Starting CareerCrafterApplicationTests using Java 21.0.6 with PID 1980 (started by LENOVO in D:\MyEclipseWorkspace\CareerCrafter)
-2025-08-13T21:34:17.603+05:30  INFO 1980 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplicationTests      : No active profile set, falling back to 1 default profile: "default"
-2025-08-13T21:34:18.463+05:30  INFO 1980 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-08-13T21:34:18.554+05:30  INFO 1980 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 80 ms. Found 7 JPA repository interfaces.
-2025-08-13T21:34:19.355+05:30  INFO 1980 --- [CareerCrafter] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-08-13T21:34:19.444+05:30  INFO 1980 --- [CareerCrafter] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
-2025-08-13T21:34:19.487+05:30  INFO 1980 --- [CareerCrafter] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-08-13T21:34:19.887+05:30  INFO 1980 --- [CareerCrafter] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-08-13T21:34:19.921+05:30  INFO 1980 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-08-13T21:34:20.388+05:30  INFO 1980 --- [CareerCrafter] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@39f4a7c4
-2025-08-13T21:34:20.390+05:30  INFO 1980 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-08-13T21:34:20.464+05:30  WARN 1980 --- [CareerCrafter] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-08-13T21:34:20.466+05:30  WARN 1980 --- [CareerCrafter] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-08-13T21:34:20.489+05:30  INFO 1980 --- [CareerCrafter] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-08-14T09:46:59.545+05:30  INFO 4492 --- [CareerCrafter] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-14T09:46:59.634+05:30  INFO 4492 --- [CareerCrafter] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-14T09:46:59.956+05:30 DEBUG 4492 --- [CareerCrafter] [main] c.h.c.security.JwtRequestFilter          : Filter 'jwtRequestFilter' configured for use
+2025-08-14T09:47:00.059+05:30  INFO 4492 --- [CareerCrafter] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name daoAuthenticationProvider
+2025-08-14T09:47:00.060+05:30  WARN 4492 --- [CareerCrafter] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-08-14T09:47:00.240+05:30  WARN 4492 --- [CareerCrafter] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-14T09:47:00.545+05:30 DEBUG 4492 --- [CareerCrafter] [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtRequestFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-08-14T09:47:00.800+05:30  INFO 4492 --- [CareerCrafter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-08-14T09:47:00.808+05:30  INFO 4492 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Started CareerCrafterApplication in 5.388 seconds (process running for 5.861)
+2025-08-14T09:47:22.747+05:30  INFO 4492 --- [CareerCrafter] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-14T09:47:22.748+05:30  INFO 4492 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-14T09:47:22.755+05:30  INFO 4492 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2025-08-14T09:47:22.792+05:30 DEBUG 4492 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/jobpostings/2
+2025-08-14T09:47:22.888+05:30 ERROR 4492 --- [CareerCrafter] [http-nio-8081-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+io.jsonwebtoken.ExpiredJwtException: JWT expired at 2025-08-14T04:52:02Z. Current time: 2025-08-14T09:47:22Z, a difference of 17720880 milliseconds.  Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:385) ~[jjwt-0.9.1.jar:0.9.1]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:481) ~[jjwt-0.9.1.jar:0.9.1]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:541) ~[jjwt-0.9.1.jar:0.9.1]
+	at com.hexaware.careercrafter.security.JwtUtil.extractAllClaims(JwtUtil.java:38) ~[classes/:na]
+	at com.hexaware.careercrafter.security.JwtUtil.extractClaim(JwtUtil.java:31) ~[classes/:na]
+	at com.hexaware.careercrafter.security.JwtUtil.extractUsername(JwtUtil.java:23) ~[classes/:na]
+	at com.hexaware.careercrafter.security.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:40) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.9.jar:6.2.9]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.2.jar:6.5.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.5.2.jar:6.5.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.5.2.jar:6.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.2.jar:6.5.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.5.2.jar:6.5.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.5.2.jar:6.5.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.9.jar:6.2.9]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.2.jar:6.5.2]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.5.2.jar:6.5.2]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.5.2.jar:6.5.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.2.jar:6.5.2]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.5.2.jar:6.5.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.9.jar:6.2.9]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.2.jar:6.5.2]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.5.2.jar:6.5.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.9.jar:6.2.9]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.2.jar:6.5.2]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.5.2.jar:6.5.2]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.5.2.jar:6.5.2]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.9.jar:6.2.9]
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52) ~[spring-web-6.2.9.jar:6.2.9]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.9.jar:6.2.9]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.9.jar:6.2.9]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319) ~[spring-security-config-6.5.2.jar:6.5.2]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.9.jar:6.2.9]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267) ~[spring-webmvc-6.2.9.jar:6.2.9]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.9.jar:6.2.9]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.9.jar:6.2.9]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240) ~[spring-security-config-6.5.2.jar:6.5.2]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362) ~[spring-web-6.2.9.jar:6.2.9]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278) ~[spring-web-6.2.9.jar:6.2.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.9.jar:6.2.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.9.jar:6.2.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.9.jar:6.2.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.9.jar:6.2.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.9.jar:6.2.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.9.jar:6.2.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2025-08-14T09:47:22.909+05:30 DEBUG 4492 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /error
+2025-08-14T09:47:22.913+05:30 DEBUG 4492 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-14T09:47:22.917+05:30 DEBUG 4492 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.s.w.a.Http403ForbiddenEntryPoint     : Pre-authenticated entry point called. Rejecting access
+2025-08-14T09:47:54.323+05:30  INFO 4492 --- [CareerCrafter] [RMI TCP Connection(4)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-08-14T09:47:54.326+05:30  INFO 4492 --- [CareerCrafter] [RMI TCP Connection(4)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-14T09:47:54.331+05:30  INFO 4492 --- [CareerCrafter] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-14T09:47:54.335+05:30  INFO 4492 --- [CareerCrafter] [RMI TCP Connection(4)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-14T09:47:54.338+05:30  INFO 4492 --- [CareerCrafter] [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-14T09:47:54.345+05:30  INFO 4492 --- [CareerCrafter] [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-14T09:52:19.862+05:30  INFO 19468 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Starting CareerCrafterApplication using Java 21.0.6 with PID 19468 (D:\MyEclipseWorkspace\CareerCrafter\target\classes started by LENOVO in D:\MyEclipseWorkspace\CareerCrafter)
+2025-08-14T09:52:19.865+05:30  INFO 19468 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-08-14T09:52:20.588+05:30  INFO 19468 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-14T09:52:20.641+05:30  INFO 19468 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 7 JPA repository interfaces.
+2025-08-14T09:52:21.215+05:30  INFO 19468 --- [CareerCrafter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-08-14T09:52:21.227+05:30  INFO 19468 --- [CareerCrafter] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-14T09:52:21.227+05:30  INFO 19468 --- [CareerCrafter] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-14T09:52:21.277+05:30  INFO 19468 --- [CareerCrafter] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-14T09:52:21.278+05:30  INFO 19468 --- [CareerCrafter] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1378 ms
+2025-08-14T09:52:21.414+05:30  INFO 19468 --- [CareerCrafter] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-14T09:52:21.507+05:30  INFO 19468 --- [CareerCrafter] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-14T09:52:21.592+05:30  INFO 19468 --- [CareerCrafter] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-14T09:52:21.921+05:30  INFO 19468 --- [CareerCrafter] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-14T09:52:21.966+05:30  INFO 19468 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-14T09:52:22.260+05:30  INFO 19468 --- [CareerCrafter] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@76fc5687
+2025-08-14T09:52:22.262+05:30  INFO 19468 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-14T09:52:22.312+05:30  WARN 19468 --- [CareerCrafter] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-14T09:52:22.313+05:30  WARN 19468 --- [CareerCrafter] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-08-14T09:52:22.328+05:30  INFO 19468 --- [CareerCrafter] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0
@@ -216,34 +197,209 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-08-13T21:34:21.484+05:30  INFO 1980 --- [CareerCrafter] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-08-13T21:34:21.627+05:30  INFO 1980 --- [CareerCrafter] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-08-13T21:34:22.105+05:30  INFO 1980 --- [CareerCrafter] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name daoAuthenticationProvider
-2025-08-13T21:34:22.106+05:30  WARN 1980 --- [CareerCrafter] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2025-08-13T21:34:22.265+05:30  WARN 1980 --- [CareerCrafter] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-08-13T21:34:22.711+05:30 DEBUG 1980 --- [CareerCrafter] [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtRequestFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
-2025-08-13T21:34:23.137+05:30  INFO 1980 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplicationTests      : Started CareerCrafterApplicationTests in 5.888 seconds (process running for 6.973)
-2025-08-13T21:34:24.215+05:30  INFO 1980 --- [CareerCrafter] [main] c.h.c.service.JobSeekerServiceImpl       : Job seeker created successfully with ID: 1
-2025-08-13T21:34:24.240+05:30 ERROR 1980 --- [CareerCrafter] [main] c.h.c.service.JobSeekerServiceImpl       : Job seeker not found with ID: 1
-2025-08-13T21:34:24.249+05:30 ERROR 1980 --- [CareerCrafter] [main] c.h.c.service.JobSeekerServiceImpl       : Cannot delete - job seeker not found with ID: 1
-2025-08-13T21:34:24.278+05:30 ERROR 1980 --- [CareerCrafter] [main] c.h.c.service.UserServiceImpl            : User with ID 1 not found
-2025-08-13T21:34:24.285+05:30 ERROR 1980 --- [CareerCrafter] [main] c.h.c.service.UserServiceImpl            : Cannot delete - User with ID 1 not found
-2025-08-13T21:34:24.293+05:30  INFO 1980 --- [CareerCrafter] [main] c.h.c.service.UserServiceImpl            : User created successfully with ID: 1
-2025-08-13T21:34:24.390+05:30 ERROR 1980 --- [CareerCrafter] [main] c.h.c.service.ResumeServiceImpl          : Resume with ID 1 not found
-2025-08-13T21:34:24.399+05:30 ERROR 1980 --- [CareerCrafter] [main] c.h.c.service.ResumeServiceImpl          : Cannot delete - resume with ID 1 not found
-2025-08-13T21:34:24.408+05:30  INFO 1980 --- [CareerCrafter] [main] c.h.c.service.ResumeServiceImpl          : Resume uploaded successfully with ID: 1
-2025-08-13T21:34:24.503+05:30 ERROR 1980 --- [CareerCrafter] [main] c.h.c.s.SearchRecommendationServiceImpl  : Search recommendation with ID 1 not found
-2025-08-13T21:34:24.508+05:30  INFO 1980 --- [CareerCrafter] [main] c.h.c.s.SearchRecommendationServiceImpl  : Search recommendation created with ID: 1
-2025-08-13T21:34:24.513+05:30 ERROR 1980 --- [CareerCrafter] [main] c.h.c.s.SearchRecommendationServiceImpl  : Cannot delete - search recommendation with ID 1 not found
-2025-08-13T21:34:24.626+05:30 ERROR 1980 --- [CareerCrafter] [main] c.h.c.service.ApplicationServiceImpl     : Application with ID 1 not found
-2025-08-13T21:34:24.637+05:30 ERROR 1980 --- [CareerCrafter] [main] c.h.c.service.ApplicationServiceImpl     : Cannot delete - application with ID 1 not found
-2025-08-13T21:34:24.642+05:30  INFO 1980 --- [CareerCrafter] [main] c.h.c.service.ApplicationServiceImpl     : Application created with ID: 1
-2025-08-13T21:34:24.711+05:30 ERROR 1980 --- [CareerCrafter] [main] c.h.c.service.EmployerServiceImpl        : Employer with ID 1 not found
-2025-08-13T21:34:24.718+05:30  INFO 1980 --- [CareerCrafter] [main] c.h.c.service.EmployerServiceImpl        : Employer created successfully with ID: 1
-2025-08-13T21:34:24.729+05:30 ERROR 1980 --- [CareerCrafter] [main] c.h.c.service.EmployerServiceImpl        : Cannot delete - employer with ID 1 does not exist
-2025-08-13T21:34:24.802+05:30 ERROR 1980 --- [CareerCrafter] [main] c.h.c.service.JobPostingServiceImpl      : Cannot delete - job posting with ID 1 not found
-2025-08-13T21:34:24.808+05:30  INFO 1980 --- [CareerCrafter] [main] c.h.c.service.JobPostingServiceImpl      : Job posting created with ID: 1
-2025-08-13T21:34:24.814+05:30 ERROR 1980 --- [CareerCrafter] [main] c.h.c.service.JobPostingServiceImpl      : Job posting with ID 1 not found
-2025-08-13T21:34:24.831+05:30  INFO 1980 --- [CareerCrafter] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-08-13T21:34:24.837+05:30  INFO 1980 --- [CareerCrafter] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-08-13T21:34:24.866+05:30  INFO 1980 --- [CareerCrafter] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-14T09:52:23.236+05:30  INFO 19468 --- [CareerCrafter] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-14T09:52:23.342+05:30  INFO 19468 --- [CareerCrafter] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-14T09:52:23.624+05:30 DEBUG 19468 --- [CareerCrafter] [main] c.h.c.security.JwtRequestFilter          : Filter 'jwtRequestFilter' configured for use
+2025-08-14T09:52:23.717+05:30  INFO 19468 --- [CareerCrafter] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name daoAuthenticationProvider
+2025-08-14T09:52:23.718+05:30  WARN 19468 --- [CareerCrafter] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-08-14T09:52:23.868+05:30  WARN 19468 --- [CareerCrafter] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-14T09:52:24.142+05:30 DEBUG 19468 --- [CareerCrafter] [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtRequestFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-08-14T09:52:24.412+05:30  INFO 19468 --- [CareerCrafter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-08-14T09:52:24.418+05:30  INFO 19468 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Started CareerCrafterApplication in 4.891 seconds (process running for 5.362)
+2025-08-14T09:52:33.366+05:30  INFO 19468 --- [CareerCrafter] [http-nio-8081-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-14T09:52:33.367+05:30  INFO 19468 --- [CareerCrafter] [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-14T09:52:33.368+05:30  INFO 19468 --- [CareerCrafter] [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-14T09:52:33.386+05:30 DEBUG 19468 --- [CareerCrafter] [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/register
+2025-08-14T09:52:33.393+05:30 DEBUG 19468 --- [CareerCrafter] [http-nio-8081-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-14T09:52:33.395+05:30 DEBUG 19468 --- [CareerCrafter] [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/register
+2025-08-14T09:56:14.101+05:30 DEBUG 19468 --- [CareerCrafter] [http-nio-8081-exec-5] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login?email=scott123@example.com&password=scott123
+2025-08-14T09:56:14.102+05:30 DEBUG 19468 --- [CareerCrafter] [http-nio-8081-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-08-14T09:56:14.102+05:30 DEBUG 19468 --- [CareerCrafter] [http-nio-8081-exec-5] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login?email=scott123@example.com&password=scott123
+2025-08-14T09:56:14.277+05:30 DEBUG 19468 --- [CareerCrafter] [http-nio-8081-exec-5] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-08-14T09:58:25.487+05:30 DEBUG 19468 --- [CareerCrafter] [http-nio-8081-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /api/employers
+2025-08-14T09:58:25.540+05:30 DEBUG 19468 --- [CareerCrafter] [http-nio-8081-exec-8] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T09:58:25.540+05:30 DEBUG 19468 --- [CareerCrafter] [http-nio-8081-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /api/employers
+2025-08-14T09:58:25.542+05:30  INFO 19468 --- [CareerCrafter] [http-nio-8081-exec-8] c.h.c.controller.EmployerController      : Request to fetch all employers
+2025-08-14T09:58:25.563+05:30  INFO 19468 --- [CareerCrafter] [http-nio-8081-exec-8] c.h.c.service.EmployerServiceImpl        : Fetched 1 employers
+2025-08-14T09:58:25.564+05:30  INFO 19468 --- [CareerCrafter] [http-nio-8081-exec-8] c.h.c.controller.EmployerController      : Fetched 1 employers
+2025-08-14T09:58:39.576+05:30 DEBUG 19468 --- [CareerCrafter] [http-nio-8081-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/auth/me
+2025-08-14T09:58:39.587+05:30 DEBUG 19468 --- [CareerCrafter] [http-nio-8081-exec-9] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T09:58:39.587+05:30 DEBUG 19468 --- [CareerCrafter] [http-nio-8081-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/auth/me
+2025-08-14T10:04:15.927+05:30 DEBUG 19468 --- [CareerCrafter] [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Securing PUT /api/employers/1
+2025-08-14T10:04:15.946+05:30 DEBUG 19468 --- [CareerCrafter] [http-nio-8081-exec-4] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T10:04:15.946+05:30 DEBUG 19468 --- [CareerCrafter] [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Secured PUT /api/employers/1
+2025-08-14T10:07:44.827+05:30 DEBUG 19468 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Securing PUT /api/employers
+2025-08-14T10:07:44.844+05:30 DEBUG 19468 --- [CareerCrafter] [http-nio-8081-exec-1] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T10:07:44.845+05:30 DEBUG 19468 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Secured PUT /api/employers
+2025-08-14T10:07:45.251+05:30  INFO 19468 --- [CareerCrafter] [http-nio-8081-exec-1] c.h.c.controller.EmployerController      : Request to update employer with ID: 1
+2025-08-14T10:07:45.806+05:30  INFO 19468 --- [CareerCrafter] [http-nio-8081-exec-1] c.h.c.service.EmployerServiceImpl        : Employer with ID 1 updated successfully
+2025-08-14T10:07:45.806+05:30  INFO 19468 --- [CareerCrafter] [http-nio-8081-exec-1] c.h.c.controller.EmployerController      : Employer with ID 1 updated successfully
+2025-08-14T11:02:55.712+05:30  INFO 19468 --- [CareerCrafter] [RMI TCP Connection(75)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-08-14T11:02:55.936+05:30  INFO 19468 --- [CareerCrafter] [RMI TCP Connection(75)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-14T11:02:55.984+05:30  INFO 19468 --- [CareerCrafter] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-14T11:02:56.065+05:30  INFO 19468 --- [CareerCrafter] [RMI TCP Connection(75)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-14T11:02:56.132+05:30  INFO 19468 --- [CareerCrafter] [RMI TCP Connection(75)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-14T11:02:56.149+05:30  INFO 19468 --- [CareerCrafter] [RMI TCP Connection(75)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-14T11:21:11.193+05:30  INFO 16944 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Starting CareerCrafterApplication using Java 21.0.6 with PID 16944 (D:\MyEclipseWorkspace\CareerCrafter\target\classes started by LENOVO in D:\MyEclipseWorkspace\CareerCrafter)
+2025-08-14T11:21:11.196+05:30  INFO 16944 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-08-14T11:21:11.984+05:30  INFO 16944 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-14T11:21:12.066+05:30  INFO 16944 --- [CareerCrafter] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74 ms. Found 7 JPA repository interfaces.
+2025-08-14T11:21:12.567+05:30  INFO 16944 --- [CareerCrafter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-08-14T11:21:12.581+05:30  INFO 16944 --- [CareerCrafter] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-14T11:21:12.581+05:30  INFO 16944 --- [CareerCrafter] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-14T11:21:12.632+05:30  INFO 16944 --- [CareerCrafter] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-14T11:21:12.634+05:30  INFO 16944 --- [CareerCrafter] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1400 ms
+2025-08-14T11:21:12.787+05:30  INFO 16944 --- [CareerCrafter] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-14T11:21:12.868+05:30  INFO 16944 --- [CareerCrafter] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-14T11:21:12.916+05:30  INFO 16944 --- [CareerCrafter] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-14T11:21:13.169+05:30  INFO 16944 --- [CareerCrafter] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-14T11:21:13.202+05:30  INFO 16944 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-14T11:21:13.543+05:30  INFO 16944 --- [CareerCrafter] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@13374ca6
+2025-08-14T11:21:13.545+05:30  INFO 16944 --- [CareerCrafter] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-14T11:21:13.598+05:30  WARN 16944 --- [CareerCrafter] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-14T11:21:13.600+05:30  WARN 16944 --- [CareerCrafter] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-08-14T11:21:13.621+05:30  INFO 16944 --- [CareerCrafter] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-14T11:21:14.773+05:30  INFO 16944 --- [CareerCrafter] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-14T11:21:14.917+05:30  INFO 16944 --- [CareerCrafter] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-14T11:21:15.203+05:30 DEBUG 16944 --- [CareerCrafter] [main] c.h.c.security.JwtRequestFilter          : Filter 'jwtRequestFilter' configured for use
+2025-08-14T11:21:15.288+05:30  INFO 16944 --- [CareerCrafter] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name daoAuthenticationProvider
+2025-08-14T11:21:15.288+05:30  WARN 16944 --- [CareerCrafter] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-08-14T11:21:15.494+05:30  WARN 16944 --- [CareerCrafter] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-14T11:21:15.789+05:30 DEBUG 16944 --- [CareerCrafter] [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtRequestFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-08-14T11:21:16.099+05:30  INFO 16944 --- [CareerCrafter] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-08-14T11:21:16.105+05:30  INFO 16944 --- [CareerCrafter] [main] c.h.c.CareerCrafterApplication           : Started CareerCrafterApplication in 5.259 seconds (process running for 5.884)
+2025-08-14T11:22:39.490+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-14T11:22:39.491+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-14T11:22:39.494+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2025-08-14T11:22:39.523+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-3] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login?email=scott123@example.com&password=scott123
+2025-08-14T11:22:39.808+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-3] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T11:22:39.812+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-3] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login?email=scott123@example.com&password=scott123
+2025-08-14T11:22:40.001+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-3] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-08-14T11:24:46.303+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-5] o.s.security.web.FilterChainProxy        : Securing POST /api/applications
+2025-08-14T11:24:46.327+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-5] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T11:24:46.329+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-5] o.s.security.web.FilterChainProxy        : Secured POST /api/applications
+2025-08-14T11:24:46.416+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-5] c.h.c.controller.ApplicationController   : Request to apply for job ID: 3 by job seeker ID: 1
+2025-08-14T11:24:46.500+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-5] c.h.c.service.ApplicationServiceImpl     : Application created with ID: 4
+2025-08-14T11:24:46.500+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-5] c.h.c.controller.ApplicationController   : Application created successfully with ID: 4
+2025-08-14T11:26:36.745+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-8] o.s.security.web.FilterChainProxy        : Securing POST /api/applications
+2025-08-14T11:26:36.758+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-8] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T11:26:36.758+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-8] o.s.security.web.FilterChainProxy        : Secured POST /api/applications
+2025-08-14T11:26:36.759+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-8] c.h.c.controller.ApplicationController   : Request to apply for job ID: 3 by job seeker ID: 1
+2025-08-14T11:26:36.772+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-8] c.h.c.service.ApplicationServiceImpl     : Application created with ID: 5
+2025-08-14T11:26:36.772+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-8] c.h.c.controller.ApplicationController   : Application created successfully with ID: 5
+2025-08-14T11:38:14.551+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-2] o.s.security.web.FilterChainProxy        : Securing PUT /api/applications
+2025-08-14T11:38:14.565+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-2] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T11:38:14.566+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-2] o.s.security.web.FilterChainProxy        : Secured PUT /api/applications
+2025-08-14T11:38:14.569+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-2] c.h.c.controller.ApplicationController   : Request to update application with ID: 5
+2025-08-14T11:39:17.948+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Securing PUT /api/applications
+2025-08-14T11:39:17.962+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-4] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T11:39:17.962+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Secured PUT /api/applications
+2025-08-14T11:39:17.964+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-4] c.h.c.controller.ApplicationController   : Request to update application with ID: 5
+2025-08-14T11:39:18.011+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-4] c.h.c.service.ApplicationServiceImpl     : Application with ID 5 updated successfully
+2025-08-14T11:39:18.011+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-4] c.h.c.controller.ApplicationController   : Application with ID 5 updated successfully
+2025-08-14T11:39:48.880+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/applications/5
+2025-08-14T11:39:48.892+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-1] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T11:39:48.893+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/applications/5
+2025-08-14T11:39:48.897+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-1] c.h.c.controller.ApplicationController   : Request to fetch application with ID: 5
+2025-08-14T11:39:48.912+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-1] c.h.c.controller.ApplicationController   : Fetched application with ID: 5
+2025-08-14T11:46:23.358+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /api/applications/jobseeker/1
+2025-08-14T11:46:23.388+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-7] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T11:46:23.390+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /api/applications/jobseeker/1
+2025-08-14T11:46:23.397+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-7] c.h.c.controller.ApplicationController   : Request to fetch applications for job seeker ID: 1
+2025-08-14T11:46:23.431+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-7] c.h.c.service.ApplicationServiceImpl     : Fetched 3 applications for job seeker ID: 1
+2025-08-14T11:46:23.431+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-7] c.h.c.controller.ApplicationController   : Fetched 3 applications for job seeker ID: 1
+2025-08-14T11:51:47.967+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-10] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login?email=scott123@example.com&password=scott123
+2025-08-14T11:51:47.990+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-10] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T11:51:47.992+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-10] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login?email=scott123@example.com&password=scott123
+2025-08-14T11:51:48.093+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-10] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-08-14T11:54:42.364+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Securing POST /api/jobseekers
+2025-08-14T11:54:42.379+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-4] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T11:54:42.381+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Secured POST /api/jobseekers
+2025-08-14T11:54:42.833+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-4] c.h.c.controller.JobSeekerController     : Request to create job seeker for userId: 7
+2025-08-14T11:54:42.866+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-4] c.h.c.service.JobSeekerServiceImpl       : Job seeker created successfully with ID: 2
+2025-08-14T11:54:42.866+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-4] c.h.c.controller.JobSeekerController     : Job seeker created successfully with ID: 2
+2025-08-14T11:55:27.099+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/applications
+2025-08-14T11:55:27.111+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-1] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T11:55:27.112+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/applications
+2025-08-14T11:55:27.113+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-1] c.h.c.controller.ApplicationController   : Request to fetch all applications
+2025-08-14T11:55:27.132+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-1] c.h.c.service.ApplicationServiceImpl     : Fetched 3 applications
+2025-08-14T11:55:27.132+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-1] c.h.c.controller.ApplicationController   : Fetched 3 applications
+2025-08-14T11:55:41.582+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /api/jobpostings
+2025-08-14T11:55:41.596+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-5] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T11:55:41.597+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /api/jobpostings
+2025-08-14T11:55:41.599+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-5] c.h.c.controller.JobPostingController    : Request to fetch all job postings
+2025-08-14T11:55:41.617+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-5] c.h.c.controller.JobPostingController    : Fetched 3 job postings
+2025-08-14T11:56:58.344+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-8] o.s.security.web.FilterChainProxy        : Securing PUT /api/jobpostings
+2025-08-14T11:56:58.358+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-8] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T11:56:58.359+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-8] o.s.security.web.FilterChainProxy        : Secured PUT /api/jobpostings
+2025-08-14T11:56:58.371+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-8] c.h.c.controller.JobPostingController    : Request to update job posting with ID: 3
+2025-08-14T11:56:58.458+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-8] c.h.c.service.JobPostingServiceImpl      : Job posting with ID 3 updated successfully
+2025-08-14T11:56:58.458+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-8] c.h.c.controller.JobPostingController    : Job posting with ID 3 updated successfully
+2025-08-14T12:00:50.454+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/applications
+2025-08-14T12:00:50.468+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-2] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T12:00:50.468+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /api/applications
+2025-08-14T12:00:50.471+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-2] c.h.c.controller.ApplicationController   : Request to apply for job ID: 3 by job seeker ID: 2
+2025-08-14T12:00:50.486+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-2] c.h.c.service.ApplicationServiceImpl     : Application created with ID: 6
+2025-08-14T12:00:50.487+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-2] c.h.c.controller.ApplicationController   : Application created successfully with ID: 6
+2025-08-14T12:48:55.679+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/applications
+2025-08-14T12:48:55.702+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-1] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T12:48:55.702+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/applications
+2025-08-14T12:48:55.703+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-1] c.h.c.controller.ApplicationController   : Request to fetch all applications
+2025-08-14T12:48:55.727+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-1] c.h.c.service.ApplicationServiceImpl     : Fetched 4 applications
+2025-08-14T12:48:55.729+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-1] c.h.c.controller.ApplicationController   : Fetched 4 applications
+2025-08-14T14:13:16.870+05:30  WARN 16944 --- [CareerCrafter] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=43m2s914ms256µs800ns).
+2025-08-14T14:14:00.356+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /api/jobpostings
+2025-08-14T14:14:00.494+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-7] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T14:14:00.494+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /api/jobpostings
+2025-08-14T14:14:00.508+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-7] c.h.c.controller.JobPostingController    : Request to fetch all job postings
+2025-08-14T14:14:00.533+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-7] c.h.c.controller.JobPostingController    : Fetched 3 job postings
+2025-08-14T14:40:41.132+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /api/applications
+2025-08-14T14:40:41.211+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-10] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T14:40:41.212+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /api/applications
+2025-08-14T14:40:41.217+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-10] c.h.c.controller.ApplicationController   : Request to fetch all applications
+2025-08-14T14:40:41.267+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-10] c.h.c.service.ApplicationServiceImpl     : Fetched 4 applications
+2025-08-14T14:40:41.267+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-10] c.h.c.controller.ApplicationController   : Fetched 4 applications
+2025-08-14T14:59:29.773+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /api/jobpostings
+2025-08-14T14:59:29.848+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-4] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T14:59:29.851+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /api/jobpostings
+2025-08-14T14:59:29.854+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-4] c.h.c.controller.JobPostingController    : Request to fetch all job postings
+2025-08-14T14:59:29.870+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-4] c.h.c.controller.JobPostingController    : Fetched 3 job postings
+2025-08-14T15:00:16.065+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/applications
+2025-08-14T15:00:16.090+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-1] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T15:00:16.091+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/applications
+2025-08-14T15:00:16.093+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-1] c.h.c.controller.ApplicationController   : Request to fetch all applications
+2025-08-14T15:00:16.123+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-1] c.h.c.service.ApplicationServiceImpl     : Fetched 4 applications
+2025-08-14T15:00:16.124+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-1] c.h.c.controller.ApplicationController   : Fetched 4 applications
+2025-08-14T15:10:11.954+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-7] o.s.security.web.FilterChainProxy        : Securing POST /api/jobpostings
+2025-08-14T15:10:12.115+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-7] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T15:10:12.117+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-7] o.s.security.web.FilterChainProxy        : Secured POST /api/jobpostings
+2025-08-14T15:10:30.693+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/jobpostings
+2025-08-14T15:10:30.749+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-9] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T15:10:30.750+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/jobpostings
+2025-08-14T15:10:30.761+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-9] c.h.c.controller.JobPostingController    : Request to fetch all job postings
+2025-08-14T15:10:30.823+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-9] c.h.c.controller.JobPostingController    : Fetched 3 job postings
+2025-08-14T15:11:18.489+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-10] o.s.security.web.FilterChainProxy        : Securing POST /api/applications
+2025-08-14T15:11:18.551+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-10] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T15:11:18.552+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-10] o.s.security.web.FilterChainProxy        : Secured POST /api/applications
+2025-08-14T15:11:18.563+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-10] c.h.c.controller.ApplicationController   : Request to apply for job ID: 3 by job seeker ID: 2
+2025-08-14T15:11:18.707+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-10] c.h.c.service.ApplicationServiceImpl     : Application created with ID: 7
+2025-08-14T15:11:18.708+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-10] c.h.c.controller.ApplicationController   : Application created successfully with ID: 7
+2025-08-14T15:13:26.918+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Securing PUT /api/applications
+2025-08-14T15:13:27.073+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-4] c.h.c.security.JwtRequestFilter          : JWT authenticated for: scott123@example.com
+2025-08-14T15:13:27.084+05:30 DEBUG 16944 --- [CareerCrafter] [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Secured PUT /api/applications
+2025-08-14T15:13:27.095+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-4] c.h.c.controller.ApplicationController   : Request to update application with ID: 7
+2025-08-14T15:13:27.614+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-4] c.h.c.service.ApplicationServiceImpl     : Application with ID 7 updated successfully
+2025-08-14T15:13:27.617+05:30  INFO 16944 --- [CareerCrafter] [http-nio-8081-exec-4] c.h.c.controller.ApplicationController   : Application with ID 7 updated successfully
+2025-08-14T15:34:09.768+05:30  INFO 16944 --- [CareerCrafter] [RMI TCP Connection(215)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-08-14T15:34:09.820+05:30  INFO 16944 --- [CareerCrafter] [RMI TCP Connection(215)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-14T15:34:09.837+05:30  INFO 16944 --- [CareerCrafter] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-14T15:34:09.860+05:30  INFO 16944 --- [CareerCrafter] [RMI TCP Connection(215)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-14T15:34:09.885+05:30  INFO 16944 --- [CareerCrafter] [RMI TCP Connection(215)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-14T15:34:09.893+05:30  INFO 16944 --- [CareerCrafter] [RMI TCP Connection(215)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

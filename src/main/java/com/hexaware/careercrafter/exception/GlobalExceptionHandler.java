@@ -11,12 +11,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /*
- * GlobalExceptionHandler to manage custom and security-related exceptions
+ * GlobalExceptionHandler to manage and handle all custom and generic exceptions.
  */
+
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    // --- Your custom exceptions ---
+    //Custom Exceptions
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<String> handleResourceNotFound(ResourceNotFoundException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
@@ -32,7 +33,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
-    // --- Security & JWT related exceptions ---
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<String> handleBadCredentials(BadCredentialsException ex) {
         return new ResponseEntity<>("Invalid username or password", HttpStatus.UNAUTHORIZED);
@@ -60,8 +60,8 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleAll(Exception ex) {
-        ex.printStackTrace(); // prints full cause in console
+        ex.printStackTrace();
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                             .body(ex.getMessage()); // shows real error in Postman
+                             .body(ex.getMessage());
     }
 }

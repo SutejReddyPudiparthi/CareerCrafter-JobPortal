@@ -3,6 +3,11 @@ package com.hexaware.careercrafter.service;
 import com.hexaware.careercrafter.dto.*;
 import java.util.List;
 
+/*
+ * service interface defining business logic for employer entities.
+ */
+
+
 public interface IEmployerService {
 	
 	EmployerDTO createEmployer(EmployerDTO employerDTO);

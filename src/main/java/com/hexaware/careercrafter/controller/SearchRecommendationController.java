@@ -8,6 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+/*
+ * Rest Controller for managing search recommendations and saved searches.
+ * improves the search experience.
+ */
+
+
 @RestController
 @RequestMapping("/api/search-recommendations")
 public class SearchRecommendationController {

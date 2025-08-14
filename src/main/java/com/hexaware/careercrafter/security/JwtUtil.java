@@ -33,7 +33,6 @@ public class JwtUtil {
     }
 
     private Claims extractAllClaims(String token) {
-        // if you upgrade to JJWT 0.11.x+, use parserBuilder + Keys.hmacShaKeyFor
         return Jwts.parser()
                 .setSigningKey(SECRET_KEY)
                 .parseClaimsJws(token)

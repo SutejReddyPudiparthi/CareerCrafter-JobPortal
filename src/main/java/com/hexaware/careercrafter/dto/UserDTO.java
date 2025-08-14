@@ -7,6 +7,16 @@ import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
+/*
+ * 
+ * DTO for user information.
+ * Used for transferring user authentication and profile data.
+ * 
+ * 
+ * 
+ */
+
+
 @Getter
 @Setter
 @NoArgsConstructor

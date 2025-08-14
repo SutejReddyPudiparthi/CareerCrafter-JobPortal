@@ -15,7 +15,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
-@EnableMethodSecurity // enables @PreAuthorize etc. if you need it
+@EnableMethodSecurity
 public class SecurityConfig {
 
     @Autowired
@@ -42,8 +42,8 @@ public class SecurityConfig {
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setUserDetailsService(userDetailsService); // uses your CustomUserDetailsService
-        provider.setPasswordEncoder(passwordEncoder());     // BCrypt check
+        provider.setUserDetailsService(userDetailsService);
+        provider.setPasswordEncoder(passwordEncoder());
         return provider;
     }
 
@@ -52,7 +52,6 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    // expose AuthenticationManager (used by your AuthController login)
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
         return authConfig.getAuthenticationManager();

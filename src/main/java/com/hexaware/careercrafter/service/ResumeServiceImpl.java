@@ -15,6 +15,13 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/*
+ * Implementation of IResumeService.
+ * Implements resume related operations.
+ */
+
+
 @Service
 public class ResumeServiceImpl implements IResumeService {
 
@@ -86,7 +93,6 @@ public class ResumeServiceImpl implements IResumeService {
         return mapToDTO(saved);
     }
 
-    // --- Mapping methods ---
     private ResumeDTO mapToDTO(Resume entity) {
         ResumeDTO dto = new ResumeDTO();
         dto.setResumeId(entity.getResumeId());

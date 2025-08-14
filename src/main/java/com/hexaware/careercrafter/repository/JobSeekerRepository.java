@@ -6,8 +6,13 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/*
+ * Repository interface for job seeker.
+ */
+
 @Repository
 public interface JobSeekerRepository extends JpaRepository<JobSeeker, Integer> {
+	
 	List<JobSeeker> findByFirstNameContainingIgnoreCase(String firstName);
 	
 }

@@ -13,6 +13,13 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/*
+ * Implementation of ISearchRecommendationService.
+ * Implements search related operations.
+ */
+
+
 @Service
 public class SearchRecommendationServiceImpl implements ISearchRecommendationService {
 

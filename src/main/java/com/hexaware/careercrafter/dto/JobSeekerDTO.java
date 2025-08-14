@@ -6,6 +6,13 @@ import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
+/*
+ * 
+ * DTO for job seeker profile.
+ * Validation incoming job seeker details and supports profile operations.
+ * 
+ * 
+ */
 @Getter
 @Setter
 @NoArgsConstructor

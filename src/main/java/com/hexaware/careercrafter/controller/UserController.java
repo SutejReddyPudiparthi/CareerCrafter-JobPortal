@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/*
+ * Rest Controller for user operations.
+ */
+
 @RestController
 @RequestMapping("/api/users")
 public class UserController {

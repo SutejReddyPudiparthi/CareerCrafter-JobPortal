@@ -13,6 +13,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+/*
+ * Rest Controller for authentication operations.
+ * Handles authentication.
+ */
+
+
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -31,8 +37,27 @@ public class AuthController {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+    
+    // Registering a new user
+    @PostMapping("/register")
+    public String registerUser(@RequestBody UserDTO userDTO) {
+        if (userRepository.findByEmail(userDTO.getEmail()) != null) {
+            return "Email is already registered!";
+        }
 
-    // LOGIN and return JWT
+        User user = new User();
+        user.setName(userDTO.getName());
+        user.setEmail(userDTO.getEmail());
+        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+        user.setUserType(userDTO.getUserType());
+        user.setActive(true);
+
+        userRepository.save(user);
+
+        return "User registered successfully!";
+    }
+
+    // Login and return Jwt token
     @PostMapping("/login")
     public String createToken(@RequestParam String email, @RequestParam String password) throws Exception {
         try {
@@ -47,23 +72,4 @@ public class AuthController {
         return jwtUtil.generateToken(userDetails);
     }
 
-    // REGISTER new user
-    @PostMapping("/register")
-    public String registerUser(@RequestBody UserDTO userDTO) {
-        if (userRepository.findByEmail(userDTO.getEmail()) != null) {
-            return "Email is already registered!";
-        }
-
-        User user = new User();
-        user.setName(userDTO.getName());
-        user.setEmail(userDTO.getEmail());
-        // Hash password before saving
-        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
-        user.setUserType(userDTO.getUserType());
-        user.setActive(true);
-
-        userRepository.save(user);
-
-        return "User registered successfully!";
-    }
 }

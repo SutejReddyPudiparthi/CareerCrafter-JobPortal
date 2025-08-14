@@ -3,6 +3,11 @@ package com.hexaware.careercrafter.service;
 import com.hexaware.careercrafter.dto.*;
 import java.util.List;
 
+/*
+ * service interface for managing resumes.
+ */
+
+
 public interface IResumeService {
     ResumeDTO uploadResume(ResumeDTO resumeDTO);
     ResumeDTO getResumeById(int id);
