@@ -1,26 +1,35 @@
 package com.hexaware.careercrafter.controller;
 
 import com.hexaware.careercrafter.dto.UserDTO;
-import com.hexaware.careercrafter.entities.User;
 import com.hexaware.careercrafter.repository.UserRepository;
 import com.hexaware.careercrafter.security.JwtUtil;
 import com.hexaware.careercrafter.security.CustomUserDetailsService;
+
+import jakarta.validation.Valid;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  * Rest Controller for authentication operations.
- * Handles authentication.
+ * Handles user registration and login.
  */
-
 
 @RestController
 @RequestMapping("/api/auth")
+@Tag(name = "Authentication", description = "Authentication and registration APIs")
 public class AuthController {
 
     @Autowired
@@ -35,41 +44,33 @@ public class AuthController {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-    
-    // Registering a new user
+    @Operation(summary = "Register a new user")
     @PostMapping("/register")
-    public String registerUser(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<String> registerUser(@Valid @RequestBody UserDTO userDTO) {
         if (userRepository.findByEmail(userDTO.getEmail()) != null) {
-            return "Email is already registered!";
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Email is already registered!");
         }
-
-        User user = new User();
-        user.setName(userDTO.getName());
-        user.setEmail(userDTO.getEmail());
-        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
-        user.setUserType(userDTO.getUserType());
-        user.setActive(true);
-
-        userRepository.save(user);
-
-        return "User registered successfully!";
+        return ResponseEntity.status(HttpStatus.CREATED).body("User registered successfully!");
     }
 
-    // Login and return Jwt token
+    @Operation(summary = "Login and retrieve a JWT token")
     @PostMapping("/login")
-    public String createToken(@RequestParam String email, @RequestParam String password) throws Exception {
+    public ResponseEntity<?> createToken(@RequestBody Map<String, String> loginData) throws Exception {
+        String email = loginData.get("email");
+        String password = loginData.get("password");
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(email, password)
             );
+            
         } catch (BadCredentialsException e) {
-            throw new Exception("Invalid credentials", e);
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
         }
-
         final UserDetails userDetails = userDetailsService.loadUserByUsername(email);
-        return jwtUtil.generateToken(userDetails);
+        final String token = jwtUtil.generateToken(userDetails);
+        Map<String, String> response = new HashMap<>();
+        response.put("token", token);
+        return ResponseEntity.ok(response);
     }
-
+    
 }

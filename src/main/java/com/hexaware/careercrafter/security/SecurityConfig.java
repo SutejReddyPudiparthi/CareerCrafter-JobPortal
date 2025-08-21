@@ -1,11 +1,12 @@
 package com.hexaware.careercrafter.security;
 
+import com.hexaware.careercrafter.config.MDCFilter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -15,7 +16,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
-@EnableMethodSecurity
+@EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
 
     @Autowired
@@ -24,17 +25,21 @@ public class SecurityConfig {
     @Autowired
     private CustomUserDetailsService userDetailsService;
 
+    @Autowired
+    private MDCFilter mdcFilter;
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable())
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**", "/test-exceptions/**").permitAll()
-                .anyRequest().authenticated()
-            )
-            .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .authenticationProvider(daoAuthenticationProvider())
-            .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+          .csrf(csrf -> csrf.disable())
+          .authorizeHttpRequests(auth -> auth
+            .requestMatchers("/api/auth/**", "/test-exceptions/**").permitAll()
+            .requestMatchers("/actuator/**").hasRole("EMPLOYER")
+            .anyRequest().authenticated())
+          .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+          .authenticationProvider(daoAuthenticationProvider())
+          .addFilterBefore(mdcFilter, JwtRequestFilter.class)
+          .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
@@ -53,7 +58,9 @@ public class SecurityConfig {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
+    public AuthenticationManager authenticationManager(
+        org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration authConfig)
+        throws Exception {
         return authConfig.getAuthenticationManager();
     }
 }

@@ -4,20 +4,20 @@ import com.hexaware.careercrafter.dto.UserDTO;
 import com.hexaware.careercrafter.entities.User;
 import com.hexaware.careercrafter.exception.*;
 import com.hexaware.careercrafter.repository.UserRepository;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-
 /*
  * Implementation of IUserService.
  * Implements user-related operations.
  */
-
 
 @Service
 public class UserServiceImpl implements IUserService {
@@ -67,17 +67,6 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public void deleteUser(int userId) {
-        logger.debug("Deleting user with ID: {}", userId);
-        if (!userRepository.existsById(userId)) {
-            logger.error("Cannot delete - User with ID {} not found", userId);
-            throw new ResourceNotFoundException("User with ID " + userId + " not found.");
-        }
-        userRepository.deleteById(userId);
-        logger.info("User with ID {} deleted successfully", userId);
-    }
-
-    @Override
     public UserDTO updateUser(UserDTO userDTO) {
         logger.debug("Updating user with ID: {}", userDTO.getUserId());
 
@@ -101,6 +90,17 @@ public class UserServiceImpl implements IUserService {
         User updatedUser = userRepository.save(convertToEntity(userDTO));
         logger.info("User with ID {} updated successfully", updatedUser.getUserId());
         return convertToDTO(updatedUser);
+    }
+    
+    @Override
+    public void deleteUser(int userId) {
+        logger.debug("Deleting user with ID: {}", userId);
+        if (!userRepository.existsById(userId)) {
+            logger.error("Cannot delete - User with ID {} not found", userId);
+            throw new ResourceNotFoundException("User with ID " + userId + " not found.");
+        }
+        userRepository.deleteById(userId);
+        logger.info("User with ID {} deleted successfully", userId);
     }
 
     private User convertToEntity(UserDTO dto) {

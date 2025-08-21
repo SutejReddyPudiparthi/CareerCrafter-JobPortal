@@ -1,6 +1,7 @@
 package com.hexaware.careercrafter.entities;
 
 import jakarta.persistence.*;
+
 import java.util.List;
 
 /*
@@ -23,10 +24,8 @@ public class JobSeeker {
     private User user;
 
     @Column(nullable = false)
-    private String firstName;
+    private String fullName;
     
-    @Column(nullable = false)
-    private String lastName;
     private String phone;
     private String address;
     private String education;
@@ -43,13 +42,12 @@ public class JobSeeker {
     	
     }
 
-	public JobSeeker(int jobSeekerId, User user, String firstName, String lastName, String phone, String address,
+	public JobSeeker(int jobSeekerId, User user, String fullName, String phone, String address,
 			String education, String skills, Integer experience, List<Resume> resumes, List<Application> applications) {
 		super();
 		this.jobSeekerId = jobSeekerId;
 		this.user = user;
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.fullName = fullName;
 		this.phone = phone;
 		this.address = address;
 		this.education = education;
@@ -75,20 +73,12 @@ public class JobSeeker {
 		this.user = user;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getFullName() {
+		return fullName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 
 	public String getPhone() {

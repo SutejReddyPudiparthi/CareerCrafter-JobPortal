@@ -2,7 +2,6 @@ package com.hexaware.careercrafter.service;
 
 import com.hexaware.careercrafter.dto.ApplicationDTO;
 import com.hexaware.careercrafter.entities.Application;
-import com.hexaware.careercrafter.entities.Application.ApplicationStatus;
 import com.hexaware.careercrafter.exception.ResourceNotFoundException;
 import com.hexaware.careercrafter.repository.ApplicationRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -30,7 +29,7 @@ class ApplicationServiceImplTest {
     void setup() {
         dto = new ApplicationDTO();
         dto.setApplicationId(1);
-        dto.setJobPostingId(2);
+        dto.setJobListingId(2);
         dto.setJobSeekerId(3);
         dto.setStatus(ApplicationDTO.ApplicationStatus.APPLIED);
 

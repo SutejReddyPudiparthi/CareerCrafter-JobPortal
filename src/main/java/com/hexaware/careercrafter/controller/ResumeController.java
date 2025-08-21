@@ -2,19 +2,34 @@ package com.hexaware.careercrafter.controller;
 
 import com.hexaware.careercrafter.dto.ResumeDTO;
 import com.hexaware.careercrafter.service.IResumeService;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.List;
 
 /*
  * Rest Controller for resume operations.
- * Handles resumes.
  */
 
 @RestController
 @RequestMapping("/api/resumes")
+@Tag(name = "Resumes", description = "Resume upload, update, and download APIs")
 public class ResumeController {
 
     private static final Logger logger = LoggerFactory.getLogger(ResumeController.class);
@@ -22,42 +37,82 @@ public class ResumeController {
     @Autowired
     private IResumeService resumeService;
 
-    @PostMapping
-    public ResumeDTO uploadResume(@RequestBody ResumeDTO resumeDTO) {
-        logger.info("Request to upload resume for jobSeekerId: {}", resumeDTO.getJobSeekerId());
+    @PreAuthorize("hasRole('JOBSEEKER')")
+    @Operation(summary = "Upload resume file")
+    @PostMapping(path = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<ResumeDTO> uploadResume(@RequestParam("jobSeekerId") int jobSeekerId,
+                                                  @RequestPart("file") MultipartFile file) throws IOException {
+        logger.info("Request to upload resume for jobSeekerId: {}", jobSeekerId);
+        String fileName = file.getOriginalFilename();
+        String fileStoragePath = "./resumes/" + jobSeekerId + "_" + System.currentTimeMillis() + "_" + fileName;
+        java.nio.file.Files.createDirectories(java.nio.file.Paths.get("./resumes/"));
+        file.transferTo(java.nio.file.Paths.get(fileStoragePath));
+        ResumeDTO resumeDTO = new ResumeDTO();
+        resumeDTO.setJobSeekerId(jobSeekerId);
+        resumeDTO.setFilePath(fileStoragePath);
+        resumeDTO.setPrimary(true);
         ResumeDTO created = resumeService.uploadResume(resumeDTO);
         logger.info("Resume uploaded successfully with ID: {}", created.getResumeId());
-        return created;
+        return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
+    @PreAuthorize("hasRole('EMPLOYER') or hasRole('JOBSEEKER')")
+    @Operation(summary = "Get resume metadata by ID")
     @GetMapping("/{id}")
-    public ResumeDTO getResumeById(@PathVariable int id) {
+    public ResponseEntity<ResumeDTO> getResumeById(@PathVariable int id) {
         logger.info("Request to fetch resume with ID: {}", id);
         ResumeDTO resume = resumeService.getResumeById(id);
         logger.info("Successfully fetched resume with ID: {}", id);
-        return resume;
+        return ResponseEntity.ok(resume);
     }
 
+    @PreAuthorize("hasRole('JOBSEEKER')")
+    @Operation(summary = "Get resumes by job seeker ID")
     @GetMapping("/jobseeker/{jobSeekerId}")
-    public List<ResumeDTO> getResumesByJobSeekerId(@PathVariable int jobSeekerId) {
+    public ResponseEntity<List<ResumeDTO>> getResumesByJobSeekerId(@PathVariable int jobSeekerId) {
         logger.info("Request to fetch resumes for jobSeekerId: {}", jobSeekerId);
         List<ResumeDTO> resumes = resumeService.getResumesByJobSeekerId(jobSeekerId);
         logger.info("Fetched {} resumes for jobSeekerId: {}", resumes.size(), jobSeekerId);
-        return resumes;
+        return ResponseEntity.ok(resumes);
     }
 
+    @PreAuthorize("hasRole('JOBSEEKER')")
+    @Operation(summary = "Update resume metadata")
     @PutMapping
-    public ResumeDTO updateResume(@RequestBody ResumeDTO resumeDTO) {
+    public ResponseEntity<ResumeDTO> updateResume(@RequestBody ResumeDTO resumeDTO) {
         logger.info("Request to update resume with ID: {}", resumeDTO.getResumeId());
         ResumeDTO updated = resumeService.updateResume(resumeDTO);
         logger.info("Resume with ID {} updated successfully", resumeDTO.getResumeId());
-        return updated;
+        return ResponseEntity.ok(updated);
     }
 
+    @PreAuthorize("hasRole('JOBSEEKER')")
+    @Operation(summary = "Delete resume by ID")
     @DeleteMapping("/{id}")
-    public void deleteResume(@PathVariable int id) {
+    public ResponseEntity<Void> deleteResume(@PathVariable int id) {
         logger.info("Request to delete resume with ID: {}", id);
         resumeService.deleteResume(id);
         logger.info("Resume with ID {} deleted successfully", id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PreAuthorize("hasRole('JOBSEEKER')")
+    @Operation(summary = "Download resume file")
+    @GetMapping("/download/{id}")
+    public ResponseEntity<Resource> downloadResumeFile(@PathVariable int id) throws MalformedURLException, IOException {
+        logger.info("Request to download resume file with ID: {}", id);
+        ResumeDTO resumeDTO = resumeService.getResumeById(id);
+        java.nio.file.Path path = java.nio.file.Paths.get(resumeDTO.getFilePath());
+        Resource resource = new org.springframework.core.io.UrlResource(path.toUri());
+        if (!resource.exists()) {
+            logger.error("Resume file not found at path: {}", resumeDTO.getFilePath());
+            return ResponseEntity.notFound().build();
+        }
+        String contentType = "application/octet-stream";
+        String fileName = path.getFileName().toString();
+        return ResponseEntity.ok()
+                .contentType(MediaType.parseMediaType(contentType))
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileName + "\"")
+                .body(resource);
     }
 }

@@ -2,26 +2,26 @@ package com.hexaware.careercrafter.service;
 
 import com.hexaware.careercrafter.dto.ApplicationDTO;
 import com.hexaware.careercrafter.entities.Application;
-import com.hexaware.careercrafter.entities.JobPosting;
-import com.hexaware.careercrafter.entities.JobSeeker;
 import com.hexaware.careercrafter.entities.Application.ApplicationStatus;
+import com.hexaware.careercrafter.entities.JobListing;
+import com.hexaware.careercrafter.entities.JobSeeker;
 import com.hexaware.careercrafter.exception.InvalidRequestException;
 import com.hexaware.careercrafter.exception.ResourceNotFoundException;
 import com.hexaware.careercrafter.repository.ApplicationRepository;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 /*
  * Implementation of IApplicationService.
- * Implements application operations.
+ * Implements application-related operations.
  */
-
 
 @Service
 public class ApplicationServiceImpl implements IApplicationService {
@@ -33,85 +33,78 @@ public class ApplicationServiceImpl implements IApplicationService {
 
     @Override
     public ApplicationDTO applyForJob(ApplicationDTO dto) {
-        logger.debug("Applying for job ID: {} by job seeker ID: {}", dto.getJobPostingId(), dto.getJobSeekerId());
-
-        if (dto.getJobPostingId() == 0 || dto.getJobSeekerId() == 0) {
-            logger.error("Invalid application request - Missing job posting ID or job seeker ID");
-            throw new InvalidRequestException("JobPostingId and JobSeekerId must be provided.");
+        logger.debug("Applying for job ID {} by job seeker ID {}", dto.getJobListingId(), dto.getJobSeekerId());
+        if (dto.getJobListingId() == 0 || dto.getJobSeekerId() == 0) {
+            logger.error("Missing jobListingId or jobSeekerId");
+            throw new InvalidRequestException("jobListingId and jobSeekerId are required");
         }
         Application entity = mapToEntity(dto);
         Application saved = applicationRepository.save(entity);
-        logger.info("Application created with ID: {}", saved.getApplicationId());
+        logger.info("Application created with ID {}", saved.getApplicationId());
         return mapToDTO(saved);
     }
 
     @Override
     public ApplicationDTO getApplicationById(int id) {
-        logger.debug("Fetching application with ID: {}", id);
         Application entity = applicationRepository.findById(id)
-                .orElseThrow(() -> {
-                    logger.error("Application with ID {} not found", id);
-                    return new ResourceNotFoundException("Application not found with ID: " + id);
-                });
+                .orElseThrow(() -> new ResourceNotFoundException("Application not found with id " + id));
         return mapToDTO(entity);
     }
 
     @Override
     public List<ApplicationDTO> getAllApplications() {
-        logger.debug("Fetching all applications from database");
-        List<Application> applications = applicationRepository.findAll();
+        List<Application> entities = applicationRepository.findAll();
         List<ApplicationDTO> dtos = new ArrayList<>();
-        for (Application app : applications) {
-            dtos.add(mapToDTO(app));
+        for (Application e : entities) {
+            dtos.add(mapToDTO(e));
         }
-        logger.info("Fetched {} applications", dtos.size());
         return dtos;
     }
 
     @Override
-    public List<ApplicationDTO> getApplicationsByJobSeekerId(int jobSeekerId) {
-        logger.debug("Fetching applications for job seeker ID: {}", jobSeekerId);
-        List<Application> applications = applicationRepository.findByJobSeekerJobSeekerId(jobSeekerId);
+    public List<ApplicationDTO> getApplicationsByJobSeekerId(int seekerId) {
+        List<Application> entities = applicationRepository.findByJobSeekerJobSeekerId(seekerId);
         List<ApplicationDTO> dtos = new ArrayList<>();
-        for (Application app : applications) {
-            dtos.add(mapToDTO(app));
+        for (Application e : entities) {
+            dtos.add(mapToDTO(e));
         }
-        logger.info("Fetched {} applications for job seeker ID: {}", dtos.size(), jobSeekerId);
+        return dtos;
+    }
+
+    @Override
+    public List<ApplicationDTO> getApplicationsByJobListingId(int listingId) {
+        List<Application> entities = applicationRepository.findByJobListingJobListingId(listingId);
+        List<ApplicationDTO> dtos = new ArrayList<>();
+        for (Application e : entities) {
+            dtos.add(mapToDTO(e));
+        }
         return dtos;
     }
 
     @Override
     public ApplicationDTO updateApplication(ApplicationDTO dto) {
-        logger.debug("Updating application with ID: {}", dto.getApplicationId());
         if (!applicationRepository.existsById(dto.getApplicationId())) {
-            logger.error("Cannot update - application with ID {} not found", dto.getApplicationId());
-            throw new ResourceNotFoundException("Application with ID " + dto.getApplicationId() + " not found for update.");
+            throw new ResourceNotFoundException("Application not found with id " + dto.getApplicationId());
         }
-        Application entity = mapToEntity(dto);
-        Application saved = applicationRepository.save(entity);
-        logger.info("Application with ID {} updated successfully", saved.getApplicationId());
+        Application updatedEntity = mapToEntity(dto);
+        Application saved = applicationRepository.save(updatedEntity);
         return mapToDTO(saved);
     }
 
     @Override
     public void deleteApplication(int id) {
-        logger.debug("Deleting application with ID: {}", id);
         if (!applicationRepository.existsById(id)) {
-            logger.error("Cannot delete - application with ID {} not found", id);
-            throw new ResourceNotFoundException("Application with ID " + id + " not found for deletion.");
+            throw new ResourceNotFoundException("Application not found with id " + id);
         }
         applicationRepository.deleteById(id);
-        logger.info("Application with ID {} deleted successfully", id);
     }
 
-    // --- Mapping methods ---
     private ApplicationDTO mapToDTO(Application entity) {
         ApplicationDTO dto = new ApplicationDTO();
         dto.setApplicationId(entity.getApplicationId());
-        dto.setJobPostingId(entity.getJob() != null ? entity.getJob().getJobPostingId() : 0);
+        dto.setJobListingId(entity.getJobListing() != null ? entity.getJobListing().getJobListingId() : 0);
         dto.setJobSeekerId(entity.getJobSeeker() != null ? entity.getJobSeeker().getJobSeekerId() : 0);
         dto.setStatus(ApplicationDTO.ApplicationStatus.valueOf(entity.getStatus().name()));
-        dto.setCoverLetter(entity.getCoverLetter());
         dto.setResumeFilePath(entity.getResumeFilePath());
         return dto;
     }
@@ -119,19 +112,14 @@ public class ApplicationServiceImpl implements IApplicationService {
     private Application mapToEntity(ApplicationDTO dto) {
         Application entity = new Application();
         entity.setApplicationId(dto.getApplicationId());
-
-        JobPosting jobPosting = new JobPosting();
-        jobPosting.setJobPostingId(dto.getJobPostingId());
-        entity.setJob(jobPosting);
-
+        JobListing jobListing = new JobListing();
+        jobListing.setJobListingId(dto.getJobListingId());
+        entity.setJobListing(jobListing);
         JobSeeker jobSeeker = new JobSeeker();
         jobSeeker.setJobSeekerId(dto.getJobSeekerId());
         entity.setJobSeeker(jobSeeker);
-
         entity.setStatus(ApplicationStatus.valueOf(dto.getStatus().name()));
-        entity.setCoverLetter(dto.getCoverLetter());
         entity.setResumeFilePath(dto.getResumeFilePath());
-
         return entity;
     }
 }

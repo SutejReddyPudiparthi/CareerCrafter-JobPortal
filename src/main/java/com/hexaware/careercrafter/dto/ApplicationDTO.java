@@ -1,6 +1,7 @@
 package com.hexaware.careercrafter.dto;
 
 import jakarta.validation.constraints.*;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
@@ -24,17 +25,14 @@ public class ApplicationDTO {
 
     private int applicationId;
 
-    @NotNull(message="JobPostingID is required")
-    private int jobPostingId;
+    @NotNull(message="JobListingID is required")
+    private int jobListingId;
 
     @NotNull(message="JobSeekerID is required")
     private int jobSeekerId;
     
     @NotNull(message="Status is required")
     private ApplicationStatus status;
-    
-    @Size(max = 2000, message = "Cover letter can't exceed 2000 characters")
-    private String coverLetter;
 
     @Size(max = 500, message = "Resume file path can't exceed 500 characters")
     private String resumeFilePath;

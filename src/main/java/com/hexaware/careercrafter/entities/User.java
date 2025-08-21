@@ -1,16 +1,15 @@
 package com.hexaware.careercrafter.entities;
 
 import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
 
 /*
- * 
  * Entity which is representing a user in the system
  * A user can be a JobSeeker or Employer
  * Contains basic user details
- * 
  */
 
 
@@ -50,7 +49,7 @@ public class User {
     private List<SearchRecommendation> searchRecommendations;
 	
 	public enum UserType {
-        job_seeker, employer
+        JOBSEEKER, EMPLOYER
     }
 	
 	public User() {
@@ -77,6 +76,10 @@ public class User {
 	public void prePersist() {
 		this.createdAt = LocalDateTime.now();
 	}
+	
+	public String getRoleName() {
+        return "ROLE_" + this.userType.name();
+    }
 
 	public int getUserId() {
 		return userId;

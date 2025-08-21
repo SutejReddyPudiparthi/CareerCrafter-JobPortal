@@ -1,21 +1,19 @@
 package com.hexaware.careercrafter.dto;
 
 import com.hexaware.careercrafter.entities.User.UserType;
+
 import jakarta.validation.constraints.*;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 /*
- * 
  * DTO for user information.
  * Used for transferring user authentication and profile data.
  * 
- * 
- * 
  */
-
 
 @Getter
 @Setter
@@ -26,7 +24,7 @@ public class UserDTO {
     private int userId;
 
     @NotBlank(message = "Name is mandatory")
-    @Size(min = 2, max = 50, message = "Name must be between 2 and 50 characters")
+    @Size(min = 2, max = 70, message = "Name must be between 2 and 70 characters")
     private String name;
 
     @NotBlank(message = "Email is required")

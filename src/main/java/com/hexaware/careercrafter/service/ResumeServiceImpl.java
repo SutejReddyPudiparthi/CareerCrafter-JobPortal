@@ -7,24 +7,24 @@ import com.hexaware.careercrafter.exception.InvalidRequestException;
 import com.hexaware.careercrafter.exception.ResourceNotFoundException;
 import com.hexaware.careercrafter.repository.ResumeRepository;
 import com.hexaware.careercrafter.repository.JobSeekerRepository;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
 
 /*
  * Implementation of IResumeService.
  * Implements resume related operations.
  */
 
-
 @Service
 public class ResumeServiceImpl implements IResumeService {
-
     private static final Logger logger = LoggerFactory.getLogger(ResumeServiceImpl.class);
 
     @Autowired
@@ -32,7 +32,7 @@ public class ResumeServiceImpl implements IResumeService {
 
     @Autowired
     private JobSeekerRepository jobSeekerRepository;
-    
+
     @Override
     public ResumeDTO uploadResume(ResumeDTO dto) {
         logger.debug("Attempting to upload resume for jobSeekerId: {}", dto.getJobSeekerId());
@@ -70,17 +70,6 @@ public class ResumeServiceImpl implements IResumeService {
     }
 
     @Override
-    public void deleteResume(int id) {
-        logger.debug("Deleting resume with ID: {}", id);
-        if (!resumeRepository.existsById(id)) {
-            logger.error("Cannot delete - resume with ID {} not found", id);
-            throw new ResourceNotFoundException("Cannot delete. Resume not found with ID: " + id);
-        }
-        resumeRepository.deleteById(id);
-        logger.info("Resume with ID {} deleted successfully", id);
-    }
-
-    @Override
     public ResumeDTO updateResume(ResumeDTO dto) {
         logger.debug("Updating resume with ID: {}", dto.getResumeId());
         if (!resumeRepository.existsById(dto.getResumeId())) {
@@ -91,6 +80,17 @@ public class ResumeServiceImpl implements IResumeService {
         Resume saved = resumeRepository.save(entity);
         logger.info("Resume with ID {} updated successfully", saved.getResumeId());
         return mapToDTO(saved);
+    }
+
+    @Override
+    public void deleteResume(int id) {
+        logger.debug("Deleting resume with ID: {}", id);
+        if (!resumeRepository.existsById(id)) {
+            logger.error("Cannot delete - resume with ID {} not found", id);
+            throw new ResourceNotFoundException("Cannot delete. Resume not found with ID: " + id);
+        }
+        resumeRepository.deleteById(id);
+        logger.info("Resume with ID {} deleted successfully", id);
     }
 
     private ResumeDTO mapToDTO(Resume entity) {
@@ -105,18 +105,16 @@ public class ResumeServiceImpl implements IResumeService {
     private Resume mapToEntity(ResumeDTO dto) {
         Resume entity = new Resume();
         entity.setResumeId(dto.getResumeId());
-
         JobSeeker jobSeeker = jobSeekerRepository.findById(dto.getJobSeekerId())
                 .orElseThrow(() -> {
                     logger.error("JobSeeker not found with ID: {}", dto.getJobSeekerId());
                     return new ResourceNotFoundException("JobSeeker not found with id " + dto.getJobSeekerId());
                 });
-        jobSeeker.setJobSeekerId(dto.getJobSeekerId());
         entity.setJobSeeker(jobSeeker);
         entity.setFilePath(dto.getFilePath());
         entity.setPrimary(dto.isPrimary());
         if (entity.getUploadDate() == null) {
-            entity.setUploadDate(java.time.LocalDateTime.now());
+            entity.setUploadDate(LocalDateTime.now());
         }
         return entity;
     }

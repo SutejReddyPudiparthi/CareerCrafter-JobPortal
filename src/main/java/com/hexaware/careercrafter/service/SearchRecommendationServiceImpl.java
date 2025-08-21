@@ -5,20 +5,20 @@ import com.hexaware.careercrafter.entities.SearchRecommendation;
 import com.hexaware.careercrafter.entities.User;
 import com.hexaware.careercrafter.exception.*;
 import com.hexaware.careercrafter.repository.SearchRecommendationRepository;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 /*
  * Implementation of ISearchRecommendationService.
  * Implements search related operations.
  */
-
 
 @Service
 public class SearchRecommendationServiceImpl implements ISearchRecommendationService {
@@ -63,18 +63,7 @@ public class SearchRecommendationServiceImpl implements ISearchRecommendationSer
         logger.info("Fetched {} search recommendations for userId: {}", dtos.size(), userId);
         return dtos;
     }
-
-    @Override
-    public void deleteSearch(int id) {
-        logger.debug("Deleting search recommendation with ID: {}", id);
-        if (!searchRecommendationRepository.existsById(id)) {
-            logger.error("Cannot delete - search recommendation with ID {} not found", id);
-            throw new ResourceNotFoundException("Cannot delete. SearchRecommendation with ID " + id + " not found");
-        }
-        searchRecommendationRepository.deleteById(id);
-        logger.info("Search recommendation with ID {} deleted successfully", id);
-    }
-
+    
     @Override
     public SearchRecommendationDTO updateSearch(SearchRecommendationDTO dto) {
         logger.debug("Updating search recommendation with ID: {}", dto.getSearchId());
@@ -88,7 +77,16 @@ public class SearchRecommendationServiceImpl implements ISearchRecommendationSer
         return mapToDTO(saved);
     }
 
-    // --- Mapping methods ---
+    @Override
+    public void deleteSearch(int id) {
+        logger.debug("Deleting search recommendation with ID: {}", id);
+        if (!searchRecommendationRepository.existsById(id)) {
+            logger.error("Cannot delete - search recommendation with ID {} not found", id);
+            throw new ResourceNotFoundException("Cannot delete. SearchRecommendation with ID " + id + " not found");
+        }
+        searchRecommendationRepository.deleteById(id);
+        logger.info("Search recommendation with ID {} deleted successfully", id);
+    }
 
     private SearchRecommendationDTO mapToDTO(SearchRecommendation entity) {
         SearchRecommendationDTO dto = new SearchRecommendationDTO();
@@ -96,6 +94,8 @@ public class SearchRecommendationServiceImpl implements ISearchRecommendationSer
         dto.setUserId(entity.getUser() != null ? entity.getUser().getUserId() : 0);
         dto.setSearchKeywords(entity.getSearchKeywords());
         dto.setSearchFilters(entity.getSearchFilters());
+        dto.setLocation(entity.getLocation());
+        dto.setRecommendedJobs(entity.getRecommendedJobs());
         return dto;
     }
 
@@ -107,6 +107,8 @@ public class SearchRecommendationServiceImpl implements ISearchRecommendationSer
         entity.setUser(user);
         entity.setSearchKeywords(dto.getSearchKeywords());
         entity.setSearchFilters(dto.getSearchFilters());
+        entity.setLocation(dto.getLocation());
+        entity.setRecommendedJobs(dto.getRecommendedJobs());
         return entity;
     }
 }

@@ -34,8 +34,7 @@ class JobSeekerServiceImplTest {
         dto = new JobSeekerDTO();
         dto.setJobSeekerId(1);
         dto.setUserId(2);
-        dto.setFirstName("Alice");
-        dto.setLastName("Smith");
+        dto.setFullName("Alice Smith");
 
         user = new User(); user.setUserId(2);
 

@@ -2,20 +2,26 @@ package com.hexaware.careercrafter.controller;
 
 import com.hexaware.careercrafter.dto.SearchRecommendationDTO;
 import com.hexaware.careercrafter.service.ISearchRecommendationService;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 /*
  * Rest Controller for managing search recommendations and saved searches.
- * improves the search experience.
  */
-
 
 @RestController
 @RequestMapping("/api/search-recommendations")
+@Tag(name = "Search Recommendations", description = "APIs for managing saved searches and recommendations")
 public class SearchRecommendationController {
 
     private static final Logger logger = LoggerFactory.getLogger(SearchRecommendationController.class);
@@ -23,6 +29,8 @@ public class SearchRecommendationController {
     @Autowired
     private ISearchRecommendationService searchService;
 
+    @PreAuthorize("isAuthenticated()")
+    @Operation(summary = "Create a search recommendation")
     @PostMapping
     public SearchRecommendationDTO createSearch(@RequestBody SearchRecommendationDTO searchDTO) {
         logger.info("Request to create search recommendation for userId: {}", searchDTO.getUserId());
@@ -31,6 +39,8 @@ public class SearchRecommendationController {
         return created;
     }
 
+    @PreAuthorize("isAuthenticated()")
+    @Operation(summary = "Get search recommendation by ID")
     @GetMapping("/{id}")
     public SearchRecommendationDTO getSearchById(@PathVariable int id) {
         logger.info("Request to fetch search recommendation with ID: {}", id);
@@ -39,6 +49,8 @@ public class SearchRecommendationController {
         return dto;
     }
 
+    @PreAuthorize("isAuthenticated()")
+    @Operation(summary = "Get all search recommendations for a user")
     @GetMapping("/user/{userId}")
     public List<SearchRecommendationDTO> getSearchesByUserId(@PathVariable int userId) {
         logger.info("Request to fetch search recommendations for userId: {}", userId);
@@ -47,6 +59,8 @@ public class SearchRecommendationController {
         return list;
     }
 
+    @PreAuthorize("isAuthenticated()")
+    @Operation(summary = "Update a search recommendation")
     @PutMapping
     public SearchRecommendationDTO updateSearch(@RequestBody SearchRecommendationDTO searchDTO) {
         logger.info("Request to update search recommendation with ID: {}", searchDTO.getSearchId());
@@ -55,6 +69,8 @@ public class SearchRecommendationController {
         return updated;
     }
 
+    @PreAuthorize("isAuthenticated()")
+    @Operation(summary = "Delete a search recommendation")
     @DeleteMapping("/{id}")
     public void deleteSearch(@PathVariable int id) {
         logger.info("Request to delete search recommendation with ID: {}", id);

@@ -1,15 +1,17 @@
 package com.hexaware.careercrafter.dto;
 
-import com.hexaware.careercrafter.entities.JobPosting.JobType;
+import com.hexaware.careercrafter.entities.JobListing.JobType;
+
 import jakarta.validation.constraints.*;
+
 import lombok.Setter;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 /*
- * Data transfer object for job posting details.
- * Used to transfer job posting data.
+ * Data transfer object for job listing details.
+ * Used to transfer job listing data.
  * 
  */
 
@@ -18,22 +20,27 @@ import lombok.AllArgsConstructor;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class JobPostingDTO {
+public class JobListingDTO {
 
-    private int jobPostingId;
+    private int jobListingId;
 
     @NotNull(message="EmployerId is required")
     private int employerId;
 
     @NotBlank(message="Title is required")
-    @Size(min=3, max = 100)
+    @Size(min=3, max = 100, message = "Title length must be between 3 and 100 characters")
     private String title;
 
     @NotBlank(message="Description is required")
-    @Size(min=5, max = 500)
+    @Size(min=5, max = 500, message = "Title length must be between 5 and 500 characters")
     private String description;
+    
+    @NotBlank(message = "Qualification are required")
+    @Size(max = 200, message = "Qualification cannot exceed 200 characters")
+    private String qualification;
 
     @NotBlank(message="Location is required")
+    @Size(max = 200, message = "Location cannot exceed 200 characters")
     private String location;
 
     @NotNull(message="Job type is required")

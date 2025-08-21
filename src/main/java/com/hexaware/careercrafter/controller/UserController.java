@@ -2,9 +2,15 @@ package com.hexaware.careercrafter.controller;
 
 import com.hexaware.careercrafter.dto.UserDTO;
 import com.hexaware.careercrafter.service.IUserService;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import jakarta.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +24,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
+@Tag(name = "Users", description = "APIs for user management")
 public class UserController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -25,6 +32,7 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
+    @Operation(summary = "Create a new user")
     @PostMapping
     public ResponseEntity<UserDTO> createUser(@Valid @RequestBody UserDTO userDTO) {
         logger.info("Request to create a new user with email: {}", userDTO.getEmail());
@@ -33,6 +41,7 @@ public class UserController {
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
 
+    @Operation(summary = "Get user by ID")
     @GetMapping("/{id}")
     public ResponseEntity<UserDTO> getUserById(@PathVariable int id) {
         logger.info("Request to fetch user with ID: {}", id);
@@ -41,6 +50,7 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
+    @Operation(summary = "Get all users")
     @GetMapping
     public ResponseEntity<List<UserDTO>> getAllUsers() {
         logger.info("Request to fetch all users");
@@ -49,6 +59,7 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
 
+    @Operation(summary = "Update a user")
     @PutMapping
     public ResponseEntity<UserDTO> updateUser(@Valid @RequestBody UserDTO userDTO) {
         logger.info("Request to update user with ID: {}", userDTO.getUserId());
@@ -57,6 +68,7 @@ public class UserController {
         return ResponseEntity.ok(updatedUser);
     }
 
+    @Operation(summary = "Delete a user")
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable int id) {
         logger.info("Request to delete user with ID: {}", id);

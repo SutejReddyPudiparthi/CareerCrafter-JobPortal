@@ -8,7 +8,6 @@ public class ResourceNotFoundException extends RuntimeException {
 	 * Exception thrown when a requested resource cannot be found.
 	 */
 	
-	
 	public ResourceNotFoundException(String message) {
         super(message);
     }

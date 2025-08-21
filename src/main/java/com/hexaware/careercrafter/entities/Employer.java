@@ -1,6 +1,7 @@
 package com.hexaware.careercrafter.entities;
 
 import jakarta.persistence.*;
+
 import java.util.List;
 
 
@@ -27,21 +28,24 @@ public class Employer {
 	@Column(nullable = false)
 	private String companyName;
 	private String companyDescription;
-
+	private String position;
+	
 	@OneToMany(mappedBy = "employer", cascade = CascadeType.ALL)
-	private List<JobPosting> jobPostings;
+	private List<JobListing> jobListings;
 
 	public Employer() {
 		
 	}
 
-	public Employer(int employerId, User user, String companyName, String companyDescription,
-			List<JobPosting> jobPostings) {
+	public Employer(int employerId, User user, String companyName, String companyDescription, String position,
+			List<JobListing> jobListings) {
+		super();
 		this.employerId = employerId;
 		this.user = user;
 		this.companyName = companyName;
 		this.companyDescription = companyDescription;
-		this.jobPostings = jobPostings;
+		this.position = position;
+		this.jobListings = jobListings;
 	}
 
 	public int getEmployerId() {
@@ -76,12 +80,21 @@ public class Employer {
 		this.companyDescription = companyDescription;
 	}
 
-	public List<JobPosting> getJobPostings() {
-		return jobPostings;
+	public String getPosition() {
+		return position;
 	}
 
-	public void setJobPostings(List<JobPosting> jobPostings) {
-		this.jobPostings = jobPostings;
+	public void setPosition(String position) {
+		this.position = position;
 	}
+
+	public List<JobListing> getJobListings() {
+		return jobListings;
+	}
+
+	public void setJobListings(List<JobListing> jobListings) {
+		this.jobListings = jobListings;
+	}
+	
 	
 }

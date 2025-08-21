@@ -2,24 +2,31 @@ package com.hexaware.careercrafter.controller;
 
 import com.hexaware.careercrafter.dto.EmployerDTO;
 import com.hexaware.careercrafter.service.IEmployerService;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import jakarta.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 /*
  * Rest Controller for managing employer-related operations.
- * Accessible to users with employer role.
+ * Accessible only to users with EMPLOYER role.
  */
-
 
 @RestController
 @RequestMapping("/api/employers")
+@PreAuthorize("hasRole('EMPLOYER')")
+@Tag(name = "Employers", description = "Employer management APIs")
 public class EmployerController {
 
     private static final Logger logger = LoggerFactory.getLogger(EmployerController.class);
@@ -27,6 +34,7 @@ public class EmployerController {
     @Autowired
     private IEmployerService employerService;
 
+    @Operation(summary = "Create an employer")
     @PostMapping
     public ResponseEntity<EmployerDTO> createEmployer(@Valid @RequestBody EmployerDTO dto) {
         logger.info("Request to create employer for userId: {}", dto.getUserId());
@@ -35,6 +43,7 @@ public class EmployerController {
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
 
+    @Operation(summary = "Get employer by ID")
     @GetMapping("/{id}")
     public ResponseEntity<EmployerDTO> getEmployerById(@PathVariable int id) {
         logger.info("Request to fetch employer with ID: {}", id);
@@ -43,6 +52,7 @@ public class EmployerController {
         return ResponseEntity.ok(employer);
     }
 
+    @Operation(summary = "Get all employers")
     @GetMapping
     public ResponseEntity<List<EmployerDTO>> getAllEmployers() {
         logger.info("Request to fetch all employers");
@@ -51,6 +61,7 @@ public class EmployerController {
         return ResponseEntity.ok(employers);
     }
 
+    @Operation(summary = "Update an employer")
     @PutMapping
     public ResponseEntity<EmployerDTO> updateEmployer(@Valid @RequestBody EmployerDTO dto) {
         logger.info("Request to update employer with ID: {}", dto.getEmployerId());
@@ -59,6 +70,7 @@ public class EmployerController {
         return ResponseEntity.ok(updated);
     }
 
+    @Operation(summary = "Delete an employer")
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteEmployer(@PathVariable int id) {
         logger.info("Request to delete employer with ID: {}", id);

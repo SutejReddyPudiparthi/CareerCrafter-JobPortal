@@ -7,12 +7,11 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 /*
- * 
  * DTO for job seeker profile.
  * Validation incoming job seeker details and supports profile operations.
- * 
- * 
  */
+
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -24,13 +23,9 @@ public class JobSeekerDTO {
     @NotNull(message = "User ID is required")
     private int userId;
 
-    @NotBlank(message = "First name is required")
-    @Size(min = 2, max = 50, message = "First name must be between 2 and 50 characters")
-    private String firstName;
-
-    @NotBlank(message = "Last name is required")
-    @Size(min = 2, max = 50, message = "Last name must be between 2 and 50 characters")
-    private String lastName;
+    @NotBlank(message = "Full name is required")
+    @Size(min = 2, max = 70, message = "Full name must be between 2 and 70 characters")
+    private String fullName;
 
     @Pattern(regexp = "^[6-9]\\d{9}$", message = "Phone number must be 10 digits and start with 6-9")
     private String phone;
@@ -45,6 +40,6 @@ public class JobSeekerDTO {
     private String skills;
 
     @Min(value=0, message="Experience must be 0 or more")
-    @Max(value=50, message="Experience must be 50 or more")
+    @Max(value=50, message="Experience must be 50 or less")
     private Integer experience;
 }

@@ -7,29 +7,28 @@ import com.hexaware.careercrafter.exception.InvalidRequestException;
 import com.hexaware.careercrafter.exception.ResourceNotFoundException;
 import com.hexaware.careercrafter.repository.EmployerRepository;
 import com.hexaware.careercrafter.repository.UserRepository;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 /*
  * Implementation of IEmployerService.
  * Implements employer-related operations.
  */
 
-
 @Service
 public class EmployerServiceImpl implements IEmployerService {
-
     private static final Logger logger = LoggerFactory.getLogger(EmployerServiceImpl.class);
 
     @Autowired
     private EmployerRepository employerRepository;
-    
+
     @Autowired
     private UserRepository userRepository;
 
@@ -40,6 +39,11 @@ public class EmployerServiceImpl implements IEmployerService {
         if (employerDTO.getUserId() == 0 || employerDTO.getCompanyName() == null) {
             logger.error("Invalid employer creation request - missing userId or companyName");
             throw new InvalidRequestException("UserId and Company Name must be provided.");
+        }
+
+        if (employerDTO.getPosition() == null || employerDTO.getPosition().trim().isEmpty()) {
+            logger.error("Invalid employer creation request - missing position");
+            throw new InvalidRequestException("Position must be provided.");
         }
 
         User user = userRepository.findById(employerDTO.getUserId())
@@ -82,20 +86,27 @@ public class EmployerServiceImpl implements IEmployerService {
     public void deleteEmployer(int id) {
         logger.debug("Deleting employer with ID: {}", id);
         if (!employerRepository.existsById(id)) {
-            logger.error("Cannot delete - employer with ID {} does not exist", id);
-            throw new ResourceNotFoundException("Cannot delete. Employer with ID " + id + " does not exist.");
+            logger.error("Cannot delete - employer with ID does not exist");
+            throw new ResourceNotFoundException("Employer does not exist with ID: " + id);
         }
         employerRepository.deleteById(id);
-        logger.info("Employer with ID {} deleted successfully", id);
+        logger.info("Employer deleted successfully with ID: {}", id);
     }
 
     @Override
     public EmployerDTO updateEmployer(EmployerDTO employerDTO) {
         logger.debug("Updating employer with ID: {}", employerDTO.getEmployerId());
-        if (!employerRepository.existsById(employerDTO.getEmployerId())) {
-            logger.error("Cannot update - employer with ID {} not found", employerDTO.getEmployerId());
-            throw new ResourceNotFoundException("Cannot update. Employer with ID " + employerDTO.getEmployerId() + " not found.");
+
+        if (employerDTO.getPosition() == null || employerDTO.getPosition().trim().isEmpty()) {
+            logger.error("Invalid employer update request - missing position");
+            throw new InvalidRequestException("Position must be provided.");
         }
+
+        if (!employerRepository.existsById(employerDTO.getEmployerId())) {
+            logger.error("Cannot update - employer with ID not found");
+            throw new ResourceNotFoundException("Employer not found with ID: " + employerDTO.getEmployerId());
+        }
+
         User user = userRepository.findById(employerDTO.getUserId())
                 .orElseThrow(() -> {
                     logger.error("Invalid UserId: {}", employerDTO.getUserId());
@@ -105,7 +116,7 @@ public class EmployerServiceImpl implements IEmployerService {
         Employer employer = dtoToEntity(employerDTO);
         employer.setUser(user);
         Employer updated = employerRepository.save(employer);
-        logger.info("Employer with ID {} updated successfully", updated.getEmployerId());
+        logger.info("Employer updated successfully with ID: {}", updated.getEmployerId());
         return entityToDto(updated);
     }
 
@@ -115,6 +126,7 @@ public class EmployerServiceImpl implements IEmployerService {
         dto.setUserId(employer.getUser().getUserId());
         dto.setCompanyName(employer.getCompanyName());
         dto.setCompanyDescription(employer.getCompanyDescription());
+        dto.setPosition(employer.getPosition());  // Added
         return dto;
     }
 
@@ -123,6 +135,7 @@ public class EmployerServiceImpl implements IEmployerService {
         employer.setEmployerId(dto.getEmployerId());
         employer.setCompanyName(dto.getCompanyName());
         employer.setCompanyDescription(dto.getCompanyDescription());
+        employer.setPosition(dto.getPosition());  // Added
         return employer;
     }
 }

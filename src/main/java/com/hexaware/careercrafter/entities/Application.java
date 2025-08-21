@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 /*
  * Application is a entity that is represented by JobSeeker
- * It links a JobSeeker with a JobPosting
+ * It links a JobSeeker with a JobListing
  * 
  */
 
@@ -20,8 +20,8 @@ public class Application {
 	private int applicationId;
 	
 	@ManyToOne
-	@JoinColumn(name = "job_id", nullable = false)
-	private JobPosting job;
+	@JoinColumn(name = "job_listing_id", nullable = false)
+	private JobListing jobListing;
 
 	@ManyToOne
 	@JoinColumn(name = "seeker_id", nullable = false)
@@ -35,7 +35,6 @@ public class Application {
 	private ApplicationStatus status = ApplicationStatus.APPLIED;
 
 	@Column(columnDefinition = "TEXT")
-	private String coverLetter;
 	private String resumeFilePath;
 
 	public enum ApplicationStatus {
@@ -46,14 +45,13 @@ public class Application {
 		
 	}
 
-	public Application(int applicationId, JobPosting job, JobSeeker jobSeeker, LocalDateTime applicationDate,
+	public Application(int applicationId, JobListing jobListing, JobSeeker jobSeeker, LocalDateTime applicationDate,
 			ApplicationStatus status, String coverLetter, String resumeFilePath) {
 		this.applicationId = applicationId;
-		this.job = job;
+		this.jobListing = jobListing;
 		this.jobSeeker = jobSeeker;
 		this.applicationDate = applicationDate;
 		this.status = status;
-		this.coverLetter = coverLetter;
 		this.resumeFilePath = resumeFilePath;
 	}
 
@@ -65,12 +63,12 @@ public class Application {
 		this.applicationId = applicationId;
 	}
 
-	public JobPosting getJob() {
-		return job;
+	public JobListing getJobListing() {
+		return jobListing;
 	}
 
-	public void setJob(JobPosting job) {
-		this.job = job;
+	public void setJobListing(JobListing jobListing) {
+		this.jobListing = jobListing;
 	}
 
 	public JobSeeker getJobSeeker() {
@@ -95,14 +93,6 @@ public class Application {
 
 	public void setStatus(ApplicationStatus status) {
 		this.status = status;
-	}
-
-	public String getCoverLetter() {
-		return coverLetter;
-	}
-
-	public void setCoverLetter(String coverLetter) {
-		this.coverLetter = coverLetter;
 	}
 
 	public String getResumeFilePath() {

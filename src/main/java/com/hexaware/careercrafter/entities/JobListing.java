@@ -1,22 +1,23 @@
 package com.hexaware.careercrafter.entities;
 
 import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
 /*
- * Entity representing a JobPosting is made my an employer
+ * Entity representing a JobListing is made my an employer
  * It contains job details
  * It is linked to an employer and also connected to applications
  */
 
 @Entity
-@Table(name = "job_postings")
-public class JobPosting {
+@Table(name = "job_listings")
+public class JobListing {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int jobPostingId;
+	private int jobListingId;
 	
 	@ManyToOne
 	@JoinColumn(name = "employer_id", nullable = false)
@@ -27,6 +28,8 @@ public class JobPosting {
 
 	@Column(nullable = false, columnDefinition = "TEXT")
 	private String description;
+	
+	private String qualification;
 
 	private String location;
 
@@ -42,25 +45,26 @@ public class JobPosting {
 	
 	private boolean active = true;
 
-	@OneToMany(mappedBy = "job", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "jobListing", cascade = CascadeType.ALL)
 	private List<Application> applications;
 
 	public enum JobType {
 		FULL_TIME, PART_TIME, INTERNSHIP
 	}
 	
-	public JobPosting() {
+	public JobListing() {
 		
 	}
 
-	public JobPosting(int jobPostingId, Employer employer, String title, String description, String location,
+	public JobListing(int jobListingId, Employer employer, String title, String description, String qualification, String location,
 			JobType jobType, LocalDateTime postedDate, LocalDateTime expiryDate, boolean active,
 			List<Application> applications) {
 		super();
-		this.jobPostingId = jobPostingId;
+		this.jobListingId = jobListingId;
 		this.employer = employer;
 		this.title = title;
 		this.description = description;
+		this.qualification = qualification;
 		this.location = location;
 		this.jobType = jobType;
 		this.postedDate = postedDate;
@@ -69,12 +73,12 @@ public class JobPosting {
 		this.applications = applications;
 	}
 
-	public int getJobPostingId() {
-		return jobPostingId;
+	public int getJobListingId() {
+		return jobListingId;
 	}
 
-	public void setJobPostingId(int jobPostingId) {
-		this.jobPostingId = jobPostingId;
+	public void setJobListingId(int jobListingId) {
+		this.jobListingId = jobListingId;
 	}
 
 	public Employer getEmployer() {
@@ -101,6 +105,14 @@ public class JobPosting {
 		this.description = description;
 	}
 
+	public String getQualification() {
+        return qualification;
+    }
+
+    public void setQualification(String qualification) {
+        this.qualification = qualification;
+    }
+    
 	public String getLocation() {
 		return location;
 	}
