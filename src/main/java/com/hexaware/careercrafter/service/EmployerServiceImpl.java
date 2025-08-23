@@ -126,7 +126,7 @@ public class EmployerServiceImpl implements IEmployerService {
         dto.setUserId(employer.getUser().getUserId());
         dto.setCompanyName(employer.getCompanyName());
         dto.setCompanyDescription(employer.getCompanyDescription());
-        dto.setPosition(employer.getPosition());  // Added
+        dto.setPosition(employer.getPosition());
         return dto;
     }
 
@@ -135,7 +135,7 @@ public class EmployerServiceImpl implements IEmployerService {
         employer.setEmployerId(dto.getEmployerId());
         employer.setCompanyName(dto.getCompanyName());
         employer.setCompanyDescription(dto.getCompanyDescription());
-        employer.setPosition(dto.getPosition());  // Added
+        employer.setPosition(dto.getPosition());
         return employer;
     }
 }

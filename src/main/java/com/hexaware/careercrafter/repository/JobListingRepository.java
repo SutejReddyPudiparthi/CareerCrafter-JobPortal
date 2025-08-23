@@ -14,7 +14,6 @@ import java.util.List;
 public interface JobListingRepository extends JpaRepository<JobListing, Integer>,  JpaSpecificationExecutor<JobListing> {
 
     List<JobListing> findByEmployerEmployerId(int employerId);
-
     List<JobListing> findByActiveTrue();
 
     @Query(value = "SELECT * FROM job_listings j WHERE LOWER(j.qualification) REGEXP :skillsRegex AND j.active = true", nativeQuery = true)

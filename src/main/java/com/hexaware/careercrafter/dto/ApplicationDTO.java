@@ -10,7 +10,6 @@ import lombok.AllArgsConstructor;
 /*
  * DTO for application.
  * Applies status validation through enum types.
- * 
  */
 
 @Getter

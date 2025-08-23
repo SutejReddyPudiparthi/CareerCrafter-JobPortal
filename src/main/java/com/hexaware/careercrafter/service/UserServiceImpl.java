@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,6 +27,9 @@ public class UserServiceImpl implements IUserService {
 
     @Autowired
     private UserRepository userRepository;
+    
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public UserDTO createUser(UserDTO userDTO) {
@@ -40,6 +44,9 @@ public class UserServiceImpl implements IUserService {
             logger.error("Failed to create user - email {} already exists", userDTO.getEmail());
             throw new DuplicateResourceException("Email already exists.");
         }
+        
+        String encodedPassword = passwordEncoder.encode(userDTO.getPassword());
+        userDTO.setPassword(encodedPassword);
 
         User savedUser = userRepository.save(convertToEntity(userDTO));
         logger.info("User created successfully with ID: {}", savedUser.getUserId());

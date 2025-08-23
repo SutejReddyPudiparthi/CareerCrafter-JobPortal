@@ -11,7 +11,7 @@ import lombok.AllArgsConstructor;
 /*
  * 
  * Data Transfer Object for Employer Information.
- * User for transferring employer data between client ans server with validation.
+ * User for transferring employer data between client and server with validation.
  * 
  */
 

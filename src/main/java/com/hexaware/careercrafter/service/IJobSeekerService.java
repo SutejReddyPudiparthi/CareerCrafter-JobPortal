@@ -9,6 +9,7 @@ import java.util.List;
  */
 
 public interface IJobSeekerService {
+	
     JobSeekerDTO createJobSeeker(JobSeekerDTO jobSeekerDTO);
     JobSeekerDTO getJobSeekerById(int id);
     List<JobSeekerDTO> getAllJobSeekers();

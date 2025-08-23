@@ -27,12 +27,12 @@ public class JobListingDTO {
     @NotNull(message="EmployerId is required")
     private int employerId;
 
-    @NotBlank(message="Title is required")
-    @Size(min=3, max = 100, message = "Title length must be between 3 and 100 characters")
+    @NotBlank(message="Job Title is required")
+    @Size(min=3, max = 100, message = "Job Title must be between 3 and 100 characters")
     private String title;
 
-    @NotBlank(message="Description is required")
-    @Size(min=5, max = 500, message = "Title length must be between 5 and 500 characters")
+    @NotBlank(message="Job Description is required")
+    @Size(min=5, max = 500, message = "Job Description must be between 5 and 500 characters")
     private String description;
     
     @NotBlank(message = "Qualification are required")

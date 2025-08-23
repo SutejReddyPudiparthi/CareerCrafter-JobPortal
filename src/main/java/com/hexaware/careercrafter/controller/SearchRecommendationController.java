@@ -5,6 +5,7 @@ import com.hexaware.careercrafter.service.ISearchRecommendationService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +33,7 @@ public class SearchRecommendationController {
     @PreAuthorize("isAuthenticated()")
     @Operation(summary = "Create a search recommendation")
     @PostMapping
-    public SearchRecommendationDTO createSearch(@RequestBody SearchRecommendationDTO searchDTO) {
+    public SearchRecommendationDTO createSearch(@Valid @RequestBody SearchRecommendationDTO searchDTO) {
         logger.info("Request to create search recommendation for userId: {}", searchDTO.getUserId());
         SearchRecommendationDTO created = searchService.createSearch(searchDTO);
         logger.info("Search recommendation created successfully with ID: {}", created.getSearchId());
@@ -62,7 +63,7 @@ public class SearchRecommendationController {
     @PreAuthorize("isAuthenticated()")
     @Operation(summary = "Update a search recommendation")
     @PutMapping
-    public SearchRecommendationDTO updateSearch(@RequestBody SearchRecommendationDTO searchDTO) {
+    public SearchRecommendationDTO updateSearch(@Valid @RequestBody SearchRecommendationDTO searchDTO) {
         logger.info("Request to update search recommendation with ID: {}", searchDTO.getSearchId());
         SearchRecommendationDTO updated = searchService.updateSearch(searchDTO);
         logger.info("Search recommendation with ID {} updated successfully", searchDTO.getSearchId());

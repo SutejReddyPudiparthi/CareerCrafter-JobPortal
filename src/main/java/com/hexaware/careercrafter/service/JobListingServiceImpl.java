@@ -3,7 +3,6 @@ package com.hexaware.careercrafter.service;
 import com.hexaware.careercrafter.dto.JobListingDTO;
 import com.hexaware.careercrafter.entities.Employer;
 import com.hexaware.careercrafter.entities.JobListing;
-import com.hexaware.careercrafter.entities.JobListing.JobType;
 import com.hexaware.careercrafter.exception.InvalidRequestException;
 import com.hexaware.careercrafter.exception.ResourceNotFoundException;
 import com.hexaware.careercrafter.repository.JobListingRepository;
@@ -12,13 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.*;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import jakarta.persistence.criteria.*;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -59,46 +53,6 @@ public class JobListingServiceImpl implements IJobListingService {
         return jobListingRepository.findAll()
                 .stream().map(this::mapToDTO)
                 .collect(Collectors.toList());
-    }
-
-    @Override
-    public Page<JobListingDTO> getJobListings(int page, int size, String sortBy, String sortDir) {
-        Sort sort = sortDir.equalsIgnoreCase("desc") ? Sort.by(sortBy).descending() : Sort.by(sortBy).ascending();
-        Pageable pageable = PageRequest.of(page, size, sort);
-        Page<JobListing> listingPage = jobListingRepository.findAll(pageable);
-        return listingPage.map(this::mapToDTO);
-    }
-
-    @Override
-    public Page<JobListingDTO> advancedSearch(String location, String jobTypeStr, String qualification,
-                                              int page, int size, String sortBy, String sortDir) {
-        Sort sort = sortDir.equalsIgnoreCase("desc") ? Sort.by(sortBy).descending() : Sort.by(sortBy).ascending();
-        Pageable pageable = PageRequest.of(page, size, sort);
-
-        Specification<JobListing> spec = (Root<JobListing> root, CriteriaQuery<?> query, CriteriaBuilder cb) -> {
-            List<Predicate> predicates = new ArrayList<>();
-
-            if (location != null && !location.isEmpty()) {
-                predicates.add(cb.like(cb.lower(root.get("location")), "%" + location.toLowerCase() + "%"));
-            }
-            if (jobTypeStr != null && !jobTypeStr.isEmpty()) {
-                try {
-                    JobType jobType = JobType.valueOf(jobTypeStr.toUpperCase());
-                    predicates.add(cb.equal(root.get("jobType"), jobType));
-                } catch (IllegalArgumentException e) {
-                    throw new InvalidRequestException("Invalid job type: " + jobTypeStr);
-                }
-            }
-            if (qualification != null && !qualification.isEmpty()) {
-                predicates.add(cb.like(cb.lower(root.get("qualification")), "%" + qualification.toLowerCase() + "%"));
-            }
-            predicates.add(cb.isTrue(root.get("active")));
-
-            return cb.and(predicates.toArray(new Predicate[0]));
-        };
-
-        Page<JobListing> results = jobListingRepository.findAll(spec, pageable);
-        return results.map(this::mapToDTO);
     }
     
     @Override

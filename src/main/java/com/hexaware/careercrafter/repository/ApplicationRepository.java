@@ -15,6 +15,5 @@ import java.util.List;
 public interface ApplicationRepository extends JpaRepository<Application, Integer> {
 	
     List<Application> findByJobSeekerJobSeekerId(int jobSeekerId);
-    List<Application> findByJobListingJobListingId(int jobListingId);
 
 }

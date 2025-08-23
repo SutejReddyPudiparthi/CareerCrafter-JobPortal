@@ -1,7 +1,5 @@
 package com.hexaware.careercrafter.security;
 
-import com.hexaware.careercrafter.config.MDCFilter;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,20 +23,15 @@ public class SecurityConfig {
     @Autowired
     private CustomUserDetailsService userDetailsService;
 
-    @Autowired
-    private MDCFilter mdcFilter;
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
           .csrf(csrf -> csrf.disable())
           .authorizeHttpRequests(auth -> auth
             .requestMatchers("/api/auth/**", "/test-exceptions/**").permitAll()
-            .requestMatchers("/actuator/**").hasRole("EMPLOYER")
             .anyRequest().authenticated())
           .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
           .authenticationProvider(daoAuthenticationProvider())
-          .addFilterBefore(mdcFilter, JwtRequestFilter.class)
           .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();

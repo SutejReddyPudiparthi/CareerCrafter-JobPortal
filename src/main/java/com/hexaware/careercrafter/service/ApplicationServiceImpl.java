@@ -72,16 +72,6 @@ public class ApplicationServiceImpl implements IApplicationService {
     }
 
     @Override
-    public List<ApplicationDTO> getApplicationsByJobListingId(int listingId) {
-        List<Application> entities = applicationRepository.findByJobListingJobListingId(listingId);
-        List<ApplicationDTO> dtos = new ArrayList<>();
-        for (Application e : entities) {
-            dtos.add(mapToDTO(e));
-        }
-        return dtos;
-    }
-
-    @Override
     public ApplicationDTO updateApplication(ApplicationDTO dto) {
         if (!applicationRepository.existsById(dto.getApplicationId())) {
             throw new ResourceNotFoundException("Application not found with id " + dto.getApplicationId());
@@ -102,7 +92,6 @@ public class ApplicationServiceImpl implements IApplicationService {
     private ApplicationDTO mapToDTO(Application entity) {
         ApplicationDTO dto = new ApplicationDTO();
         dto.setApplicationId(entity.getApplicationId());
-        dto.setJobListingId(entity.getJobListing() != null ? entity.getJobListing().getJobListingId() : 0);
         dto.setJobSeekerId(entity.getJobSeeker() != null ? entity.getJobSeeker().getJobSeekerId() : 0);
         dto.setStatus(ApplicationDTO.ApplicationStatus.valueOf(entity.getStatus().name()));
         dto.setResumeFilePath(entity.getResumeFilePath());
@@ -113,7 +102,6 @@ public class ApplicationServiceImpl implements IApplicationService {
         Application entity = new Application();
         entity.setApplicationId(dto.getApplicationId());
         JobListing jobListing = new JobListing();
-        jobListing.setJobListingId(dto.getJobListingId());
         entity.setJobListing(jobListing);
         JobSeeker jobSeeker = new JobSeeker();
         jobSeeker.setJobSeekerId(dto.getJobSeekerId());

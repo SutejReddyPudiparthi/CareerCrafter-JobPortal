@@ -5,6 +5,7 @@ import com.hexaware.careercrafter.service.IResumeService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -79,7 +80,7 @@ public class ResumeController {
     @PreAuthorize("hasRole('JOBSEEKER')")
     @Operation(summary = "Update resume metadata")
     @PutMapping
-    public ResponseEntity<ResumeDTO> updateResume(@RequestBody ResumeDTO resumeDTO) {
+    public ResponseEntity<ResumeDTO> updateResume(@Valid @RequestBody ResumeDTO resumeDTO) {
         logger.info("Request to update resume with ID: {}", resumeDTO.getResumeId());
         ResumeDTO updated = resumeService.updateResume(resumeDTO);
         logger.info("Resume with ID {} updated successfully", resumeDTO.getResumeId());

@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
 /*
  * Application is a entity that is represented by JobSeeker
  * It links a JobSeeker with a JobListing
- * 
  */
 
 

@@ -4,6 +4,9 @@ import com.hexaware.careercrafter.dto.ApplicationDTO;
 import com.hexaware.careercrafter.service.IApplicationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+
+import jakarta.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +28,7 @@ public class ApplicationController {
     @PreAuthorize("hasRole('JOBSEEKER')")
     @Operation(summary = "Apply for a job")
     @PostMapping
-    public ApplicationDTO applyForJob(@RequestBody ApplicationDTO applicationDTO) {
+    public ApplicationDTO applyForJob(@Valid @RequestBody ApplicationDTO applicationDTO) {
         logger.info("Job seeker {} applying for job listing {}", applicationDTO.getJobListingId(), applicationDTO.getJobSeekerId());
         return applicationService.applyForJob(applicationDTO);
     }
@@ -54,18 +57,10 @@ public class ApplicationController {
         return applicationService.getApplicationsByJobSeekerId(seekerId);
     }
 
-    @PreAuthorize("hasRole('EMPLOYER')")
-    @Operation(summary = "Get applications by job listing ID (employer)")
-    @GetMapping("/joblisting/{listingId}")
-    public List<ApplicationDTO> getApplicationsByJobListingId(@PathVariable int listingId) {
-        logger.info("Fetching applications for job listing ID: {}", listingId);
-        return applicationService.getApplicationsByJobListingId(listingId);
-    }
-
     @PreAuthorize("hasRole('JOBSEEKER') or hasRole('EMPLOYER')")
     @Operation(summary = "Update application details")
     @PutMapping
-    public ApplicationDTO updateApplication(@RequestBody ApplicationDTO applicationDTO) {
+    public ApplicationDTO updateApplication(@Valid @RequestBody ApplicationDTO applicationDTO) {
         logger.info("Updating application with ID: {}", applicationDTO.getApplicationId());
         return applicationService.updateApplication(applicationDTO);
     }
