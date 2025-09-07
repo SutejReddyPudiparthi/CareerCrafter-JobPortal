@@ -4,6 +4,9 @@ import com.hexaware.careercrafter.entities.JobListing.JobType;
 
 import jakarta.validation.constraints.*;
 
+import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Setter;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -42,10 +45,26 @@ public class JobListingDTO {
     @NotBlank(message="Location is required")
     @Size(max = 200, message = "Location cannot exceed 200 characters")
     private String location;
+    
+    @Size(max = 150, message = "Company Name cannot exceed 150 characters")
+    private String companyName;
+    
+    @NotNull(message = "Experience is required")
+    @Min(value = 0, message = "Experience must be 0 or more")
+    @Max(value = 60, message = "Experience must be 60 or less")
+    private Integer experience;
 
     @NotNull(message="Job type is required")
     private JobType jobType;
+    
+    @Min(value = 0, message = "Salary must be non-negative")
+    private Integer salary;
 
     private boolean active;
+    
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate postedDate;
 
+    @Size(max = 500, message = "Required Skills cannot exceed 500 characters")
+    private String requiredSkills;
 }

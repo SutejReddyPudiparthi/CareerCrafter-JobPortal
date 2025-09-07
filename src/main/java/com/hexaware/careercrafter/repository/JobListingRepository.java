@@ -16,6 +16,6 @@ public interface JobListingRepository extends JpaRepository<JobListing, Integer>
     List<JobListing> findByEmployerEmployerId(int employerId);
     List<JobListing> findByActiveTrue();
 
-    @Query(value = "SELECT * FROM job_listings j WHERE LOWER(j.qualification) REGEXP :skillsRegex AND j.active = true", nativeQuery = true)
-    List<JobListing> findRecommendedJobs(@Param("skillsRegex") String skillsRegex);
+    @Query(value = "SELECT * FROM job_listings j WHERE j.active = true AND (LOWER(j.required_skills) REGEXP :skillsRegex OR LOWER(J.location) = :location)", nativeQuery = true)
+    List<JobListing> findRecommendedJobs(@Param("skillsRegex") String skillsRegex, @Param("location") String location);
 }

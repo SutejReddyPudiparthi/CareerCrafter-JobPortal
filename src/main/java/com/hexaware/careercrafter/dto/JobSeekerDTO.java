@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 /*
  * DTO for job seeker profile.
@@ -26,6 +28,16 @@ public class JobSeekerDTO {
     @NotBlank(message = "Full name is required")
     @Size(min = 2, max = 70, message = "Full name must be between 2 and 70 characters")
     private String fullName;
+    
+    @NotBlank(message = "Email is required")
+    @Email(message = "Email should be valid")
+    private String email;
+    
+    @Size(max = 90, message = "Gender length can't exceed 90 characters")
+    private String gender;
+    
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate dateOfBirth;
 
     @Pattern(regexp = "^[6-9]\\d{9}$", message = "Phone number must be 10 digits and start with 6-9")
     private String phone;

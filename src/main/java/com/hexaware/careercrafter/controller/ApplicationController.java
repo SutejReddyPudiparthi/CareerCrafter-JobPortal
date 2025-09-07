@@ -17,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/applications")
+@CrossOrigin(origins = "http://localhost:3000")
 @Tag(name = "Applications", description = "Application management APIs")
 public class ApplicationController {
 

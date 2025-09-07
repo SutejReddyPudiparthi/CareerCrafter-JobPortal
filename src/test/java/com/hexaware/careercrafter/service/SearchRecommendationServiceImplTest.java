@@ -10,17 +10,18 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
 import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class SearchRecommendationServiceImplTest {
 
-    @Mock SearchRecommendationRepository repo;
-    @InjectMocks SearchRecommendationServiceImpl service;
+    @Mock
+    private SearchRecommendationRepository repo;
+
+    @InjectMocks
+    private SearchRecommendationServiceImpl service;
 
     private SearchRecommendationDTO dto;
     private SearchRecommendation entity;
@@ -60,4 +61,3 @@ class SearchRecommendationServiceImplTest {
         assertThrows(ResourceNotFoundException.class, () -> service.deleteSearch(1));
     }
 }
-

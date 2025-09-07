@@ -22,6 +22,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/search-recommendations")
+@CrossOrigin(origins = "http://localhost:3000")
 @Tag(name = "Search Recommendations", description = "APIs for managing saved searches and recommendations")
 public class SearchRecommendationController {
 

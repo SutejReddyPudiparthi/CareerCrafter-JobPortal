@@ -35,23 +35,27 @@ public class Application {
 
 	@Column(columnDefinition = "TEXT")
 	private String resumeFilePath;
+	private String jobTitle;
+	private String applicantName;
 
 	public enum ApplicationStatus {
 		APPLIED, IN_REVIEW, SHORTLISTED, REJECTED, HIRED
 	}
-	
+
 	public Application() {
 		
 	}
 
 	public Application(int applicationId, JobListing jobListing, JobSeeker jobSeeker, LocalDateTime applicationDate,
-			ApplicationStatus status, String coverLetter, String resumeFilePath) {
+			ApplicationStatus status, String coverLetter, String resumeFilePath, String jobTitle, String applicantName) {
 		this.applicationId = applicationId;
 		this.jobListing = jobListing;
 		this.jobSeeker = jobSeeker;
 		this.applicationDate = applicationDate;
 		this.status = status;
 		this.resumeFilePath = resumeFilePath;
+		this.jobTitle = jobTitle;
+		this.applicantName = applicantName;
 	}
 
 	public int getApplicationId() {
@@ -100,6 +104,22 @@ public class Application {
 
 	public void setResumeFilePath(String resumeFilePath) {
 		this.resumeFilePath = resumeFilePath;
+	}
+	
+	public String getJobTitle() {
+	    return jobTitle;
+	}
+
+	public void setJobTitle(String jobTitle) {
+	    this.jobTitle = jobTitle;
+	}
+
+	public String getApplicantName() {
+	    return applicantName;
+	}
+
+	public void setApplicantName(String applicantName) {
+	    this.applicantName = applicantName;
 	}
 	
 }

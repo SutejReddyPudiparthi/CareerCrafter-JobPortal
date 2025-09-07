@@ -25,6 +25,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/employers")
+@CrossOrigin(origins = "http://localhost:3000")
 @PreAuthorize("hasRole('EMPLOYER')")
 @Tag(name = "Employers", description = "Employer management APIs")
 public class EmployerController {
@@ -50,6 +51,14 @@ public class EmployerController {
         EmployerDTO employer = employerService.getEmployerById(id);
         logger.info("Successfully fetched employer with ID: {}", id);
         return ResponseEntity.ok(employer);
+    }
+    
+    @Operation(summary = "Get employer profile by User ID")
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<EmployerDTO> getEmployerByUserId(@PathVariable int userId) {
+        logger.info("Fetching employer with userId: {}", userId);
+        EmployerDTO dto = employerService.getEmployerByUserId(userId);
+        return ResponseEntity.ok(dto);
     }
 
     @Operation(summary = "Get all employers")

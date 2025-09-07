@@ -12,6 +12,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
+
+import java.util.List;
 
 @Configuration
 @EnableMethodSecurity(prePostEnabled = true)
@@ -26,9 +31,12 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+          .cors()
+          .and()
           .csrf(csrf -> csrf.disable())
           .authorizeHttpRequests(auth -> auth
             .requestMatchers("/api/auth/**", "/test-exceptions/**").permitAll()
+            .requestMatchers(org.springframework.http.HttpMethod.POST, "/api/jobseekers").permitAll()
             .anyRequest().authenticated())
           .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
           .authenticationProvider(daoAuthenticationProvider())
@@ -55,5 +63,17 @@ public class SecurityConfig {
         org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration authConfig)
         throws Exception {
         return authConfig.getAuthenticationManager();
+    }
+
+    @Bean
+    public CorsFilter corsFilter() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowCredentials(true);
+        config.setAllowedOrigins(List.of("http://localhost:3000"));
+        config.setAllowedHeaders(List.of("*"));
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        source.registerCorsConfiguration("/**", config);
+        return new CorsFilter(source);
     }
 }

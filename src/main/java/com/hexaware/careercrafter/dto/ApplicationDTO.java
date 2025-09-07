@@ -1,5 +1,7 @@
 package com.hexaware.careercrafter.dto;
 
+import java.time.LocalDateTime;
+
 import jakarta.validation.constraints.*;
 
 import lombok.Getter;
@@ -35,4 +37,14 @@ public class ApplicationDTO {
 
     @Size(max = 500, message = "Resume file path can't exceed 500 characters")
     private String resumeFilePath;
+    
+    @Size(max = 200, message = "Job title can't exceed 200 characters")
+    private String jobTitle;
+    
+    @NotNull
+    private LocalDateTime applicationDate;
+
+    @Size(max = 100, message = "Applicant name can't exceed 100 characters")
+    private String applicantName;
+
 }

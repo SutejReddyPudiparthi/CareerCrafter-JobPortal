@@ -15,5 +15,11 @@ public interface IUserService {
     List<UserDTO> getAllUsers();
     UserDTO updateUser(UserDTO userDTO);
     void deleteUser(int userId);
+    boolean verifyUserCredentials(String email, String password);
     
+    void savePasswordResetToken(int userId, String token);
+    Integer getUserIdByResetToken(String token);
+    void invalidateResetToken(String token);
+    void updatePassword(Integer userId, String newPassword);
+
 }

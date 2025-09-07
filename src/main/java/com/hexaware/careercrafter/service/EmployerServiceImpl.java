@@ -81,6 +81,17 @@ public class EmployerServiceImpl implements IEmployerService {
                 });
         return entityToDto(employer);
     }
+    
+    @Override
+    public EmployerDTO getEmployerByUserId(int userId) {
+    	logger.info("Searching employer for userId: {}", userId);
+        List<Employer> employers = employerRepository.findByUserUserId(userId);
+        logger.info("Found {} employer(s) for userId: {}", employers.size(), userId);
+        Employer employer = employers.stream()
+            .findFirst()
+            .orElseThrow(() -> new ResourceNotFoundException("Employer not found for userId: " + userId));
+        return entityToDto(employer);
+    }
 
     @Override
     public void deleteEmployer(int id) {

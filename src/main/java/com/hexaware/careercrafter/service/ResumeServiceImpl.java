@@ -40,6 +40,13 @@ public class ResumeServiceImpl implements IResumeService {
             logger.error("Resume upload failed - missing file path or jobSeekerId");
             throw new InvalidRequestException("File path and associated job seeker are required.");
         }
+        if (dto.isPrimary()) {
+            List<Resume> existingPrimaries = resumeRepository.findByJobSeeker_JobSeekerIdAndIsPrimaryTrue(dto.getJobSeekerId());
+            for (Resume r : existingPrimaries) {
+                r.setPrimary(false);
+                resumeRepository.save(r);
+            }
+        }
         Resume entity = mapToEntity(dto);
         Resume saved = resumeRepository.save(entity);
         logger.info("Resume uploaded successfully with ID: {}", saved.getResumeId());
@@ -75,6 +82,16 @@ public class ResumeServiceImpl implements IResumeService {
         if (!resumeRepository.existsById(dto.getResumeId())) {
             logger.error("Cannot update - resume with ID {} not found", dto.getResumeId());
             throw new ResourceNotFoundException("Cannot update. Resume not found with ID: " + dto.getResumeId());
+        }
+        
+        if (dto.isPrimary()) {
+            List<Resume> existingPrimaries = resumeRepository.findByJobSeeker_JobSeekerIdAndIsPrimaryTrue(dto.getJobSeekerId());
+            for (Resume r : existingPrimaries) {
+                if (r.getResumeId() != dto.getResumeId()) {
+                    r.setPrimary(false);
+                    resumeRepository.save(r);
+                }
+            }
         }
         Resume entity = mapToEntity(dto);
         Resume saved = resumeRepository.save(entity);

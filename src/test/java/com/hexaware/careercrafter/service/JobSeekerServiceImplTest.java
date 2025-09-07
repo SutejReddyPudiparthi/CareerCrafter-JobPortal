@@ -12,31 +12,35 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
 import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class JobSeekerServiceImplTest {
 
-    @Mock JobSeekerRepository jobSeekerRepository;
-    @Mock UserRepository userRepository;
-    @InjectMocks JobSeekerServiceImpl service;
+    @Mock
+    private JobSeekerRepository jobSeekerRepository;
+
+    @Mock
+    private UserRepository userRepository;
+
+    @InjectMocks
+    private JobSeekerServiceImpl jobSeekerService;
 
     private JobSeekerDTO dto;
     private JobSeeker entity;
     private User user;
 
     @BeforeEach
-    void setup() {
+    void setUp() {
         dto = new JobSeekerDTO();
         dto.setJobSeekerId(1);
-        dto.setUserId(2);
-        dto.setFullName("Alice Smith");
+        dto.setUserId(101);
+        dto.setFullName("Alice Johnson");
 
-        user = new User(); user.setUserId(2);
+        user = new User();
+        user.setUserId(101);
 
         entity = new JobSeeker();
         entity.setJobSeekerId(1);
@@ -45,26 +49,29 @@ class JobSeekerServiceImplTest {
 
     @Test
     void createJobSeeker_success() {
-        when(userRepository.findById(2)).thenReturn(Optional.of(user));
-        when(jobSeekerRepository.save(any())).thenReturn(entity);
-        assertNotNull(service.createJobSeeker(dto));
+        when(userRepository.findById(dto.getUserId())).thenReturn(Optional.of(user));
+        when(jobSeekerRepository.save(any(JobSeeker.class))).thenReturn(entity);
+
+        JobSeekerDTO result = jobSeekerService.createJobSeeker(dto);
+        assertNotNull(result);
+        verify(jobSeekerRepository, times(1)).save(any(JobSeeker.class));
     }
 
     @Test
     void getJobSeekerById_found() {
         when(jobSeekerRepository.findById(1)).thenReturn(Optional.of(entity));
-        assertNotNull(service.getJobSeekerById(1));
+        assertNotNull(jobSeekerService.getJobSeekerById(1));
     }
 
     @Test
     void getJobSeekerById_notFound() {
         when(jobSeekerRepository.findById(1)).thenReturn(Optional.empty());
-        assertThrows(ResourceNotFoundException.class, () -> service.getJobSeekerById(1));
+        assertThrows(ResourceNotFoundException.class, () -> jobSeekerService.getJobSeekerById(1));
     }
 
     @Test
     void deleteJobSeeker_notFound() {
         when(jobSeekerRepository.existsById(1)).thenReturn(false);
-        assertThrows(ResourceNotFoundException.class, () -> service.deleteJobSeeker(1));
+        assertThrows(ResourceNotFoundException.class, () -> jobSeekerService.deleteJobSeeker(1));
     }
 }

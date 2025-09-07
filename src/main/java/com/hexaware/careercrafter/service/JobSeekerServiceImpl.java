@@ -76,6 +76,16 @@ public class JobSeekerServiceImpl implements IJobSeekerService {
                 });
         return convertToDTO(jobSeeker);
     }
+    
+    @Override
+    public JobSeekerDTO getJobSeekerByUserId(int userId) {
+        JobSeeker jobSeeker = jobSeekerRepository.findAll()
+            .stream()
+            .filter(js -> js.getUser().getUserId() == userId)
+            .findFirst()
+            .orElseThrow(() -> new ResourceNotFoundException("JobSeeker not found for userId: " + userId));
+        return convertToDTO(jobSeeker);
+    }
 
     @Override
     public JobSeekerDTO updateJobSeeker(JobSeekerDTO dto) {
@@ -118,27 +128,29 @@ public class JobSeekerServiceImpl implements IJobSeekerService {
         }
 
         String[] seekerSkills = jobSeeker.getSkills().toLowerCase().split(",\\s*");
-
-        // Build a regex string from skills for native query matching
         String skillsRegex = String.join("|", seekerSkills);
-
-        List<JobListing> matchedJobs = jobListingRepository.findRecommendedJobs(skillsRegex);
-
+        String location = jobSeeker.getAddress() != null ? jobSeeker.getAddress().toLowerCase() : "";
+        List<JobListing> matchedJobs = jobListingRepository.findRecommendedJobs(skillsRegex, location);
         return matchedJobs.stream()
-                .map(this::convertJobListingToDTO)
+                .map(this::mapToDTO)
                 .collect(Collectors.toList());
     }
 
-    private JobListingDTO convertJobListingToDTO(JobListing jobListing) {
+    private JobListingDTO mapToDTO(JobListing jobListing) {
         JobListingDTO dto = new JobListingDTO();
         dto.setJobListingId(jobListing.getJobListingId());
-        dto.setEmployerId(jobListing.getEmployer().getEmployerId());
+        dto.setEmployerId(jobListing.getEmployer() != null ? jobListing.getEmployer().getEmployerId() : 0);
         dto.setTitle(jobListing.getTitle());
         dto.setDescription(jobListing.getDescription());
         dto.setQualification(jobListing.getQualification());
         dto.setLocation(jobListing.getLocation());
+        dto.setCompanyName(jobListing.getCompanyName());
+        dto.setExperience(jobListing.getExperience());
         dto.setJobType(jobListing.getJobType());
         dto.setActive(jobListing.isActive());
+        dto.setSalary(jobListing.getSalary());
+        dto.setPostedDate(jobListing.getPostedDate());
+        dto.setRequiredSkills(jobListing.getRequiredSkills());
         return dto;
     }
 
@@ -152,6 +164,9 @@ public class JobSeekerServiceImpl implements IJobSeekerService {
         jobSeeker.setEducation(dto.getEducation());
         jobSeeker.setSkills(dto.getSkills());
         jobSeeker.setExperience(dto.getExperience());
+        jobSeeker.setEmail(dto.getEmail());
+        jobSeeker.setGender(dto.getGender());
+        jobSeeker.setDateOfBirth(dto.getDateOfBirth());
         return jobSeeker;
     }
 
@@ -165,6 +180,9 @@ public class JobSeekerServiceImpl implements IJobSeekerService {
         dto.setEducation(jobSeeker.getEducation());
         dto.setSkills(jobSeeker.getSkills());
         dto.setExperience(jobSeeker.getExperience());
+        dto.setEmail(jobSeeker.getEmail());
+        dto.setGender(jobSeeker.getGender());
+        dto.setDateOfBirth(jobSeeker.getDateOfBirth());
         return dto;
     }
 }

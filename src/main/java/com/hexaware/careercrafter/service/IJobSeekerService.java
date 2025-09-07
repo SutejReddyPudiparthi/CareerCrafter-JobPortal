@@ -9,9 +9,9 @@ import java.util.List;
  */
 
 public interface IJobSeekerService {
-	
     JobSeekerDTO createJobSeeker(JobSeekerDTO jobSeekerDTO);
     JobSeekerDTO getJobSeekerById(int id);
+    JobSeekerDTO getJobSeekerByUserId(int userId);
     List<JobSeekerDTO> getAllJobSeekers();
     JobSeekerDTO updateJobSeeker(JobSeekerDTO jobSeekerDTO);
     List<JobListingDTO> getJobRecommendations(int jobSeekerId);

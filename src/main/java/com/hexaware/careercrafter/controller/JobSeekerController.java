@@ -22,7 +22,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/jobseekers")
-@PreAuthorize("hasRole('JOBSEEKER')")
+@CrossOrigin(origins = "http://localhost:3000")
 @Tag(name = "Job Seekers", description = "Job seeker profile and recommendations APIs")
 public class JobSeekerController {
 
@@ -39,13 +39,24 @@ public class JobSeekerController {
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
 
+    @PreAuthorize("hasRole('JOBSEEKER') or hasRole('EMPLOYER')")
     @Operation(summary = "Get job seeker by ID")
     @GetMapping("/{id}")
     public ResponseEntity<JobSeekerDTO> getJobSeekerById(@PathVariable int id) {
         logger.info("Fetching job seeker with ID: {}", id);
         return ResponseEntity.ok(jobSeekerService.getJobSeekerById(id));
     }
+    
+    @PreAuthorize("hasRole('JOBSEEKER') or hasRole('EMPLOYER')")
+    @Operation(summary = "Get job seeker profile by User ID")
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<JobSeekerDTO> getJobSeekerByUserId(@PathVariable int userId) {
+        logger.info("Fetching job seeker with userId: {}", userId);
+        JobSeekerDTO dto = jobSeekerService.getJobSeekerByUserId(userId);
+        return ResponseEntity.ok(dto);
+    }
 
+    @PreAuthorize("hasRole('EMPLOYER')")
     @Operation(summary = "Get all job seekers")
     @GetMapping
     public ResponseEntity<List<JobSeekerDTO>> getAllJobSeekers() {
@@ -53,6 +64,7 @@ public class JobSeekerController {
         return ResponseEntity.ok(jobSeekerService.getAllJobSeekers());
     }
 
+    @PreAuthorize("hasRole('JOBSEEKER')")
     @Operation(summary = "Update a job seeker profile")
     @PutMapping
     public ResponseEntity<JobSeekerDTO> updateJobSeeker(@Valid @RequestBody JobSeekerDTO dto) {
@@ -60,6 +72,7 @@ public class JobSeekerController {
         return ResponseEntity.ok(jobSeekerService.updateJobSeeker(dto));
     }
 
+    @PreAuthorize("hasRole('JOBSEEKER') or hasRole('EMPLOYER')")
     @Operation(summary = "Delete a job seeker profile")
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteJobSeeker(@PathVariable int id) {
@@ -68,6 +81,7 @@ public class JobSeekerController {
         return ResponseEntity.ok("Job Seeker deleted successfully");
     }
 
+    @PreAuthorize("hasRole('JOBSEEKER') or hasRole('EMPLOYER')")
     @Operation(summary = "Get job recommendations for a job seeker")
     @GetMapping("/{jobSeekerId}/recommendations")
     public ResponseEntity<List<JobListingDTO>> getJobRecommendations(@PathVariable int jobSeekerId) {

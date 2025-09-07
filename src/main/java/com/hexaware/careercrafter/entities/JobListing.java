@@ -1,8 +1,9 @@
 package com.hexaware.careercrafter.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 /*
@@ -22,6 +23,9 @@ public class JobListing {
 	@ManyToOne
 	@JoinColumn(name = "employer_id", nullable = false)
 	private Employer employer;
+	
+	@Column(length = 150)
+	private String companyName;
 
 	@Column(nullable = false)
 	private String title;
@@ -30,18 +34,23 @@ public class JobListing {
 	private String description;
 	
 	private String qualification;
+	
+	private Integer experience;
 
 	private String location;
+	
+	@Min(value = 0, message = "Salary can't be negative")
+	private Integer salary;
 
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private JobType jobType;
-
-	@Column(updatable = false)
-	private LocalDateTime postedDate;
-
-	private LocalDateTime expiryDate;
 	
+	@Column(name = "required_skills")
+	private String requiredSkills;
+
+	@Column
+	private LocalDate postedDate;
 	
 	private boolean active = true;
 
@@ -57,7 +66,7 @@ public class JobListing {
 	}
 
 	public JobListing(int jobListingId, Employer employer, String title, String description, String qualification, String location,
-			JobType jobType, LocalDateTime postedDate, LocalDateTime expiryDate, boolean active,
+			JobType jobType, LocalDate postedDate, boolean active, String companyName, Integer experience, Integer salary, String requiredSkills, 
 			List<Application> applications) {
 		super();
 		this.jobListingId = jobListingId;
@@ -66,11 +75,15 @@ public class JobListing {
 		this.description = description;
 		this.qualification = qualification;
 		this.location = location;
+		this.companyName = companyName;
+        this.experience = experience;
 		this.jobType = jobType;
 		this.postedDate = postedDate;
-		this.expiryDate = expiryDate;
 		this.active = active;
 		this.applications = applications;
+		this.salary = salary;
+		this.requiredSkills = requiredSkills;
+		
 	}
 
 	public int getJobListingId() {
@@ -120,6 +133,22 @@ public class JobListing {
 	public void setLocation(String location) {
 		this.location = location;
 	}
+	
+	public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public Integer getExperience() {
+        return experience;
+    }
+
+    public void setExperience(Integer experience) {
+        this.experience = experience;
+    }
 
 	public JobType getJobType() {
 		return jobType;
@@ -129,20 +158,12 @@ public class JobListing {
 		this.jobType = jobType;
 	}
 
-	public LocalDateTime getPostedDate() {
+	public LocalDate getPostedDate() {
 		return postedDate;
 	}
 
-	public void setPostedDate(LocalDateTime postedDate) {
+	public void setPostedDate(LocalDate postedDate) {
 		this.postedDate = postedDate;
-	}
-
-	public LocalDateTime getExpiryDate() {
-		return expiryDate;
-	}
-
-	public void setExpiryDate(LocalDateTime expiryDate) {
-		this.expiryDate = expiryDate;
 	}
 
 	public boolean isActive() {
@@ -161,4 +182,20 @@ public class JobListing {
 		this.applications = applications;
 	}
 	
+	public Integer getSalary() {
+	    return salary;
+	}
+
+	public void setSalary(Integer salary) {
+	    this.salary = salary;
+	}
+	
+	public String getRequiredSkills() {
+	    return requiredSkills;
+	}
+
+	public void setRequiredSkills(String requiredSkills) {
+	    this.requiredSkills = requiredSkills;
+	}
+
 }

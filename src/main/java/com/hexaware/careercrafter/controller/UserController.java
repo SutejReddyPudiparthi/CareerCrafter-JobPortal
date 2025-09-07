@@ -14,9 +14,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
+
 
 /*
  * Rest Controller for user operations.
@@ -24,6 +27,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
+@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:3001"})
 @Tag(name = "Users", description = "APIs for user management")
 public class UserController {
 
@@ -32,6 +36,7 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
+    @PreAuthorize("hasRole('JOBSEEKER') or hasRole('EMPLOYER')")
     @Operation(summary = "Create a new user")
     @PostMapping
     public ResponseEntity<UserDTO> createUser(@Valid @RequestBody UserDTO userDTO) {
@@ -41,6 +46,7 @@ public class UserController {
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
 
+    @PreAuthorize("hasRole('JOBSEEKER') or hasRole('EMPLOYER')")
     @Operation(summary = "Get user by ID")
     @GetMapping("/{id}")
     public ResponseEntity<UserDTO> getUserById(@PathVariable int id) {
@@ -50,6 +56,7 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
+    @PreAuthorize("hasRole('JOBSEEKER') or hasRole('EMPLOYER')")
     @Operation(summary = "Get all users")
     @GetMapping
     public ResponseEntity<List<UserDTO>> getAllUsers() {
@@ -59,6 +66,7 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
 
+    @PreAuthorize("hasRole('JOBSEEKER') or hasRole('EMPLOYER')")
     @Operation(summary = "Update a user")
     @PutMapping
     public ResponseEntity<UserDTO> updateUser(@Valid @RequestBody UserDTO userDTO) {
@@ -68,6 +76,7 @@ public class UserController {
         return ResponseEntity.ok(updatedUser);
     }
 
+    @PreAuthorize("hasRole('JOBSEEKER') or hasRole('EMPLOYER')")
     @Operation(summary = "Delete a user")
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable int id) {
@@ -76,4 +85,13 @@ public class UserController {
         logger.info("User with ID {} deleted successfully", id);
         return ResponseEntity.ok("User deleted successfully");
     }
+    
+    @PostMapping("/verify")
+    public ResponseEntity<Boolean> verifyUser(@RequestBody Map<String, String> payload) {
+        String email = payload.get("email");
+        String password = payload.get("password");
+        boolean valid = userService.verifyUserCredentials(email, password);
+        return ResponseEntity.ok(valid);
+    }
+
 }

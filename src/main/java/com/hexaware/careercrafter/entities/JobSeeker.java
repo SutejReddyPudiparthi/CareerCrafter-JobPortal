@@ -3,6 +3,8 @@ package com.hexaware.careercrafter.entities;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.time.LocalDate;
+
 
 /*
  * This entity represents a JobSeeker
@@ -26,6 +28,11 @@ public class JobSeeker {
     @Column(nullable = false)
     private String fullName;
     
+    private String gender;
+    private LocalDate dateOfBirth;
+    
+    @Column(nullable = false)
+    private String email;
     private String phone;
     private String address;
     private String education;
@@ -42,12 +49,15 @@ public class JobSeeker {
     	
     }
 
-	public JobSeeker(int jobSeekerId, User user, String fullName, String phone, String address,
+	public JobSeeker(int jobSeekerId, User user, String fullName, String phone, String address, String email, String gender, LocalDate dateOfBirth,
 			String education, String skills, Integer experience, List<Resume> resumes, List<Application> applications) {
 		super();
 		this.jobSeekerId = jobSeekerId;
 		this.user = user;
 		this.fullName = fullName;
+		this.email = email;
+        this.gender = gender;
+        this.dateOfBirth = dateOfBirth;
 		this.phone = phone;
 		this.address = address;
 		this.education = education;
@@ -80,6 +90,30 @@ public class JobSeeker {
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
+	
+	public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
 
 	public String getPhone() {
 		return phone;

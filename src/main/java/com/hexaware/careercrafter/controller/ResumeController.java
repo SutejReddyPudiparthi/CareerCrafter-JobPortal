@@ -30,6 +30,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/resumes")
+@CrossOrigin(origins = "http://localhost:3000")
 @Tag(name = "Resumes", description = "Resume upload, update, and download APIs")
 public class ResumeController {
 
@@ -67,7 +68,7 @@ public class ResumeController {
         return ResponseEntity.ok(resume);
     }
 
-    @PreAuthorize("hasRole('JOBSEEKER')")
+    @PreAuthorize("hasRole('EMPLOYER') or hasRole('JOBSEEKER')")
     @Operation(summary = "Get resumes by job seeker ID")
     @GetMapping("/jobseeker/{jobSeekerId}")
     public ResponseEntity<List<ResumeDTO>> getResumesByJobSeekerId(@PathVariable int jobSeekerId) {
@@ -87,7 +88,7 @@ public class ResumeController {
         return ResponseEntity.ok(updated);
     }
 
-    @PreAuthorize("hasRole('JOBSEEKER')")
+    @PreAuthorize("hasRole('EMPLOYER') or hasRole('JOBSEEKER')")
     @Operation(summary = "Delete resume by ID")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteResume(@PathVariable int id) {
@@ -97,23 +98,38 @@ public class ResumeController {
         return ResponseEntity.noContent().build();
     }
 
-    @PreAuthorize("hasRole('JOBSEEKER')")
-    @Operation(summary = "Download resume file")
+    @PreAuthorize("hasRole('JOBSEEKER') or hasRole('EMPLOYER')")
+    @Operation(summary = "Download or view resume file")
     @GetMapping("/download/{id}")
-    public ResponseEntity<Resource> downloadResumeFile(@PathVariable int id) throws MalformedURLException, IOException {
-        logger.info("Request to download resume file with ID: {}", id);
-        ResumeDTO resumeDTO = resumeService.getResumeById(id);
+    public ResponseEntity<Resource> downloadResumeFile(@PathVariable int id, @RequestParam(value = "inline", defaultValue = "false") boolean inline) throws MalformedURLException, IOException {
+        logger.info("Request to {} resume file with ID: {}", inline ? "view" : "download", id);
+        
+        ResumeDTO resumeDTO;
+        try {
+            resumeDTO = resumeService.getResumeById(id);
+        } catch (Exception ex) {
+            logger.error("Resume ID {} not found", id);
+            return ResponseEntity.notFound().build();
+        }
         java.nio.file.Path path = java.nio.file.Paths.get(resumeDTO.getFilePath());
-        Resource resource = new org.springframework.core.io.UrlResource(path.toUri());
-        if (!resource.exists()) {
+        if (!java.nio.file.Files.exists(path)) {
             logger.error("Resume file not found at path: {}", resumeDTO.getFilePath());
             return ResponseEntity.notFound().build();
         }
-        String contentType = "application/octet-stream";
+        Resource resource = new org.springframework.core.io.UrlResource(path.toUri());
+        String contentType;
+        try {
+            contentType = java.nio.file.Files.probeContentType(path);
+        } catch (IOException ex) {
+            logger.warn("Could not determine content type, defaulting to application/octet-stream");
+            contentType = "application/octet-stream";
+        }
+        
         String fileName = path.getFileName().toString();
+        String disposition = inline ? "inline" : "attachment";
         return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(contentType))
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileName + "\"")
+                .header(HttpHeaders.CONTENT_DISPOSITION, disposition + "; filename=\"" + fileName + "\"")
                 .body(resource);
     }
 }

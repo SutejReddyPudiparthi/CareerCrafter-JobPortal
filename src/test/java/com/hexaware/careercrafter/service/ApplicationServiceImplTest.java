@@ -2,8 +2,13 @@ package com.hexaware.careercrafter.service;
 
 import com.hexaware.careercrafter.dto.ApplicationDTO;
 import com.hexaware.careercrafter.entities.Application;
+import com.hexaware.careercrafter.entities.JobListing;
+import com.hexaware.careercrafter.entities.JobSeeker;
 import com.hexaware.careercrafter.exception.ResourceNotFoundException;
 import com.hexaware.careercrafter.repository.ApplicationRepository;
+import com.hexaware.careercrafter.repository.JobListingRepository;
+import com.hexaware.careercrafter.repository.JobSeekerRepository;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,52 +19,82 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class ApplicationServiceImplTest {
 
-    @Mock ApplicationRepository repo;
-    @InjectMocks ApplicationServiceImpl service;
+    @Mock
+    private ApplicationRepository applicationRepository;
 
-    private ApplicationDTO dto;
-    private Application entity;
+    @Mock
+    private JobListingRepository jobListingRepository;
+    
+    @Mock
+    private JobSeekerRepository jobSeekerRepository;
+
+    @InjectMocks
+    private ApplicationServiceImpl applicationService;
+
+    private ApplicationDTO applicationDTO;
+    private Application applicationEntity;
+    private JobListing jobListingEntity;
+    private JobSeeker jobSeekerEntity;
 
     @BeforeEach
-    void setup() {
-        dto = new ApplicationDTO();
-        dto.setApplicationId(1);
-        dto.setJobListingId(2);
-        dto.setJobSeekerId(3);
-        dto.setStatus(ApplicationDTO.ApplicationStatus.APPLIED);
+    void setUp() {
+        applicationDTO = new ApplicationDTO();
+        applicationDTO.setApplicationId(1);
+        applicationDTO.setJobListingId(100);
+        applicationDTO.setJobSeekerId(200);
+        applicationDTO.setStatus(ApplicationDTO.ApplicationStatus.APPLIED);
 
-        entity = new Application();
-        entity.setApplicationId(1);
-        entity.setStatus(Application.ApplicationStatus.APPLIED);
+        jobListingEntity = new JobListing();
+        jobListingEntity.setJobListingId(100);
+
+        jobSeekerEntity = new JobSeeker();
+        jobSeekerEntity.setJobSeekerId(200);
+
+        applicationEntity = new Application();
+        applicationEntity.setApplicationId(1);
+        applicationEntity.setJobListing(jobListingEntity);
+        applicationEntity.setJobSeeker(jobSeekerEntity); // ✅ ensure JobSeeker is set
+        applicationEntity.setStatus(Application.ApplicationStatus.APPLIED);
     }
 
     @Test
     void applyForJob_success() {
-        when(repo.save(any())).thenReturn(entity);
-        assertNotNull(service.applyForJob(dto));
+        when(jobListingRepository.findById(applicationDTO.getJobListingId())).thenReturn(Optional.of(jobListingEntity));
+        when(jobSeekerRepository.findById(applicationDTO.getJobSeekerId())).thenReturn(Optional.of(jobSeekerEntity));
+        when(applicationRepository.save(any(Application.class))).thenReturn(applicationEntity);
+
+        ApplicationDTO result = applicationService.applyForJob(applicationDTO);
+        assertNotNull(result);
+        verify(applicationRepository, times(1)).save(any());
     }
 
     @Test
     void getApplicationById_found() {
-        when(repo.findById(1)).thenReturn(Optional.of(entity));
-        assertNotNull(service.getApplicationById(1));
+        when(applicationRepository.findById(1)).thenReturn(Optional.of(applicationEntity));
+
+        ApplicationDTO result = applicationService.getApplicationById(1);
+        assertNotNull(result);
+        assertEquals(1, result.getApplicationId());
+        assertEquals(200, result.getJobSeekerId()); // ✅ verify JobSeeker mapping
     }
 
     @Test
     void getApplicationById_notFound() {
-        when(repo.findById(1)).thenReturn(Optional.empty());
-        assertThrows(ResourceNotFoundException.class, () -> service.getApplicationById(1));
+        when(applicationRepository.findById(1)).thenReturn(Optional.empty());
+
+        assertThrows(ResourceNotFoundException.class, () -> applicationService.getApplicationById(1));
     }
 
     @Test
     void deleteApplication_notFound() {
-        when(repo.existsById(1)).thenReturn(false);
-        assertThrows(ResourceNotFoundException.class, () -> service.deleteApplication(1));
+        when(applicationRepository.existsById(1)).thenReturn(false);
+
+        assertThrows(ResourceNotFoundException.class, () -> applicationService.deleteApplication(1));
     }
 }
-

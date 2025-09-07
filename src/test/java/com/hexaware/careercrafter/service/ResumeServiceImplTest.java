@@ -12,18 +12,21 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
 import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class ResumeServiceImplTest {
 
-    @Mock ResumeRepository resumeRepository;
-    @Mock JobSeekerRepository jobSeekerRepository;
-    @InjectMocks ResumeServiceImpl service;
+    @Mock
+    private ResumeRepository resumeRepository;
+
+    @Mock
+    private JobSeekerRepository jobSeekerRepository;
+
+    @InjectMocks
+    private ResumeServiceImpl service;
 
     private ResumeDTO dto;
     private Resume entity;
@@ -36,8 +39,12 @@ class ResumeServiceImplTest {
         dto.setFilePath("resume.pdf");
         dto.setJobSeekerId(2);
 
-        seeker = new JobSeeker(); seeker.setJobSeekerId(2);
-        entity = new Resume(); entity.setResumeId(1); entity.setJobSeeker(seeker);
+        seeker = new JobSeeker();
+        seeker.setJobSeekerId(2);
+
+        entity = new Resume();
+        entity.setResumeId(1);
+        entity.setJobSeeker(seeker);
     }
 
     @Test
@@ -65,4 +72,3 @@ class ResumeServiceImplTest {
         assertThrows(ResourceNotFoundException.class, () -> service.deleteResume(1));
     }
 }
-
